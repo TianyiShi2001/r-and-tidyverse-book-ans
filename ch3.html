@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 更多的基本操作，数据类型，运算，逻辑和函数 | R与tidyverse——数据分析入门</title>
+  <meta name="description" content="这是我b站R与tidyverse教程的配套资源" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 更多的基本操作，数据类型，运算，逻辑和函数 | R与tidyverse——数据分析入门" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="这是我b站R与tidyverse教程的配套资源" />
+  <meta name="github-repo" content="TianyiShi2001/R-Tutorial-Resorces" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 更多的基本操作，数据类型，运算，逻辑和函数 | R与tidyverse——数据分析入门" />
+  
+  <meta name="twitter:description" content="这是我b站R与tidyverse教程的配套资源" />
+  
+
+<meta name="author" content="石天熠" />
+
+
+<meta name="date" content="2019-06-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch2.html">
+<link rel="next" href="ch4.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'tob8xaq',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+<style>
+.book.font-family-0 {
+  font-family: Georgia, source-han-serif-sc, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.book.font-family-1 {
+  font-family: Arial, Helvetica, source-han-sans-simplified-c, sans-serif, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+</style>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> R和RStudio介绍和安装教程</a><ul>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#r"><i class="fa fa-check"></i><b>1.1</b> 什么是R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="ch1.html"><a href="ch1.html#rrstudio"><i class="fa fa-check"></i><b>1.1.1</b> 安装R和RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#rr"><i class="fa fa-check"></i><b>1.2</b> 为什么使用R，R与其他统计软件的比较</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> RStudio界面介绍，基本操作，和创建新项目</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 界面</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#section-2.1.1"><i class="fa fa-check"></i><b>2.1.1</b> 概览</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#section-2.2"><i class="fa fa-check"></i><b>2.2</b> 基本操作</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="ch2.html"><a href="ch2.html#section-2.2.1"><i class="fa fa-check"></i><b>2.2.1</b> 执行代码</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch2.html"><a href="ch2.html#section-2.2.2"><i class="fa fa-check"></i><b>2.2.2</b> 记录和管理代码</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ch2.html"><a href="ch2.html#project"><i class="fa fa-check"></i><b>2.2.3</b> 创建Project</a></li>
+<li class="chapter" data-level="2.2.4" data-path="ch2.html"><a href="ch2.html#section-2.2.4"><i class="fa fa-check"></i><b>2.2.4</b> 管理</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> 更多的基本操作，数据类型，运算，逻辑和函数</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 运算</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#section-3.1.1"><i class="fa fa-check"></i><b>3.1.1</b> 基础</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#section-3.2"><i class="fa fa-check"></i><b>3.2</b> 逻辑</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#truefalse"><i class="fa fa-check"></i><b>3.2.1</b> TRUE和FALSE</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#logical-operators"><i class="fa fa-check"></i><b>3.2.2</b> Logical Operators（逻辑运算符）</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#section-3.3"><i class="fa fa-check"></i><b>3.3</b> 以下是不重要的一些内容</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#consoler-script"><i class="fa fa-check"></i><b>3.3.1</b> Console和R script编辑器的一些特性</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#assignment--"><i class="fa fa-check"></i><b>3.3.2</b> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#section-3.4"><i class="fa fa-check"></i><b>3.4</b> 简易的统计学计算</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>3.4.1</b> t分布</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#z"><i class="fa fa-check"></i><b>3.4.2</b> z分布</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>3.4.3</b> t检验</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch3.html"><a href="ch3.html#chi2-"><i class="fa fa-check"></i><b>3.4.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> 安装和使用packges（包）</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>4.1</b> Packages是什么，为什么使用它们？</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> List（列），data frame（数据框）和tibble（进化版数据框）</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R与tidyverse——数据分析入门</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch3" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> 更多的基本操作，数据类型，运算，逻辑和函数</h1>
+<div id="section-3.1" class="section level2">
+<h2><span class="header-section-number">3.1</span> 运算</h2>
+<div id="section-3.1.1" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> 基础</h3>
+<div id="section-3.1.1.1" class="section level4">
+<h4><span class="header-section-number">3.1.1.1</span> 基础中的基础（加减乘除）</h4>
+<p>最基础的arithmetic operators（数学运算符）有：</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">符号</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>+</code></td>
+<td align="center">加</td>
+</tr>
+<tr class="even">
+<td align="center"><code>-</code></td>
+<td align="center">减</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>*</code></td>
+<td align="center">乘</td>
+</tr>
+<tr class="even">
+<td align="center"><code>/</code></td>
+<td align="center">除以</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>^</code>或<code>**</code></td>
+<td align="center">乘幂</td>
+</tr>
+</tbody>
+</table>
+<p>以上这些应该不需要解释。</p>
+</div>
+<div id="section-3.1.1.2" class="section level4">
+<h4><span class="header-section-number">3.1.1.2</span> 求整数商和余数</h4>
+<p><code>%%</code> 是求余数符号，比如7%%3得到1；</p>
+<p><code>%/%</code> 是求整数商，比如7%%3得到2；</p>
+<p>最常见的两个用法是判定一个数的奇偶性，和时间，角度等单位的转换。（后面再详细介绍）。</p>
+</div>
+<div id="section-3.1.1.3" class="section level4">
+<h4><span class="header-section-number">3.1.1.3</span> 对数</h4>
+<p><code>log(x, base=y)</code>便是运算<span class="math inline">\(\log_y{x}\)</span>，或者写成
+<code>log(base=y, x)</code>也可以;</p>
+<p>它可以简写成<code>log(x,y)</code>，同样表示的是<span class="math inline">\(\log_y{x}\)</span>，但是如果写成<code>log(y,x)</code>就变成了<span class="math inline">\(\log_x{y}\)</span></p>
+<p>如果你有一点编程基础，应该能看明白为什么，如果没看明白，下面讲函数的时候我会解释。</p>
+</div>
+</div>
+</div>
+<div id="section-3.2" class="section level2">
+<h2><span class="header-section-number">3.2</span> 逻辑</h2>
+<div id="truefalse" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> TRUE和FALSE</h3>
+</div>
+<div id="logical-operators" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Logical Operators（逻辑运算符）</h3>
+<p>R中的logical operators 有：</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">符号</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>==</code></td>
+<td align="center">equal to（等于）</td>
+</tr>
+<tr class="even">
+<td align="center"><code>!=</code></td>
+<td align="center">equal to（不等于）</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>&lt;</code></td>
+<td align="center">less than（小于）</td>
+</tr>
+<tr class="even">
+<td align="center"><code>&gt;</code></td>
+<td align="center">more than（大于）</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>&lt;=</code></td>
+<td align="center">less than or equal to（小于等于）</td>
+</tr>
+<tr class="even">
+<td align="center"><code>&gt;=</code></td>
+<td align="center">more than or equal to（大于等于）</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>&amp;</code></td>
+<td align="center">AND（和）</td>
+</tr>
+<tr class="even">
+<td align="center"><code>|</code></td>
+<td align="center">OR（或）</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>!</code></td>
+<td align="center">反义符号（见下）</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section-3.3" class="section level2">
+<h2><span class="header-section-number">3.3</span> 以下是不重要的一些内容</h2>
+<div id="consoler-script" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Console和R script编辑器的一些特性</h3>
+<p>Console 中每个命令开头的<code>&gt;</code>叫做prompt（我不知道它的中文名诶），当它出现在你所编辑的那一行的开头时，按下回车的时候那行的命令才会被执行。有时候它会消失，这时候按<code>esc</code>可以将其恢复。</p>
+<p>prompt消失的主要原因是你的代码没有写完，比如括号不完整：</p>
+<pre><code>&gt; 2+(3+4</code></pre>
+<p>这时你按回车，它会显示：</p>
+<pre><code>&gt; 2+(3+4
++</code></pre>
+<p><code>+</code>号是在提示代码没写完整。这时你把括号补上再按回车：</p>
+<pre><code>&gt; 2+(3+4
++ )</code></pre>
+<pre><code>[1] 9</code></pre>
+<p>便可以完成计算。</p>
+<p>这意味着我们可以把一条很长的命令分成很多行。比如我们可以写这样的代码（在R script编辑器中！）</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">&amp;</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">5</span>){
+  <span class="kw">print</span>(<span class="dv">2</span>)
+} <span class="cf">else</span>{
+  <span class="kw">print</span>(<span class="dv">3</span>)
+}</code></pre>
+<p>然后<code>Ctrl</code>+<code>Enter</code>执行。</p>
+<p>```</p>
+<pre><code>&lt;function&gt;(&lt;argument&gt; = &lt;value&gt;)</code></pre>
+</div>
+<div id="assignment--" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></h3>
+<p>与很多其他的计算机语言不同，<code>&lt;-</code>是R中的赋值符号：</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">2</span></code></pre>
+</div>
+</div>
+<div id="section-3.4" class="section level2">
+<h2><span class="header-section-number">3.4</span> 简易的统计学计算</h2>
+<div id="t" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> t分布</h3>
+<p>下面介绍的这几种方法是以这个t分布函数图为基础的：</p>
+<p><img src="R%E4%B8%8Etidyverse%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>阴影区域为<span class="math inline">\(P\)</span>，虚线对应的<span class="math inline">\(t\)</span>为<span class="math inline">\(t^*\)</span>. <code>qt()</code>可以把<span class="math inline">\(P\)</span>转化成<span class="math inline">\(t^*\)</span>,<code>pt()</code>则相反。</p>
+<p>举个例子就明白了。假设你需要算一个confidence interval（置信区间），confidence level（置信等级）为<span class="math inline">\(95\%\)</span>，即<span class="math inline">\(\alpha=0.05\)</span>，degrees of freedom(自由度)为<span class="math inline">\(12\)</span>，那么怎么算<span class="math inline">\(t^*\)</span>呢？</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">12</span>)</code></pre>
+<pre><code>## [1] 2.178813</code></pre>
+<p>对，就是这么简单。（为什么是<span class="math inline">\(0.975\)</span>？因为你要把<span class="math inline">\(0.05\)</span>分到左右两边，就等同于t分布的<span class="math inline">\(t=0.095\)</span>）</p>
+<p>再举一个例子，你在做t检验，双尾的，算出来<span class="math inline">\(t=1.345\)</span>，自由度是<span class="math inline">\(15\)</span>，那么<span class="math inline">\(p\)</span>值怎么算呢？</p>
+<pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>(<span class="kw">pt</span>(<span class="fl">2.2</span>, <span class="dt">df =</span> <span class="dv">15</span>)))<span class="op">*</span><span class="dv">2</span>
+p</code></pre>
+<pre><code>## [1] 0.04389558</code></pre>
+<p>其中<code>pt(2.2, df = 15)</code>算出阴影面积，1减去它再乘以二就是对应的双尾t检验的<span class="math inline">\(p\)</span>值。</p>
+</div>
+<div id="z" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> z分布</h3>
+<p>没有z分布专门的函数。可以直接用t分布代替，把<code>df</code>调到很大（比如<code>999999</code>）就行了。比如我们试一下<span class="math inline">\(95\%\)</span>置信区间所对应的<span class="math inline">\(z\)</span>：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.975</span>,<span class="dv">9999999</span>)</code></pre>
+<pre><code>## [1] 1.959964</code></pre>
+<p>（果然是<span class="math inline">\(1.96\)</span>）</p>
+</div>
+<div id="t" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> t检验</h3>
+<p>t test分为以下几种：</p>
+<ul>
+<li>One sample t test</li>
+<li>Two sample…
+<ul>
+<li>paired t test</li>
+<li>Unequal variance t test</li>
+<li>Equal variance t test</li>
+</ul></li>
+</ul>
+<p>在R中做t检验，很简单，以上这些t检验，都是用<code>t.test</code> 这个函数去完成。</p>
+<p>以one sample为例：</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.23</span>,<span class="fl">2.24</span>,<span class="fl">2.34</span>,<span class="fl">2.31</span>,<span class="fl">2.35</span>,<span class="fl">2.27</span>,<span class="fl">2.29</span>,<span class="fl">2.26</span>,<span class="fl">2.25</span>,<span class="fl">2.21</span>,<span class="fl">2.29</span>,<span class="fl">2.34</span>,<span class="fl">2.32</span>)
+<span class="kw">t.test</span>(x, <span class="dt">mu =</span> <span class="fl">2.31</span>)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = -2.0083, df = 12, p-value = 0.06766
+## alternative hypothesis: true mean is not equal to 2.31
+## 95 percent confidence interval:
+##  2.257076 2.312155
+## sample estimates:
+## mean of x 
+##  2.284615</code></pre>
+<p>可以看到<span class="math inline">\(p=0.06766\)</span>。</p>
+<p>R的默认是双尾检验，你也可以设置成单尾的：</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.23</span>,<span class="fl">2.24</span>,<span class="fl">2.34</span>,<span class="fl">2.31</span>,<span class="fl">2.35</span>,<span class="fl">2.27</span>,<span class="fl">2.29</span>,<span class="fl">2.26</span>,<span class="fl">2.25</span>,<span class="fl">2.21</span>,<span class="fl">2.29</span>,<span class="fl">2.34</span>,<span class="fl">2.32</span>)
+
+<span class="kw">t.test</span>(x, <span class="dt">mu =</span> <span class="fl">2.31</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = -2.0083, df = 12, p-value = 0.03383
+## alternative hypothesis: true mean is less than 2.31
+## 95 percent confidence interval:
+##      -Inf 2.307143
+## sample estimates:
+## mean of x 
+##  2.284615</code></pre>
+<p><span class="math inline">\(p\)</span>值一下就减了一半。</p>
+<p>Two-sample:</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.23</span>,<span class="fl">2.24</span>,<span class="fl">2.34</span>,<span class="fl">2.31</span>,<span class="fl">2.35</span>,<span class="fl">2.27</span>,<span class="fl">2.29</span>,<span class="fl">2.26</span>,<span class="fl">2.25</span>,<span class="fl">2.21</span>,<span class="fl">2.29</span>,<span class="fl">2.34</span>,<span class="fl">2.32</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.27</span>,<span class="fl">2.29</span>,<span class="fl">2.37</span>,<span class="fl">2.38</span>,<span class="fl">2.39</span>,<span class="fl">2.25</span>,<span class="fl">2.39</span>,<span class="fl">2.16</span>,<span class="fl">2.55</span>,<span class="fl">2.81</span>,<span class="fl">2.19</span>,<span class="fl">2.44</span>,<span class="fl">2.22</span>)
+
+<span class="kw">t.test</span>(x, y)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  x and y
+## t = -1.5624, df = 13.65, p-value = 0.1411
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.18460351  0.02921889
+## sample estimates:
+## mean of x mean of y 
+##  2.284615  2.362308</code></pre>
+<p>r的默认是non-paired, unequal variance，你可以通过增加<code>paired = TRUE</code>，<code>var.equal = TRUE</code>这两个参数来改变它。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, y, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  x and y
+## t = -1.4739, df = 12, p-value = 0.1662
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.19253874  0.03715412
+## sample estimates:
+## mean of the differences 
+##             -0.07769231</code></pre>
+</div>
+<div id="chi2-" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> <span class="math inline">\(\chi^2\)</span> 检验</h3>
+<p><span class="math inline">\(\chi^2\)</span>有两种，good</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

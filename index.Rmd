@@ -1,0 +1,13 @@
+---
+title: "R与tidyverse——数据分析入门"
+author: "石天熠"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook:
+    includes:
+      in_header: header.html
+documentclass: book
+github-repo: TianyiShi2001/R-Tutorial-Resorces
+description: "这是我b站R与tidyverse教程的配套资源"
+---

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 安装R和RStudio | R与tidyverse——数据分析入门</title>
+  <title>Chapter 6 List（列），data frame（数据框）和tibble（进化版数据框） | R与tidyverse——数据分析入门</title>
   <meta name="description" content="这是我b站R与tidyverse教程的配套资源" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 安装R和RStudio | R与tidyverse——数据分析入门" />
+  <meta property="og:title" content="Chapter 6 List（列），data frame（数据框）和tibble（进化版数据框） | R与tidyverse——数据分析入门" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="TianyiShi2001/R-Tutorial-Resorces" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 安装R和RStudio | R与tidyverse——数据分析入门" />
+  <meta name="twitter:title" content="Chapter 6 List（列），data frame（数据框）和tibble（进化版数据框） | R与tidyverse——数据分析入门" />
   
   <meta name="twitter:description" content="这是我b站R与tidyverse教程的配套资源" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="石天熠" />
 
 
-<meta name="date" content="2019-06-04" />
+<meta name="date" content="2019-06-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ch1.html">
-<link rel="next" href="ch2.html">
+<link rel="prev" href="ch4.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -148,10 +148,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> 什么是R和RStudio</a></li>
-<li class="chapter" data-level="2" data-path="rrstudio.html"><a href="rrstudio.html"><i class="fa fa-check"></i><b>2</b> 安装R和RStudio</a><ul>
-<li class="chapter" data-level="2.1" data-path="rrstudio.html"><a href="rrstudio.html#r"><i class="fa fa-check"></i><b>2.1</b> 安装R</a></li>
-<li class="chapter" data-level="2.2" data-path="rrstudio.html"><a href="rrstudio.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> 安装RStudio</a></li>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> R和RStudio介绍和安装教程</a><ul>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#r"><i class="fa fa-check"></i><b>1.1</b> 什么是R</a></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#rrstudio"><i class="fa fa-check"></i><b>1.2</b> 安装R和RStudio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="ch1.html"><a href="ch1.html#r"><i class="fa fa-check"></i><b>1.2.1</b> 安装R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="ch1.html"><a href="ch1.html#rstudio"><i class="fa fa-check"></i><b>1.2.2</b> 安装RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#rr0"><i class="fa fa-check"></i><b>1.3</b> 为什么使用R，R与其他统计软件的比较</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 获取资源帮助（本书最重要的部分）</a><ul>
+<li class="chapter" data-level="2.1" data-path="section-2.html"><a href="section-2.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 论坛类（解答实际操作中的问题）</a></li>
+<li class="chapter" data-level="2.2" data-path="section-2.html"><a href="section-2.html#referencefunction"><i class="fa fa-check"></i><b>2.2</b> Reference类（像查字典一样，查找特定的function的用法）</a></li>
+<li class="chapter" data-level="2.3" data-path="section-2.html"><a href="section-2.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 教程和书籍类</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>3</b> RStudio界面介绍，基本操作，和创建新项目</a><ul>
 <li class="chapter" data-level="3.1" data-path="ch2.html"><a href="ch2.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 界面</a><ul>
@@ -167,17 +175,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>4</b> 更多的基本操作，数据类型，运算，逻辑和函数</a><ul>
 <li class="chapter" data-level="4.1" data-path="ch3.html"><a href="ch3.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 运算</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="ch3.html"><a href="ch3.html#section-4.1.1"><i class="fa fa-check"></i><b>4.1.1</b> 基础</a></li>
-<li class="chapter" data-level="4.1.2" data-path="ch3.html"><a href="ch3.html#section-4.1.2"><i class="fa fa-check"></i><b>4.1.2</b> 简易的统计学计算</a></li>
-<li class="chapter" data-level="4.1.3" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.1.3</b> t分布</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="ch3.html"><a href="ch3.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 逻辑</a></li>
+<li class="chapter" data-level="4.2" data-path="ch3.html"><a href="ch3.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 逻辑</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch3.html"><a href="ch3.html#truefalse"><i class="fa fa-check"></i><b>4.2.1</b> TRUE和FALSE</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch3.html"><a href="ch3.html#logical-operators"><i class="fa fa-check"></i><b>4.2.2</b> Logical Operators（逻辑运算符）</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="ch3.html"><a href="ch3.html#section-4.3"><i class="fa fa-check"></i><b>4.3</b> 以下是不重要的一些内容</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="ch3.html"><a href="ch3.html#consoler-script"><i class="fa fa-check"></i><b>4.3.1</b> Console和R script编辑器的一些特性</a></li>
 <li class="chapter" data-level="4.3.2" data-path="ch3.html"><a href="ch3.html#assignment--"><i class="fa fa-check"></i><b>4.3.2</b> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></a></li>
 </ul></li>
+<li class="chapter" data-level="4.4" data-path="ch3.html"><a href="ch3.html#section-4.4"><i class="fa fa-check"></i><b>4.4</b> 简易的统计学计算</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.4.1</b> t分布</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ch3.html"><a href="ch3.html#z"><i class="fa fa-check"></i><b>4.4.2</b> z分布</a></li>
+<li class="chapter" data-level="4.4.3" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.4.3</b> t检验</a></li>
+<li class="chapter" data-level="4.4.4" data-path="ch3.html"><a href="ch3.html#chi2-"><i class="fa fa-check"></i><b>4.4.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>5</b> 安装和使用packges（包）</a><ul>
 <li class="chapter" data-level="5.1" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages是什么，为什么使用它们？</a></li>
+<li class="chapter" data-level="5.2" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.2</b> 如何安装packages</a></li>
+<li class="chapter" data-level="5.3" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.3</b> 如何使用packages</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>6</b> List（列），data frame（数据框）和tibble（进化版数据框）</a></li>
 </ul>
@@ -197,27 +214,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rrstudio" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> 安装R和RStudio</h1>
-<div id="r" class="section level2">
-<h2><span class="header-section-number">2.1</span> 安装R</h2>
-<p><a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a></p>
-<p>前往<a href="https://cran.r-project.org">CRAN</a>，根据自己的操作系统（Linux，MacOS或Windows）选择下载安装R.</p>
-</div>
-<div id="rstudio" class="section level2">
-<h2><span class="header-section-number">2.2</span> 安装RStudio</h2>
-<p><a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a></p>
-<p>前往<a href="https://www.rstudio.com/products/rstudio/download/">RStudio下载页</a>，选择最左边免费的开源版本，然后选择对应自己的操作系统的版本，下载并安装。</p>
+<div id="ch5" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> List（列），data frame（数据框）和tibble（进化版数据框）</h1>
+<p>嘿嘿嘿</p>
 
 </div>
-</div>
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="ch1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ch2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ch4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

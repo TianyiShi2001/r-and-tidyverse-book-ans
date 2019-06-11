@@ -1,0 +1,69 @@
+# R和RStudio介绍和安装教程 {#ch1}
+
+## 什么是R
+
+R是一门专精于数据分析与统计学的计算机语言。
+
+理论上，安装了R，你就可以直接在命令行使用R，但是绝大多数人是不喜欢这种硬核的操作方式的。因此我们会安装RStudio. 
+
+RStudio是R语言官方的IDE（集成开发环境），它的一系列功能使得编辑，整理和管理R代码和项目方便很多。
+
+## 安装R和RStudio
+
+### 安装R
+
+https://cran.r-project.org
+
+前往[CRAN](https://cran.r-project.org)，根据自己的操作系统（Linux，MacOS或Windows）选择下载安装R.
+
+### 安装RStudio
+
+https://www.rstudio.com/products/rstudio/download/
+
+前往[RStudio下载页](https://www.rstudio.com/products/rstudio/download/)，选择最左边免费的开源版本，然后选择对应自己的操作系统的版本，下载并安装。
+
+## 为什么使用R，R与其他统计软件的比较[^0]
+
+（这一小节不影响R的学习进度，可以直接跳过到下一章）
+
+SAS，SPSS，Prism，R和Python是科研作图常用的软件。
+
+SAS，SPSS和Prism都是收费的，而且不便宜。比如SAS第一年需要[10000多美元](http://www.sas.com/store/products-solutions/cSoftware-p1.html)，随后每年要缴纳几千美元的年费。
+
+R比SAS功能更强大。所有SAS中的功能，都能在R中实现，而很多R中的功能无法在SAS中实现[^1]。
+
+R和Python是开源、免费的。
+
+在数据分析的应用中，R比Python历史更悠久，因此积攒了很多很棒的packages（包）。
+
+使用Python做数据分析近年来愈发流行，网上也有不少教程。
+
+使用R+Python
+
+
+什么，你说Excel？Excel只能做简单的数据收集和展示，一般用于普通办公，做不了严谨的研究和大数据，功能也非常局限。有五分之一的使用了Excel的遗传学论文，数据都出现了偏差[^Excel]。
+
+[^0]: Gentleman, R. (2009). *R Programming for Bioinformatics*. Boca Raton, FL: CRC Press.
+[^1]: https://thomaswdinsmore.com/2014/12/15/sas-versus-r-part-two/
+[^Excel]: Ziemann, M., Eren, Y., & El-Osta, A. (2016). Gene name errors are widespread in the scientific literature. Genome Biology, 17(1), 177. Retrieved from https://doi.org/10.1186/s13059-016-1044-7. doi:10.1186/s13059-016-1044-7
+
+# 获取资源帮助（本书最重要的部分）
+
+这本书可以帮助你快速学会R和tidyverse的最常用和最重要的操作，但这仅仅是冰山一角。当你在做自己的研究的时候，会用到很多这本书中没有讲到的方法，因此学会获取资源和帮助是很重要的。以下列举几个常用的获取R的帮助的网站：
+
+## 论坛类（解答实际操作中的问题）
+
+- [StackOverflow](https://stackoverflow.com)是世界上做的最大的，氛围也是最好的，计算机技术问答网站（如果你有其他的编程语言基础，一定对它不陌生）。查找问题的时候加上`[R]`，这样搜索结果就都是与R相关的了（为了进一步缩小搜索范围，可以加上其他的tag，比如`[ggplot]`, `[dplyr]`)。需要注意的规矩是，提问和回答的时候话语尽量精简，不要在任何地方出现与问题无关的话（包括客套话如“谢谢”），了解更多请查看其[新手向导](https://stackoverflow.com/tour)。
+
+## Reference类（像查字典一样，查找特定的function的用法）
+
+- [RDocumentation](https://www.rdocumentation.org)有所有基础R语言和近18000个packages（包）的函数的说明和使用例，有很多还有交互式内容。
+
+## 教程和书籍类
+
+- [R的官方Manuals](https://cran.r-project.org/manuals.html).
+其中新手只需要看*An Introduction to R*即可。PDF格式查看很舒服，用的是Computer Modern字体，LaTeX排版。
+- [R for Data Science](https://r4ds.had.co.nz). `tidyverse`的作者写的一本书，也是
+- [RStudio Resources](https://resources.rstudio.com)是RStudio的资源区，里面有关于R和RStudio的“官方”教程，质量极高，还可以下载很多方便实用的Cheat Sheet. 
+- [丁国徽](https://github.com/dingguohui)翻译了数本关于R的书籍。点击量其实并不高……要想把握前沿信息还是需要阅读英语的能力的。
+

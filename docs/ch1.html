@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R与tidyverse——数据分析入门</title>
+  <title>Chapter 1 R和RStudio介绍和安装教程 | R与tidyverse——数据分析入门</title>
   <meta name="description" content="这是我b站R与tidyverse教程的配套资源" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R与tidyverse——数据分析入门" />
+  <meta property="og:title" content="Chapter 1 R和RStudio介绍和安装教程 | R与tidyverse——数据分析入门" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="TianyiShi2001/R-Tutorial-Resorces" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R与tidyverse——数据分析入门" />
+  <meta name="twitter:title" content="Chapter 1 R和RStudio介绍和安装教程 | R与tidyverse——数据分析入门" />
   
   <meta name="twitter:description" content="这是我b站R与tidyverse教程的配套资源" />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="石天熠" />
 
 
-<meta name="date" content="2019-06-11" />
+<meta name="date" content="2019-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="index.html">
 <link rel="next" href="section-2.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -57,6 +57,7 @@
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
   })(document);
 </script>
+<script src="https://hypothes.is/embed.js" async></script>
 <style>
 .book.font-family-0 {
   font-family: Georgia, source-han-serif-sc, serif;
@@ -72,69 +73,6 @@
 </style>
 
 
-<style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 </head>
 
@@ -148,18 +86,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>欢迎</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#简介"><i class="fa fa-check"></i>简介</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#说明"><i class="fa fa-check"></i>使用说明</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> R和RStudio介绍和安装教程</a><ul>
 <li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#r"><i class="fa fa-check"></i><b>1.1</b> 什么是R</a></li>
 <li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#rrstudio"><i class="fa fa-check"></i><b>1.2</b> 安装R和RStudio</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="ch1.html"><a href="ch1.html#r"><i class="fa fa-check"></i><b>1.2.1</b> 安装R</a></li>
 <li class="chapter" data-level="1.2.2" data-path="ch1.html"><a href="ch1.html#rstudio"><i class="fa fa-check"></i><b>1.2.2</b> 安装RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#rr0"><i class="fa fa-check"></i><b>1.3</b> 为什么使用R，R与其他统计软件的比较</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#youshi"><i class="fa fa-check"></i><b>1.3</b> 为什么使用R，R与其他统计软件的比较</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 获取资源帮助（本书最重要的部分）</a><ul>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 获取资源与帮助（重要！）</a><ul>
 <li class="chapter" data-level="2.1" data-path="section-2.html"><a href="section-2.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 论坛类（解答实际操作中的问题）</a></li>
 <li class="chapter" data-level="2.2" data-path="section-2.html"><a href="section-2.html#referencefunction"><i class="fa fa-check"></i><b>2.2</b> Reference类（像查字典一样，查找特定的function的用法）</a></li>
-<li class="chapter" data-level="2.3" data-path="section-2.html"><a href="section-2.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 教程和书籍类</a></li>
+<li class="chapter" data-level="2.3" data-path="section-2.html"><a href="section-2.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 教程和书籍类（用来系统地学习）</a></li>
+<li class="chapter" data-level="2.4" data-path="section-2.html"><a href="section-2.html#-cheatsheets"><i class="fa fa-check"></i><b>2.4</b> 速查表 (Cheatsheets)（用来贴墙上）</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>3</b> RStudio界面介绍，基本操作，和创建新项目</a><ul>
 <li class="chapter" data-level="3.1" data-path="ch2.html"><a href="ch2.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 界面</a><ul>
@@ -172,31 +115,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.4" data-path="ch2.html"><a href="ch2.html#section-3.2.4"><i class="fa fa-check"></i><b>3.2.4</b> 管理</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>4</b> 更多的基本操作，数据类型，运算，逻辑和函数</a><ul>
-<li class="chapter" data-level="4.1" data-path="ch3.html"><a href="ch3.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 运算</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="ch3.html"><a href="ch3.html#section-4.1.1"><i class="fa fa-check"></i><b>4.1.1</b> 基础</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="ch3.html"><a href="ch3.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 逻辑</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="ch3.html"><a href="ch3.html#truefalse"><i class="fa fa-check"></i><b>4.2.1</b> TRUE和FALSE</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ch3.html"><a href="ch3.html#logical-operators"><i class="fa fa-check"></i><b>4.2.2</b> Logical Operators（逻辑运算符）</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="ch3.html"><a href="ch3.html#section-4.3"><i class="fa fa-check"></i><b>4.3</b> 以下是不重要的一些内容</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="ch3.html"><a href="ch3.html#consoler-script"><i class="fa fa-check"></i><b>4.3.1</b> Console和R script编辑器的一些特性</a></li>
-<li class="chapter" data-level="4.3.2" data-path="ch3.html"><a href="ch3.html#assignment--"><i class="fa fa-check"></i><b>4.3.2</b> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="ch3.html"><a href="ch3.html#section-4.4"><i class="fa fa-check"></i><b>4.4</b> 简易的统计学计算</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.4.1</b> t分布</a></li>
-<li class="chapter" data-level="4.4.2" data-path="ch3.html"><a href="ch3.html#z"><i class="fa fa-check"></i><b>4.4.2</b> z分布</a></li>
-<li class="chapter" data-level="4.4.3" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.4.3</b> t检验</a></li>
-<li class="chapter" data-level="4.4.4" data-path="ch3.html"><a href="ch3.html#chi2-"><i class="fa fa-check"></i><b>4.4.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>5</b> 安装和使用packges（包）</a><ul>
-<li class="chapter" data-level="5.1" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages是什么，为什么使用它们？</a></li>
-<li class="chapter" data-level="5.2" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.2</b> 如何安装packages</a></li>
-<li class="chapter" data-level="5.3" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.3</b> 如何使用packages</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>6</b> List（列），data frame（数据框）和tibble（进化版数据框）</a></li>
 </ul>
 
       </nav>
@@ -214,18 +132,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R与tidyverse——数据分析入门</h1>
-<p class="author"><em>石天熠</em></p>
-<p class="date"><em>2019-06-11</em></p>
-</div>
 <div id="ch1" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> R和RStudio介绍和安装教程</h1>
 <div id="r" class="section level2">
 <h2><span class="header-section-number">1.1</span> 什么是R</h2>
-<p>R是一门专精于数据分析与统计学的计算机语言。</p>
-<p>理论上，安装了R，你就可以直接在命令行使用R，但是绝大多数人是不喜欢这种硬核的操作方式的。因此我们会安装RStudio.</p>
+<p>R包含R语言（编程语言）和一个有着强大的统计分析及作图功能的软件系统，由新西兰奥克兰大学统计学系 的 Ross Ihaka 和 Robert Gentleman 共同创立。</p>
+<p>理论上，安装了R，你就可以直接在命令行使用R，但是很多人（尤其是新手）是不喜欢这种硬核的操作方式的。因此我们会安装RStudio.</p>
 <p>RStudio是R语言官方的IDE（集成开发环境），它的一系列功能使得编辑，整理和管理R代码和项目方便很多。</p>
+<p>R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你可以 在[GNU官网]{<a href="https://www.gnu.org/philosophy/free-sw.zh-cn.html%7D了解更多" class="uri">https://www.gnu.org/philosophy/free-sw.zh-cn.html}了解更多</a>。</p>
+<p>了解R的优势，请看第<a href="ch1.html#youshi">1.3</a>节</p>
 </div>
 <div id="rrstudio" class="section level2">
 <h2><span class="header-section-number">1.2</span> 安装R和RStudio</h2>
@@ -240,7 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>前往<a href="https://www.rstudio.com/products/rstudio/download/">RStudio下载页</a>，选择最左边免费的开源版本，然后选择对应自己的操作系统的版本，下载并安装。</p>
 </div>
 </div>
-<div id="rr0" class="section level2">
+<div id="youshi" class="section level2">
 <h2><span class="header-section-number">1.3</span> 为什么使用R，R与其他统计软件的比较<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h2>
 <p>（这一小节不影响R的学习进度，可以直接跳过到下一章）</p>
 <p>SAS，SPSS，Prism，R和Python是科研作图常用的软件。</p>
@@ -266,8 +181,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="section-2.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -312,19 +227,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

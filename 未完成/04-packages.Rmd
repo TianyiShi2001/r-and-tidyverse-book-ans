@@ -1,7 +1,6 @@
-# 安装和使用packges（包）{#ch4}
+# 安装和使用packages (包){#ch4}
 
-
-## Packages是什么，为什么使用它们？
+## Package是什么，为什么使用它们？
 
 Package是别人写好的在R中运行的程序（以及附带的数据和文档），你可以免费安装和使用它们。
 
@@ -61,3 +60,9 @@ lapply(c("dplyr","ggplot2"), require, c = T)
 ```{r}
 lapply(c("dplyr","ggplot2"), require, character.only = TRUE)
 ```
+
+## 如何找packages
+
+### 通过他人的经验
+
+### 在CRAN中通过分类寻找

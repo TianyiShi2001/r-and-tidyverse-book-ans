@@ -2,11 +2,13 @@
 
 ## 什么是R
 
-R是一门专精于数据分析与统计学的计算机语言。
+R包含R语言（编程语言）和一个有着强大的统计分析及作图功能的软件系统，由新西兰奥克兰大学统计学系 的 Ross Ihaka 和 Robert Gentleman 共同创立。
 
-理论上，安装了R，你就可以直接在命令行使用R，但是绝大多数人是不喜欢这种硬核的操作方式的。因此我们会安装RStudio. 
+理论上，安装了R，你就可以直接在命令行使用R，但是很多人（尤其是新手）是不喜欢这种硬核的操作方式的。因此我们会安装RStudio. 
 
 RStudio是R语言官方的IDE（集成开发环境），它的一系列功能使得编辑，整理和管理R代码和项目方便很多。
+
+了解R的优势，请看第\@ref(youshi)节
 
 ## 安装R和RStudio
 
@@ -22,11 +24,11 @@ https://www.rstudio.com/products/rstudio/download/
 
 前往[RStudio下载页](https://www.rstudio.com/products/rstudio/download/)，选择最左边免费的开源版本，然后选择对应自己的操作系统的版本，下载并安装。
 
-## 为什么使用R，R与其他统计软件的比较[^0]
+## 为什么使用R，R与其他统计软件的比较[^0] {#youshi}
 
 （这一小节不影响R的学习进度，可以直接跳过到下一章）
 
-SAS，SPSS，Prism，R和Python是科研作图常用的软件。
+SAS，SPSS，Prism，R和Python是数据分析和科研作图常用的软件。
 
 SAS，SPSS和Prism都是收费的，而且不便宜。比如SAS第一年需要[10000多美元](http://www.sas.com/store/products-solutions/cSoftware-p1.html)，随后每年要缴纳几千美元的年费。
 
@@ -43,27 +45,37 @@ R和Python是开源、免费的。
 
 什么，你说Excel？Excel只能做简单的数据收集和展示，一般用于普通办公，做不了严谨的研究和大数据，功能也非常局限。有五分之一的使用了Excel的遗传学论文，数据都出现了偏差[^Excel]。
 
+
+R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你可以 在[GNU官网]{https://www.gnu.org/philosophy/free-sw.zh-cn.html}了解更多。
+
 [^0]: Gentleman, R. (2009). *R Programming for Bioinformatics*. Boca Raton, FL: CRC Press.
 [^1]: https://thomaswdinsmore.com/2014/12/15/sas-versus-r-part-two/
 [^Excel]: Ziemann, M., Eren, Y., & El-Osta, A. (2016). Gene name errors are widespread in the scientific literature. Genome Biology, 17(1), 177. Retrieved from https://doi.org/10.1186/s13059-016-1044-7. doi:10.1186/s13059-016-1044-7
 
-# 获取资源帮助（本书最重要的部分）
+# 获取资源与帮助（重要！）
 
 这本书可以帮助你快速学会R和tidyverse的最常用和最重要的操作，但这仅仅是冰山一角。当你在做自己的研究的时候，会用到很多这本书中没有讲到的方法，因此学会获取资源和帮助是很重要的。以下列举几个常用的获取R的帮助的网站：
 
 ## 论坛类（解答实际操作中的问题）
 
-- [StackOverflow](https://stackoverflow.com)是世界上做的最大的，氛围也是最好的，计算机技术问答网站（如果你有其他的编程语言基础，一定对它不陌生）。查找问题的时候加上`[R]`，这样搜索结果就都是与R相关的了（为了进一步缩小搜索范围，可以加上其他的tag，比如`[ggplot]`, `[dplyr]`)。需要注意的规矩是，提问和回答的时候话语尽量精简，不要在任何地方出现与问题无关的话（包括客套话如“谢谢”），了解更多请查看其[新手向导](https://stackoverflow.com/tour)。
+- [StackOverflow](https://stackoverflow.com)是著名计算机技术问答网站（如果你有其他的编程语言基础，一定对它不陌生）。查找问题的时候加上`[R]`，这样搜索结果就都是与R相关的了（为了进一步缩小搜索范围，可以加上其他的tag，比如`[ggplot]`, `[dplyr]`)。注意，提问和回答的时候话语尽量精简，不要在任何地方出现与问题无关的话（包括客套话如“谢谢”），了解更多请查看其[新手向导](https://stackoverflow.com/tour)。
 
 ## Reference类（像查字典一样，查找特定的function的用法）
 
-- [RDocumentation](https://www.rdocumentation.org)有所有基础R语言和近18000个packages（包）的函数的说明和使用例，有很多还有交互式内容。
+- [RDocumentation](https://www.rdocumentation.org)上有基础R语言和来自CRAN，GitHub和Bioconductor上的近18000个packages的所有的函数的说明和使用例。（其实你可以直接在R console中输入`?`+函数名称
 
-## 教程和书籍类
+## 教程和书籍类（用来系统地学习）
 
-- [R的官方Manuals](https://cran.r-project.org/manuals.html).
-其中新手只需要看*An Introduction to R*即可。PDF格式查看很舒服，用的是Computer Modern字体，LaTeX排版。
-- [R for Data Science](https://r4ds.had.co.nz). `tidyverse`的作者写的一本书，也是
-- [RStudio Resources](https://resources.rstudio.com)是RStudio的资源区，里面有关于R和RStudio的“官方”教程，质量极高，还可以下载很多方便实用的Cheat Sheet. 
-- [丁国徽](https://github.com/dingguohui)翻译了数本关于R的书籍。点击量其实并不高……要想把握前沿信息还是需要阅读英语的能力的。
+- R的[官方Manuals](https://cran.r-project.org/manuals.html).
+其中新手只需要看*An Introduction to R*，随后选看*R Language Definition*即可。部分由[丁国徽](https://github.com/dingguohui)翻译成中文（点击量其实并不高……要想把握前沿信息还是需要阅读英语的能力的）。
+- [*R for Data Science* by Garrett Grolemund & Hadley Wickham](https://r4ds.had.co.nz). `tidyverse`的作者写的一本书，较为详细地介绍了`tidyverse`的用法以及一些更高深的关于编程的内容。
+- [RStudio Resources](https://resources.rstudio.com)是RStudio的资源区，有关于R和RStudio的高质量教程，还可以下载很多方便实用的Cheat Sheet. 
+- [*The R Book* by Michael J. Crawley](https://github.com/TianyiShi2001/R-Tutorial-Resorces/blob/master/资源/书籍/TheRBook.pdf)
+- R的[官方fAQ](https://cran.r-project.org)
+- 存储在CRAN上的[中文FAQ](https://cran.r-project.org/doc/contrib/Liu-FAQ.pdf)（注意这不是英文FAQ的翻译，而是一本独立的R入门教程）
+
+## 速查表 (Cheatsheets)（用来贴墙上）
+
+- [R Reference Card 2.0 by Mayy Baggott & Tom Short](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)以及其第一版的[中文翻译](https://cran.r-project.org/doc/contrib/Liu-R-refcard.pdf)
+- [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)包含了RStudio IDE和常用packages的小抄纸。
 

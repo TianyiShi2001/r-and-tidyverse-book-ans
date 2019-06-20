@@ -6,7 +6,14 @@ site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
     includes:
-      in_header: header.html
+      in_header: partials/header.html
+  bookdown::pdf_book:
+    latex_engine: "xelatex"
+    includes:
+      in_header: partials/header.tex
+bibliography: ["bib/main.bib", "bib/packages.bib"]
+biblio-style: "plain"
+link-citations: true
 documentclass: book
 github-repo: TianyiShi2001/R-Tutorial-Resorces
 description: "这是我b站R与tidyverse教程的配套资源"
@@ -15,7 +22,7 @@ description: "这是我b站R与tidyverse教程的配套资源"
 # 欢迎 {-#welcome}
 
 ### 简介 {-#简介}
-本书为R和tidyverse的入门向教程。教学视频在b站（）。
+本书为R[@R-base]和tidyverse[@R-tidyverse]的入门向教程。教学视频在b站（）。
 
 ### 使用说明 {-#说明}
 左上角的菜单可以选择收起/展开目录，搜索，和外观，字体调整。

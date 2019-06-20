@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 更多的基本操作，数据类型，运算，逻辑和函数 | R与tidyverse——数据分析入门</title>
+  <title>Chapter 4 数据类型，数学运算，逻辑和函数 | R与tidyverse——数据分析入门</title>
   <meta name="description" content="这是我b站R与tidyverse教程的配套资源" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 更多的基本操作，数据类型，运算，逻辑和函数 | R与tidyverse——数据分析入门" />
+  <meta property="og:title" content="Chapter 4 数据类型，数学运算，逻辑和函数 | R与tidyverse——数据分析入门" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="TianyiShi2001/R-Tutorial-Resorces" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 更多的基本操作，数据类型，运算，逻辑和函数 | R与tidyverse——数据分析入门" />
+  <meta name="twitter:title" content="Chapter 4 数据类型，数学运算，逻辑和函数 | R与tidyverse——数据分析入门" />
   
   <meta name="twitter:description" content="这是我b站R与tidyverse教程的配套资源" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="石天熠" />
 
 
-<meta name="date" content="2019-06-11" />
+<meta name="date" content="2019-06-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,12 +159,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.1" data-path="ch1.html"><a href="ch1.html#r"><i class="fa fa-check"></i><b>1.2.1</b> 安装R</a></li>
 <li class="chapter" data-level="1.2.2" data-path="ch1.html"><a href="ch1.html#rstudio"><i class="fa fa-check"></i><b>1.2.2</b> 安装RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#rr0"><i class="fa fa-check"></i><b>1.3</b> 为什么使用R，R与其他统计软件的比较</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#youshi"><i class="fa fa-check"></i><b>1.3</b> 为什么使用R，R与其他统计软件的比较</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 获取资源帮助（本书最重要的部分）</a><ul>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 获取资源与帮助（重要！）</a><ul>
 <li class="chapter" data-level="2.1" data-path="section-2.html"><a href="section-2.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 论坛类（解答实际操作中的问题）</a></li>
-<li class="chapter" data-level="2.2" data-path="section-2.html"><a href="section-2.html#referencefunction"><i class="fa fa-check"></i><b>2.2</b> Reference类（像查字典一样，查找特定的function的用法）</a></li>
-<li class="chapter" data-level="2.3" data-path="section-2.html"><a href="section-2.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 教程和书籍类</a></li>
+<li class="chapter" data-level="2.2" data-path="section-2.html"><a href="section-2.html#referencefunction"><i class="fa fa-check"></i><b>2.2</b> Reference类（查找特定的function的用法，就像查字典一样）</a></li>
+<li class="chapter" data-level="2.3" data-path="section-2.html"><a href="section-2.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 教程和书籍类（用来系统地学习）</a></li>
+<li class="chapter" data-level="2.4" data-path="section-2.html"><a href="section-2.html#-cheat-sheets"><i class="fa fa-check"></i><b>2.4</b> 速查表 (Cheat sheets)（用来贴墙上）</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>3</b> RStudio界面介绍，基本操作，和创建新项目</a><ul>
 <li class="chapter" data-level="3.1" data-path="ch2.html"><a href="ch2.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 界面</a><ul>
@@ -177,31 +178,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.4" data-path="ch2.html"><a href="ch2.html#section-3.2.4"><i class="fa fa-check"></i><b>3.2.4</b> 管理</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>4</b> 更多的基本操作，数据类型，运算，逻辑和函数</a><ul>
-<li class="chapter" data-level="4.1" data-path="ch3.html"><a href="ch3.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 运算</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="ch3.html"><a href="ch3.html#section-4.1.1"><i class="fa fa-check"></i><b>4.1.1</b> 基础</a></li>
+<li class="chapter" data-level="4" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>4</b> 数据类型，数学运算，逻辑和函数</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch3.html"><a href="ch3.html#-data-types"><i class="fa fa-check"></i><b>4.1</b> 数据类型 (Data Types)</a></li>
+<li class="chapter" data-level="4.2" data-path="ch3.html"><a href="ch3.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 数学运算</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch3.html"><a href="ch3.html#section-4.2.1"><i class="fa fa-check"></i><b>4.2.1</b> 数的表达</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch3.html"><a href="ch3.html#arithmetic"><i class="fa fa-check"></i><b>4.2.2</b> 运算</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="ch3.html"><a href="ch3.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 逻辑</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="ch3.html"><a href="ch3.html#truefalse"><i class="fa fa-check"></i><b>4.2.1</b> TRUE和FALSE</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ch3.html"><a href="ch3.html#logical-operators"><i class="fa fa-check"></i><b>4.2.2</b> Logical Operators（逻辑运算符）</a></li>
+<li class="chapter" data-level="4.3" data-path="ch3.html"><a href="ch3.html#section-4.3"><i class="fa fa-check"></i><b>4.3</b> 变量</a></li>
+<li class="chapter" data-level="4.4" data-path="ch3.html"><a href="ch3.html#section-4.4"><i class="fa fa-check"></i><b>4.4</b> 逻辑</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="ch3.html"><a href="ch3.html#truefalse"><i class="fa fa-check"></i><b>4.4.1</b> TRUE和FALSE</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ch3.html"><a href="ch3.html#logical-operators"><i class="fa fa-check"></i><b>4.4.2</b> Logical Operators（逻辑运算符）</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ch3.html"><a href="ch3.html#section-4.3"><i class="fa fa-check"></i><b>4.3</b> 以下是不重要的一些内容</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="ch3.html"><a href="ch3.html#consoler-script"><i class="fa fa-check"></i><b>4.3.1</b> Console和R script编辑器的一些特性</a></li>
-<li class="chapter" data-level="4.3.2" data-path="ch3.html"><a href="ch3.html#assignment--"><i class="fa fa-check"></i><b>4.3.2</b> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></a></li>
+<li class="chapter" data-level="4.5" data-path="ch3.html"><a href="ch3.html#section-4.5"><i class="fa fa-check"></i><b>4.5</b> 以下是不重要的一些内容</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch3.html"><a href="ch3.html#consoler-script"><i class="fa fa-check"></i><b>4.5.1</b> Console和R script编辑器的一些特性</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ch3.html"><a href="ch3.html#assignment--"><i class="fa fa-check"></i><b>4.5.2</b> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ch3.html"><a href="ch3.html#section-4.4"><i class="fa fa-check"></i><b>4.4</b> 简易的统计学计算</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.4.1</b> t分布</a></li>
-<li class="chapter" data-level="4.4.2" data-path="ch3.html"><a href="ch3.html#z"><i class="fa fa-check"></i><b>4.4.2</b> z分布</a></li>
-<li class="chapter" data-level="4.4.3" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.4.3</b> t检验</a></li>
-<li class="chapter" data-level="4.4.4" data-path="ch3.html"><a href="ch3.html#chi2-"><i class="fa fa-check"></i><b>4.4.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
+<li class="chapter" data-level="4.6" data-path="ch3.html"><a href="ch3.html#section-4.6"><i class="fa fa-check"></i><b>4.6</b> 函数</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="ch3.html"><a href="ch3.html#section-4.6.1"><i class="fa fa-check"></i><b>4.6.1</b> 关于“…”</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="ch3.html"><a href="ch3.html#section-4.7"><i class="fa fa-check"></i><b>4.7</b> 简易的统计学计算</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.7.1</b> t分布</a></li>
+<li class="chapter" data-level="4.7.2" data-path="ch3.html"><a href="ch3.html#z"><i class="fa fa-check"></i><b>4.7.2</b> z分布</a></li>
+<li class="chapter" data-level="4.7.3" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.7.3</b> t检验</a></li>
+<li class="chapter" data-level="4.7.4" data-path="ch3.html"><a href="ch3.html#chi2-"><i class="fa fa-check"></i><b>4.7.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>5</b> 安装和使用packges（包）</a><ul>
-<li class="chapter" data-level="5.1" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages是什么，为什么使用它们？</a></li>
+<li class="chapter" data-level="5" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>5</b> 安装和使用packages (包)</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch4.html"><a href="ch4.html#package"><i class="fa fa-check"></i><b>5.1</b> Package是什么，为什么使用它们？</a></li>
 <li class="chapter" data-level="5.2" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.2</b> 如何安装packages</a></li>
 <li class="chapter" data-level="5.3" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.3</b> 如何使用packages</a></li>
+<li class="chapter" data-level="5.4" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.4</b> 如何找packages</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="ch4.html"><a href="ch4.html#section-5.4.1"><i class="fa fa-check"></i><b>5.4.1</b> 通过他人的经验</a></li>
+<li class="chapter" data-level="5.4.2" data-path="ch4.html"><a href="ch4.html#cran"><i class="fa fa-check"></i><b>5.4.2</b> 在CRAN中通过分类寻找</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>6</b> List（列），data frame（数据框）和tibble（进化版数据框）</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>6</b> dataframe（数据框）和tibble</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch5.html"><a href="ch5.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 基础</a></li>
+<li class="chapter" data-level="6.2" data-path="ch5.html"><a href="ch5.html#section"><i class="fa fa-check"></i><b>6.2</b> </a></li>
+<li class="chapter" data-level="6.3" data-path="ch5.html"><a href="ch5.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 进阶内容</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch5.html"><a href="ch5.html#arraysmatrices"><i class="fa fa-check"></i><b>6.3.1</b> arrays（数组）和matrices（矩阵）简介</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch5.html"><a href="ch5.html#matricesarrays"><i class="fa fa-check"></i><b>6.3.2</b> 给matrices和arrays命名</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch5.html"><a href="ch5.html#apply"><i class="fa fa-check"></i><b>6.3.3</b> <code>apply</code></a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -220,14 +239,147 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="ch3" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> 更多的基本操作，数据类型，运算，逻辑和函数</h1>
-<div id="section-4.1" class="section level2">
-<h2><span class="header-section-number">4.1</span> 运算</h2>
-<div id="section-4.1.1" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> 基础</h3>
-<div id="section-4.1.1.1" class="section level4">
-<h4><span class="header-section-number">4.1.1.1</span> 基础中的基础（加减乘除）</h4>
-<p>最基础的arithmetic operators（数学运算符）有：</p>
+<h1><span class="header-section-number">Chapter 4</span> 数据类型，数学运算，逻辑和函数</h1>
+<div id="-data-types" class="section level2">
+<h2><span class="header-section-number">4.1</span> 数据类型 (Data Types)</h2>
+<p>R没有标量，它通过各种类型的向量 (vector)来存储数据。常用的数据类型有：</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">类型</th>
+<th align="left">含义与说明</th>
+<th align="left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">浮点数向量</td>
+<td align="left"><code>3</code>, <code>0.5</code>, <code>sqrt(2)</code>, <code>NaN</code>, <code>Inf</code></td>
+</tr>
+<tr class="even">
+<td align="left">integer</td>
+<td align="left">整数向量</td>
+<td align="left"><code>3L</code>, <code>100L</code></td>
+</tr>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">字符向量；需被引号包围</td>
+<td align="left"><code>&quot;1&quot;</code>, <code>&quot;$&quot;</code>, <code>&quot;你好&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left">logical</td>
+<td align="left">逻辑向量</td>
+<td align="left"><code>TRUE</code>, <code>FALSE</code>, <code>NA</code></td>
+</tr>
+<tr class="odd">
+<td align="left">complex</td>
+<td align="left">复数向量</td>
+<td align="left"><code>3+5i</code>, <code>1i</code>, <code>1+0i</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">xxx</th>
+<th align="left">描述</th>
+<th align="left">xxx</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor</td>
+<td align="left">因子，用于标记样本</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>通过<code>class()</code>函数，可以查看指定数据的类型。（除此之外，<code>typeof()</code>, <code>mode()</code>, <code>storage.mode()</code>这三个函数的功能与<code>class()</code>类似，但有重要区别；为避免造成困惑，此处不展开讨论）。</p>
+</div>
+<div id="section-4.2" class="section level2">
+<h2><span class="header-section-number">4.2</span> 数学运算</h2>
+<div id="section-4.2.1" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> 数的表达</h3>
+<div id="section-4.2.1.1" class="section level4">
+<h4><span class="header-section-number">4.2.1.1</span> 浮点数</h4>
+<p>除非指定作为整数（见下），在R中所有的数都被存储为双精度浮点数的格式 (double-precision floating-point format)，其<code>class</code>为<code>numeric</code>。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">3</span>)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>这会导致一些有趣的现象，比如<span class="math inline">\((\sqrt{3})^2 \neq 3\)</span>：<del>（强迫症患者浑身难受）</del></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">3</span>)<span class="op">^</span><span class="dv">2-3</span></code></pre>
+<pre><code>## [1] -4.440892e-16</code></pre>
+<p>浮点数的计算比精确数的计算快很多。如果你是第一次接触浮点数，可能会觉得它不可靠，其实不然。在绝大多数情况下，牺牲的这一点点精度并不会影响计算结果（我们的结果所需要的有效数字一般不会超过10位）。</p>
+<p><code>NaN</code>（非数）和<code>Inf</code>（无限大）也是浮点数！</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="ot">NaN</span>)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="ot">Inf</span>)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+</div>
+<div id="section-4.2.1.2" class="section level4">
+<h4><span class="header-section-number">4.2.1.2</span> 科学计数法</h4>
+<p>R可以使用科学计数法(<code>AeB</code><span class="math inline">\(= A \times 10^B\)</span>)，比如：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="fl">3.1e5</span></code></pre>
+<pre><code>## [1] 310000</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="fl">-1.2e-4+1.1e-5</span></code></pre>
+<pre><code>## [1] -0.000109</code></pre>
+</div>
+<div id="section-4.2.1.3" class="section level4">
+<h4><span class="header-section-number">4.2.1.3</span> 整数</h4>
+<p>整数的class为<code>integer</code>。有两种常见的方法创建整数：
+1）在数后面加上<code>L</code>；</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">2</span>)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(2L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>2）创建数列</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">:</span><span class="dv">10</span> <span class="co">#公差为1的整数向量生成器，包含最小值和最大值</span></code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">5</span>,<span class="dv">50</span>,<span class="dv">5</span>) <span class="co">#自定义公差，首项，末项和公差可以不为整数</span></code></pre>
+<pre><code>##  [1]  5 10 15 20 25 30 35 40 45 50</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">seq</span>(<span class="dv">5</span>,<span class="dv">50</span>,<span class="dv">5</span>)) <span class="co">#因此产生的是一个浮点数向量</span></code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(5L,50L,5L) <span class="co">#可以强制生成整数</span></code></pre>
+<pre><code>##  [1]  5 10 15 20 25 30 35 40 45 50</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">seq</span>(5L,50L,5L)) <span class="co">#完美</span></code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>整数最常见的用处是indexing（索引）。</p>
+<div id="section-4.2.1.3.1" class="section level5">
+<h5><span class="header-section-number">4.2.1.3.1</span> 整数变成浮点数的情况</h5>
+<p>这一小段讲的比较细，初学者可以直接跳到下一节（<a href="ch3.html#arithmetic">4.2.2</a>）。</p>
+<p>整数与整数之前的加，减，乘，求整数商，和求余数计算会得到整数，其他的运算都会得到浮点数，（阶乘(<code>factorial</code>)也是，即便现实中不管怎么阶乘都不可能得到非整数）：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(2L<span class="op">+</span>1L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(2L<span class="op">-</span>1L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(2L<span class="op">*</span>3L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(17L<span class="op">%/%</span>3L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(17L<span class="op">%%</span>3L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(1000L<span class="op">/</span>1L)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(3L<span class="op">^</span>4L)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">sqrt</span>(4L))</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">log</span>(<span class="kw">exp</span>(5L)))</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">factorial</span>(5L))</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>整数与浮点数之间的运算，显然，全部都会产生浮点数结果，无需举例。</p>
+<p>另外一个需要注意的地方是，取整函数<a href="ch3.html#quzheng">4.2.2.3</a>并不会产生整数。如果需要的话，要用<code>as.integer()</code>函数。</p>
+</div>
+</div>
+</div>
+<div id="arithmetic" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> 运算</h3>
+<div id="section-4.2.2.1" class="section level4">
+<h4><span class="header-section-number">4.2.2.1</span> 二元运算符号</h4>
+<p>R中的binary operators（二元运算符）有：</p>
 <table>
 <thead>
 <tr class="header">
@@ -256,32 +408,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="center"><code>^</code>或<code>**</code></td>
 <td align="center">乘幂</td>
 </tr>
+<tr class="even">
+<td align="center"><code>%/%</code></td>
+<td align="center">求整数商，比如<code>7%%3</code><span class="math inline">\(=2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><code>%%</code></td>
+<td align="center">求余数，比如<code>7%%3</code><span class="math inline">\(=1\)</span></td>
+</tr>
 </tbody>
 </table>
-<p>以上这些应该不需要解释。</p>
+<p>其中求余/求整数商最常见的两个用法是判定一个数的奇偶性，和时间，角度等单位的转换。（后面再详细介绍）。</p>
 </div>
-<div id="section-4.1.1.2" class="section level4">
-<h4><span class="header-section-number">4.1.1.2</span> 求整数商和余数</h4>
-<p><code>%%</code> 是求余数符号，比如7%%3得到1；</p>
-<p><code>%/%</code> 是求整数商，比如7%%3得到2；</p>
-<p>最常见的两个用法是判定一个数的奇偶性，和时间，角度等单位的转换。（后面再详细介绍）。</p>
+<div id="exlog_xy" class="section level4">
+<h4><span class="header-section-number">4.2.2.2</span> <span class="math inline">\(e^x\)</span>和<span class="math inline">\(\log_x{y}\)</span></h4>
+<p><code>exp(x)</code>便是运算<span class="math inline">\(e^x\)</span>。如果想要<span class="math inline">\(e=2.71828...\)</span>这个数：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">1</span>)</code></pre>
+<pre><code>## [1] 2.718282</code></pre>
+<p><code>log(x, base=y)</code>便是运算<span class="math inline">\(\log_y{x}\)</span>，可以简写成<code>log(x,y)</code>（简写需要注意前后顺序，下面讲函数的时候会解释）。</p>
+<p>默认底数为<span class="math inline">\(e\)</span>：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="kw">exp</span>(<span class="dv">5</span>))</code></pre>
+<pre><code>## [1] 5</code></pre>
+<p>有以10和2为底的快捷函数, <code>log10()</code>和<code>log2()</code></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log10</span>(<span class="dv">1000</span>)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log2</span>(<span class="dv">128</span>)</code></pre>
+<pre><code>## [1] 7</code></pre>
 </div>
-<div id="section-4.1.1.3" class="section level4">
-<h4><span class="header-section-number">4.1.1.3</span> 对数</h4>
-<p><code>log(x, base=y)</code>便是运算<span class="math inline">\(\log_y{x}\)</span>，或者写成
-<code>log(base=y, x)</code>也可以;</p>
-<p>它可以简写成<code>log(x,y)</code>，同样表示的是<span class="math inline">\(\log_y{x}\)</span>，但是如果写成<code>log(y,x)</code>就变成了<span class="math inline">\(\log_x{y}\)</span></p>
-<p>如果你有一点编程基础，应该能看明白为什么，如果没看明白，下面讲函数的时候我会解释。</p>
+<div id="quzheng" class="section level4">
+<h4><span class="header-section-number">4.2.2.3</span> 近似数（取整，取小数位，取有效数字）</h4>
+<p>注意，取整函数给出的的结果不是整数！</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">ceiling</span>(<span class="fl">7.4</span>))</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+</div>
+<div id="r" class="section level4">
+<h4><span class="header-section-number">4.2.2.4</span> R中自带的数学函数集合</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">函数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>exp(x)</code></td>
+<td align="left"><span class="math inline">\(e^x\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><code>log(x,y)</code></td>
+<td align="left"><span class="math inline">\(\log_yx\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>log(x)</code></td>
+<td align="left"><span class="math inline">\(\ln(x)\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><code>sqrt(x)</code></td>
+<td align="left"><span class="math inline">\(\sqrt{x}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>factorial(x)</code></td>
+<td align="left"><span class="math inline">\(x!=x\times(x-1)\times(x-2)\ldots\times2\times1\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><code>choose(n,k)</code></td>
+<td align="left"><span class="math inline">\(\binom{n}{k}=\frac{n!}{k!(n-k)!}\)</span>（二项式系数）</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>gamma(z)</code></td>
+<td align="left"><span class="math inline">\(\Gamma(z)=\int_0^\infty x^{z-1}e^{-x}dx\)</span>（<a href="https://en.wikipedia.org/wiki/Gamma_function">伽马函数</a>）</td>
+</tr>
+<tr class="even">
+<td align="left"><code>lgamma(z)</code></td>
+<td align="left"><span class="math inline">\(\ln(\Gamma(z))\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>floor(x)</code>, <code>ceiling(x)</code>, <code>trunc(x)</code>,</td>
+<td align="left">取整；见上一小节。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>round(x, digits = n)</code></td>
+<td align="left">四舍五入，保留n个小数位，n默认为0</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>signif(x,digits = n)</code></td>
+<td align="left">四舍五入，保留n个有效数字，n默认为6）</td>
+</tr>
+<tr class="even">
+<td align="left"><code>sin(x)</code>, <code>cos(x)</code>, <code>tan(x)</code></td>
+<td align="left">三角函数</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>asin(x)</code>, <code>acos(x)</code>, <code>atan(x)</code></td>
+<td align="left">反三角函数</td>
+</tr>
+<tr class="even">
+<td align="left"><code>sinh(x)</code>, <code>cosh(x)</code>, <code>tanh(x)</code></td>
+<td align="left">双曲函数</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>abs(x)</code></td>
+<td align="left"><span class="math inline">\(|x|\)</span>（取绝对值）</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<div id="section-4.2" class="section level2">
-<h2><span class="header-section-number">4.2</span> 逻辑</h2>
+<div id="section-4.3" class="section level2">
+<h2><span class="header-section-number">4.3</span> 变量</h2>
+</div>
+<div id="section-4.4" class="section level2">
+<h2><span class="header-section-number">4.4</span> 逻辑</h2>
 <div id="truefalse" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> TRUE和FALSE</h3>
+<h3><span class="header-section-number">4.4.1</span> TRUE和FALSE</h3>
 </div>
 <div id="logical-operators" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Logical Operators（逻辑运算符）</h3>
+<h3><span class="header-section-number">4.4.2</span> Logical Operators（逻辑运算符）</h3>
 <p>R中的logical operators 有：</p>
 <table>
 <thead>
@@ -331,10 +575,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-<div id="section-4.3" class="section level2">
-<h2><span class="header-section-number">4.3</span> 以下是不重要的一些内容</h2>
+<div id="section-4.5" class="section level2">
+<h2><span class="header-section-number">4.5</span> 以下是不重要的一些内容</h2>
 <div id="consoler-script" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Console和R script编辑器的一些特性</h3>
+<h3><span class="header-section-number">4.5.1</span> Console和R script编辑器的一些特性</h3>
 <p>Console 中每个命令开头的<code>&gt;</code>叫做prompt（我不知道它的中文名诶），当它出现在你所编辑的那一行的开头时，按下回车的时候那行的命令才会被执行。有时候它会消失，这时候按<code>esc</code>可以将其恢复。</p>
 <p>prompt消失的主要原因是你的代码没有写完，比如括号不完整：</p>
 <pre><code>&gt; 2+(3+4</code></pre>
@@ -353,21 +597,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <span class="kw">print</span>(<span class="dv">3</span>)
 }</code></pre>
 <p>然后<code>Ctrl</code>+<code>Enter</code>执行。</p>
-<p>```</p>
 <pre><code>&lt;function&gt;(&lt;argument&gt; = &lt;value&gt;)</code></pre>
 </div>
 <div id="assignment--" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></h3>
+<h3><span class="header-section-number">4.5.2</span> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></h3>
 <p>与很多其他的计算机语言不同，<code>&lt;-</code>是R中的赋值符号：</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">2</span></code></pre>
 </div>
 </div>
-<div id="section-4.4" class="section level2">
-<h2><span class="header-section-number">4.4</span> 简易的统计学计算</h2>
+<div id="section-4.6" class="section level2">
+<h2><span class="header-section-number">4.6</span> 函数</h2>
+<p>不像很多其他语言的函数有<code>value.func()</code>和<code>func value</code>等格式，R中所有函数的通用格式是这样的：</p>
+<pre><code>function(argument1=value1, argument2=value2, ...)</code></pre>
+<p>比如</p>
+<pre class="sourceCode r"><code class="sourceCode r">x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">5.1</span>,<span class="fl">5.2</span>,<span class="fl">4.5</span>,<span class="fl">5.3</span>,<span class="fl">4.3</span>,<span class="fl">5.5</span>,<span class="fl">5.7</span>)
+<span class="kw">t.test</span>(<span class="dt">x=</span>x1, <span class="dt">mu =</span> <span class="fl">4.5</span>)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x1
+## t = 3.0308, df = 6, p-value = 0.02307
+## alternative hypothesis: true mean is not equal to 4.5
+## 95 percent confidence interval:
+##  4.612840 5.558589
+## sample estimates:
+## mean of x 
+##  5.085714</code></pre>
+<div id="section-4.6.1" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> 关于“…”</h3>
+<p>有时候，你想写的函数可能有数量不确定的arguments</p>
+<p>If a function has ‘…’ as a formal argument then any actual arguments that do not match a formal argument are matched with ‘…’.</p>
+</div>
+</div>
+<div id="section-4.7" class="section level2">
+<h2><span class="header-section-number">4.7</span> 简易的统计学计算</h2>
 <div id="t" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> t分布</h3>
+<h3><span class="header-section-number">4.7.1</span> t分布</h3>
 <p>下面介绍的这几种方法是以这个t分布函数图为基础的：</p>
-<p><img src="R%E4%B8%8Etidyverse%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="R%E4%B8%8Etidyverse%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>阴影区域为<span class="math inline">\(P\)</span>，虚线对应的<span class="math inline">\(t\)</span>为<span class="math inline">\(t^*\)</span>. <code>qt()</code>可以把<span class="math inline">\(P\)</span>转化成<span class="math inline">\(t^*\)</span>,<code>pt()</code>则相反。</p>
 <p>举个例子就明白了。假设你需要算一个confidence interval（置信区间），confidence level（置信等级）为<span class="math inline">\(95\%\)</span>，即<span class="math inline">\(\alpha=0.05\)</span>，degrees of freedom(自由度)为<span class="math inline">\(12\)</span>，那么怎么算<span class="math inline">\(t^*\)</span>呢？</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">12</span>)</code></pre>
@@ -380,14 +647,14 @@ p</code></pre>
 <p>其中<code>pt(2.2, df = 15)</code>算出阴影面积，1减去它再乘以二就是对应的双尾t检验的<span class="math inline">\(p\)</span>值。</p>
 </div>
 <div id="z" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> z分布</h3>
+<h3><span class="header-section-number">4.7.2</span> z分布</h3>
 <p>没有z分布专门的函数。可以直接用t分布代替，把<code>df</code>调到很大（比如<code>999999</code>）就行了。比如我们试一下<span class="math inline">\(95\%\)</span>置信区间所对应的<span class="math inline">\(z\)</span>：</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.975</span>,<span class="dv">9999999</span>)</code></pre>
 <pre><code>## [1] 1.959964</code></pre>
 <p>（果然是<span class="math inline">\(1.96\)</span>）</p>
 </div>
 <div id="t" class="section level3">
-<h3><span class="header-section-number">4.4.3</span> t检验</h3>
+<h3><span class="header-section-number">4.7.3</span> t检验</h3>
 <p>t test分为以下几种：</p>
 <ul>
 <li>One sample t test</li>
@@ -461,7 +728,7 @@ y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.27<
 ##             -0.07769231</code></pre>
 </div>
 <div id="chi2-" class="section level3">
-<h3><span class="header-section-number">4.4.4</span> <span class="math inline">\(\chi^2\)</span> 检验</h3>
+<h3><span class="header-section-number">4.7.4</span> <span class="math inline">\(\chi^2\)</span> 检验</h3>
 <p><span class="math inline">\(\chi^2\)</span>有两种，good</p>
 
 </div>
@@ -510,7 +777,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["R与tidyverse——数据分析入门.pdf"],
 "toc": {
 "collapse": "subsection"
 }

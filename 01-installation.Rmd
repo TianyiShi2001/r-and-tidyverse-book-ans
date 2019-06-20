@@ -2,11 +2,11 @@
 
 ## 什么是R
 
-R包含R语言（编程语言）和一个有着强大的统计分析及作图功能的软件系统，由新西兰奥克兰大学统计学系 的 Ross Ihaka 和 Robert Gentleman 共同创立。
+R[@R-base]包含R语言（编程语言）和一个有着强大的统计分析及作图功能的软件系统，由新西兰奥克兰大学统计学系 的 Ross Ihaka 和 Robert Gentleman 共同创立。
 
-理论上，安装了R，你就可以直接在命令行使用R，但是很多人（尤其是新手）是不喜欢这种硬核的操作方式的。因此我们会安装RStudio. 
+安装了R之后，你可以在其自带的“R”软件中（也可以直接在命令行使用），但是那个软件界面比较简单，需要记住一些命令来执行“查看当前存储的数据”，“导出jpg格式的图像”等操作，对新手不太友好。因此我们使用RStudio. 
 
-RStudio是R语言官方的IDE（集成开发环境），它的一系列功能使得编辑，整理和管理R代码和项目方便很多。
+RStudio[@R-rstudio]是R语言官方的IDE（集成开发环境），它的一系列功能使得编辑，整理和管理R代码和项目方便很多。
 
 了解R的优势，请看第\@ref(youshi)节
 
@@ -43,10 +43,10 @@ R和Python是开源、免费的。
 使用R+Python
 
 
-什么，你说Excel？Excel只能做简单的数据收集和展示，一般用于普通办公，做不了严谨的研究和大数据，功能也非常局限。有五分之一的使用了Excel的遗传学论文，数据都出现了偏差[^Excel]。
+至于Excel，它的定位原本就是办公（而不是学术）软件，用作数据收集和初步整理是可以的，但是做不了严谨的数据分析和大数据，功能也非常局限。有五分之一的使用了Excel的遗传学论文，数据都出现了偏差[@Ziemann2016Gene-name-errors]。
 
 
-R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你可以 在[GNU官网]{https://www.gnu.org/philosophy/free-sw.zh-cn.html}了解更多。
+R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你可以 在[GNU官网](https://www.gnu.org/philosophy/free-sw.zh-cn.html)了解更多。
 
 [^0]: Gentleman, R. (2009). *R Programming for Bioinformatics*. Boca Raton, FL: CRC Press.
 [^1]: https://thomaswdinsmore.com/2014/12/15/sas-versus-r-part-two/
@@ -54,15 +54,17 @@ R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你�
 
 # 获取资源与帮助（重要！）
 
-这本书可以帮助你快速学会R和tidyverse的最常用和最重要的操作，但这仅仅是冰山一角。当你在做自己的研究的时候，会用到很多这本书中没有讲到的方法，因此学会获取资源和帮助是很重要的。以下列举几个常用的获取R的帮助的网站：
+这本书可以帮助你快速学会R和tidyverse的最常用和最重要的操作，但这仅仅是冰山一角。当你在做自己的研究的时候，会用到很多这本书中没有讲到的方法，因此学会获取资源和帮助是很重要的。以下列举几个常用的获取R的帮助的网站/方法：
 
 ## 论坛类（解答实际操作中的问题）
 
-- [StackOverflow](https://stackoverflow.com)是著名计算机技术问答网站（如果你有其他的编程语言基础，一定对它不陌生）。查找问题的时候加上`[R]`，这样搜索结果就都是与R相关的了（为了进一步缩小搜索范围，可以加上其他的tag，比如`[ggplot]`, `[dplyr]`)。注意，提问和回答的时候话语尽量精简，不要在任何地方出现与问题无关的话（包括客套话如“谢谢”），了解更多请查看其[新手向导](https://stackoverflow.com/tour)。
+- [爆栈网 (StackOverflow)](https://stackoverflow.com)是著名计算机技术问答网站（如果你有其他的编程语言基础，一定对它不陌生）。查找问题的时候加上`[R]`，这样搜索结果就都是与R相关的了（为了进一步缩小搜索范围，可以加上其他的tag，比如`[ggplot]`, `[dplyr]`)。注意，提问和回答的时候话语尽量精简，不要在任何地方出现与问题无关的话（包括客套话如“谢谢”），了解更多请查看其[新手向导](https://stackoverflow.com/tour)。
+- 由谢益辉大佬在2006年（竟然比爆栈网更早！）创建的[“统计之都”论坛](https://d.cosx.org)，是做的最好的一个面向R的中文论坛（但是客观地来说活跃度还是没爆栈网高）同样不要忘记读新手指引。
 
-## Reference类（像查字典一样，查找特定的function的用法）
+## Reference类（查找特定的function的用法，就像查字典一样）
 
-- [RDocumentation](https://www.rdocumentation.org)上有基础R语言和来自CRAN，GitHub和Bioconductor上的近18000个packages的所有的函数的说明和使用例。（其实你可以直接在R console中输入`?`+函数名称
+- 直接在R console中执行`?`+函数名称，比如`?t.test`
+- [RDocumentation](https://www.rdocumentation.org)上有基础R语言和来自CRAN，GitHub和Bioconductor上的近18000个packages的所有的函数的说明和使用例。
 
 ## 教程和书籍类（用来系统地学习）
 
@@ -74,8 +76,8 @@ R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你�
 - R的[官方fAQ](https://cran.r-project.org)
 - 存储在CRAN上的[中文FAQ](https://cran.r-project.org/doc/contrib/Liu-FAQ.pdf)（注意这不是英文FAQ的翻译，而是一本独立的R入门教程）
 
-## 速查表 (Cheatsheets)（用来贴墙上）
+## 速查表 (Cheat sheets)（用来贴墙上）
 
 - [R Reference Card 2.0 by Mayy Baggott & Tom Short](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)以及其第一版的[中文翻译](https://cran.r-project.org/doc/contrib/Liu-R-refcard.pdf)
-- [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)包含了RStudio IDE和常用packages的小抄纸。
+- [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)包含了RStudio IDE和常用packages的cheat sheets。
 

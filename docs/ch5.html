@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 List（列），data frame（数据框）和tibble（进化版数据框） | R与tidyverse——数据分析入门</title>
+  <title>Chapter 6 dataframe（数据框）和tibble | R与tidyverse——数据分析入门</title>
   <meta name="description" content="这是我b站R与tidyverse教程的配套资源" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 List（列），data frame（数据框）和tibble（进化版数据框） | R与tidyverse——数据分析入门" />
+  <meta property="og:title" content="Chapter 6 dataframe（数据框）和tibble | R与tidyverse——数据分析入门" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="TianyiShi2001/R-Tutorial-Resorces" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 List（列），data frame（数据框）和tibble（进化版数据框） | R与tidyverse——数据分析入门" />
+  <meta name="twitter:title" content="Chapter 6 dataframe（数据框）和tibble | R与tidyverse——数据分析入门" />
   
   <meta name="twitter:description" content="这是我b站R与tidyverse教程的配套资源" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="石天熠" />
 
 
-<meta name="date" content="2019-06-11" />
+<meta name="date" content="2019-06-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,12 +159,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.1" data-path="ch1.html"><a href="ch1.html#r"><i class="fa fa-check"></i><b>1.2.1</b> 安装R</a></li>
 <li class="chapter" data-level="1.2.2" data-path="ch1.html"><a href="ch1.html#rstudio"><i class="fa fa-check"></i><b>1.2.2</b> 安装RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#rr0"><i class="fa fa-check"></i><b>1.3</b> 为什么使用R，R与其他统计软件的比较</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#youshi"><i class="fa fa-check"></i><b>1.3</b> 为什么使用R，R与其他统计软件的比较</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 获取资源帮助（本书最重要的部分）</a><ul>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 获取资源与帮助（重要！）</a><ul>
 <li class="chapter" data-level="2.1" data-path="section-2.html"><a href="section-2.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 论坛类（解答实际操作中的问题）</a></li>
-<li class="chapter" data-level="2.2" data-path="section-2.html"><a href="section-2.html#referencefunction"><i class="fa fa-check"></i><b>2.2</b> Reference类（像查字典一样，查找特定的function的用法）</a></li>
-<li class="chapter" data-level="2.3" data-path="section-2.html"><a href="section-2.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 教程和书籍类</a></li>
+<li class="chapter" data-level="2.2" data-path="section-2.html"><a href="section-2.html#referencefunction"><i class="fa fa-check"></i><b>2.2</b> Reference类（查找特定的function的用法，就像查字典一样）</a></li>
+<li class="chapter" data-level="2.3" data-path="section-2.html"><a href="section-2.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 教程和书籍类（用来系统地学习）</a></li>
+<li class="chapter" data-level="2.4" data-path="section-2.html"><a href="section-2.html#-cheat-sheets"><i class="fa fa-check"></i><b>2.4</b> 速查表 (Cheat sheets)（用来贴墙上）</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>3</b> RStudio界面介绍，基本操作，和创建新项目</a><ul>
 <li class="chapter" data-level="3.1" data-path="ch2.html"><a href="ch2.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 界面</a><ul>
@@ -177,31 +178,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.4" data-path="ch2.html"><a href="ch2.html#section-3.2.4"><i class="fa fa-check"></i><b>3.2.4</b> 管理</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>4</b> 更多的基本操作，数据类型，运算，逻辑和函数</a><ul>
-<li class="chapter" data-level="4.1" data-path="ch3.html"><a href="ch3.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 运算</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="ch3.html"><a href="ch3.html#section-4.1.1"><i class="fa fa-check"></i><b>4.1.1</b> 基础</a></li>
+<li class="chapter" data-level="4" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>4</b> 数据类型，数学运算，逻辑和函数</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch3.html"><a href="ch3.html#-data-types"><i class="fa fa-check"></i><b>4.1</b> 数据类型 (Data Types)</a></li>
+<li class="chapter" data-level="4.2" data-path="ch3.html"><a href="ch3.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 数学运算</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch3.html"><a href="ch3.html#section-4.2.1"><i class="fa fa-check"></i><b>4.2.1</b> 数的表达</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch3.html"><a href="ch3.html#arithmetic"><i class="fa fa-check"></i><b>4.2.2</b> 运算</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="ch3.html"><a href="ch3.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 逻辑</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="ch3.html"><a href="ch3.html#truefalse"><i class="fa fa-check"></i><b>4.2.1</b> TRUE和FALSE</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ch3.html"><a href="ch3.html#logical-operators"><i class="fa fa-check"></i><b>4.2.2</b> Logical Operators（逻辑运算符）</a></li>
+<li class="chapter" data-level="4.3" data-path="ch3.html"><a href="ch3.html#section-4.3"><i class="fa fa-check"></i><b>4.3</b> 变量</a></li>
+<li class="chapter" data-level="4.4" data-path="ch3.html"><a href="ch3.html#section-4.4"><i class="fa fa-check"></i><b>4.4</b> 逻辑</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="ch3.html"><a href="ch3.html#truefalse"><i class="fa fa-check"></i><b>4.4.1</b> TRUE和FALSE</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ch3.html"><a href="ch3.html#logical-operators"><i class="fa fa-check"></i><b>4.4.2</b> Logical Operators（逻辑运算符）</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ch3.html"><a href="ch3.html#section-4.3"><i class="fa fa-check"></i><b>4.3</b> 以下是不重要的一些内容</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="ch3.html"><a href="ch3.html#consoler-script"><i class="fa fa-check"></i><b>4.3.1</b> Console和R script编辑器的一些特性</a></li>
-<li class="chapter" data-level="4.3.2" data-path="ch3.html"><a href="ch3.html#assignment--"><i class="fa fa-check"></i><b>4.3.2</b> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></a></li>
+<li class="chapter" data-level="4.5" data-path="ch3.html"><a href="ch3.html#section-4.5"><i class="fa fa-check"></i><b>4.5</b> 以下是不重要的一些内容</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch3.html"><a href="ch3.html#consoler-script"><i class="fa fa-check"></i><b>4.5.1</b> Console和R script编辑器的一些特性</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ch3.html"><a href="ch3.html#assignment--"><i class="fa fa-check"></i><b>4.5.2</b> 赋值(assignment): 使用<code>&lt;-</code>，而不是<code>=</code></a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ch3.html"><a href="ch3.html#section-4.4"><i class="fa fa-check"></i><b>4.4</b> 简易的统计学计算</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.4.1</b> t分布</a></li>
-<li class="chapter" data-level="4.4.2" data-path="ch3.html"><a href="ch3.html#z"><i class="fa fa-check"></i><b>4.4.2</b> z分布</a></li>
-<li class="chapter" data-level="4.4.3" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.4.3</b> t检验</a></li>
-<li class="chapter" data-level="4.4.4" data-path="ch3.html"><a href="ch3.html#chi2-"><i class="fa fa-check"></i><b>4.4.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
+<li class="chapter" data-level="4.6" data-path="ch3.html"><a href="ch3.html#section-4.6"><i class="fa fa-check"></i><b>4.6</b> 函数</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="ch3.html"><a href="ch3.html#section-4.6.1"><i class="fa fa-check"></i><b>4.6.1</b> 关于“…”</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="ch3.html"><a href="ch3.html#section-4.7"><i class="fa fa-check"></i><b>4.7</b> 简易的统计学计算</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.7.1</b> t分布</a></li>
+<li class="chapter" data-level="4.7.2" data-path="ch3.html"><a href="ch3.html#z"><i class="fa fa-check"></i><b>4.7.2</b> z分布</a></li>
+<li class="chapter" data-level="4.7.3" data-path="ch3.html"><a href="ch3.html#t"><i class="fa fa-check"></i><b>4.7.3</b> t检验</a></li>
+<li class="chapter" data-level="4.7.4" data-path="ch3.html"><a href="ch3.html#chi2-"><i class="fa fa-check"></i><b>4.7.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>5</b> 安装和使用packges（包）</a><ul>
-<li class="chapter" data-level="5.1" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages是什么，为什么使用它们？</a></li>
+<li class="chapter" data-level="5" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>5</b> 安装和使用packages (包)</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch4.html"><a href="ch4.html#package"><i class="fa fa-check"></i><b>5.1</b> Package是什么，为什么使用它们？</a></li>
 <li class="chapter" data-level="5.2" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.2</b> 如何安装packages</a></li>
 <li class="chapter" data-level="5.3" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.3</b> 如何使用packages</a></li>
+<li class="chapter" data-level="5.4" data-path="ch4.html"><a href="ch4.html#packages"><i class="fa fa-check"></i><b>5.4</b> 如何找packages</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="ch4.html"><a href="ch4.html#section-5.4.1"><i class="fa fa-check"></i><b>5.4.1</b> 通过他人的经验</a></li>
+<li class="chapter" data-level="5.4.2" data-path="ch4.html"><a href="ch4.html#cran"><i class="fa fa-check"></i><b>5.4.2</b> 在CRAN中通过分类寻找</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>6</b> List（列），data frame（数据框）和tibble（进化版数据框）</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>6</b> dataframe（数据框）和tibble</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch5.html"><a href="ch5.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 基础</a></li>
+<li class="chapter" data-level="6.2" data-path="ch5.html"><a href="ch5.html#section"><i class="fa fa-check"></i><b>6.2</b> </a></li>
+<li class="chapter" data-level="6.3" data-path="ch5.html"><a href="ch5.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 进阶内容</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch5.html"><a href="ch5.html#arraysmatrices"><i class="fa fa-check"></i><b>6.3.1</b> arrays（数组）和matrices（矩阵）简介</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch5.html"><a href="ch5.html#matricesarrays"><i class="fa fa-check"></i><b>6.3.2</b> 给matrices和arrays命名</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ch5.html"><a href="ch5.html#apply"><i class="fa fa-check"></i><b>6.3.3</b> <code>apply</code></a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -220,11 +239,214 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="ch5" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> List（列），data frame（数据框）和tibble（进化版数据框）</h1>
-<p>嘿嘿嘿</p>
-
+<h1><span class="header-section-number">Chapter 6</span> dataframe（数据框）和tibble</h1>
+<div id="section-6.1" class="section level2">
+<h2><span class="header-section-number">6.1</span> 基础</h2>
+<p>dataframe是R中存储复杂数据的格式，它直观易操作。tibble是tidyverse的一部分，它是dataframe的进化版，功能更强大，更易操作。</p>
+<p>在dataframe/tibble中，每一行代表的是一个observation（硬翻译的话是“观测单位”，但是我觉得这个翻译不好），每一列代表的是一个variable（变量）。举个例子：</p>
+<p>我们先加载tidyverse：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tidyverse)</code></pre>
+<p>以后每次跟着本书使用R的时候，都要先加载tidyverse，不再重复提醒了。</p>
+<p>tidyverse中自带一些范例数据，比如我们输入：</p>
+<pre class="sourceCode r"><code class="sourceCode r">mpg</code></pre>
+<p><img src="img/tibble-intro.png" width="1279" /></p>
 </div>
+<div id="section" class="section level2">
+<h2><span class="header-section-number">6.2</span> </h2>
+</div>
+<div id="section-6.3" class="section level2">
+<h2><span class="header-section-number">6.3</span> 进阶内容</h2>
+<p>这一节为进阶内容，不用看。可以直接跳到@</p>
+<p>其中的很多操作和dataframe或tibble中的操作是等效的。一般，tibble中的操作更直观，更容易上手。</p>
+<div id="arraysmatrices" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> arrays（数组）和matrices（矩阵）简介</h3>
+<p>Vector是一维的数据。Array是多维的数据。Matrix是二维的数据，因此matrix是array的一种特殊情况。</p>
+<p>Dataframe不是matrix. A matrix is a two-dimensional <strong>array</strong> containing numbers. A dataframe is a two-dimensional <strong>list</strong> containing (potentially a mix of) numbers, text or logical variables in different columns.</p>
+<p>我们可以用<code>dim()</code>来创建arrays：</p>
+<pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">48</span> <span class="co">#创建一个(1,2,3,...24)的numeric vector</span>
+<span class="kw">dim</span>(A) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">8</span>) <span class="co">#给A assign一个6乘4的dimensions</span>
+A</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]    1    7   13   19   25   31   37   43
+## [2,]    2    8   14   20   26   32   38   44
+## [3,]    3    9   15   21   27   33   39   45
+## [4,]    4   10   16   22   28   34   40   46
+## [5,]    5   11   17   23   29   35   41   47
+## [6,]    6   12   18   24   30   36   42   48</code></pre>
+<p>可以看到我们创建了一个二维的，array, 因此它也是一个（4行6列的）matrix。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.array</span>(A)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.matrix</span>(A)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>注意24个数字排列的方式。第一个维度是行，所以先把4行排满，随后再使用下一个维度（列），使用第2列继续排4行，就像数字一样，（十进制中）先把个位从零数到9，再使用第二个位数（十位），以此类推。下面三维和四维的例子可能会更清晰。</p>
+<p>同时注意最左边和最上边的[1,], [,3]之类的标记。你应该猜出来了，这些是index. 假设你要抓取第五行第三列的数值：</p>
+<pre class="sourceCode r"><code class="sourceCode r">A[<span class="dv">5</span>,<span class="dv">3</span>]</code></pre>
+<pre><code>## [1] 17</code></pre>
+<p>或者第三行的全部数值：</p>
+<pre class="sourceCode r"><code class="sourceCode r">A[<span class="dv">3</span>,]</code></pre>
+<pre><code>## [1]  3  9 15 21 27 33 39 45</code></pre>
+<p>或者第四列的全部数值：</p>
+<pre class="sourceCode r"><code class="sourceCode r">A[,<span class="dv">4</span>]</code></pre>
+<pre><code>## [1] 19 20 21 22 23 24</code></pre>
+<p>接下来我们再看一个三维的例子（还是用1-48）：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(A) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">3</span>)
+A</code></pre>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]    1    3    5    7    9   11   13   15
+## [2,]    2    4    6    8   10   12   14   16
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]   17   19   21   23   25   27   29   31
+## [2,]   18   20   22   24   26   28   30   32
+## 
+## , , 3
+## 
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]   33   35   37   39   41   43   45   47
+## [2,]   34   36   38   40   42   44   46   48</code></pre>
+<p>它生成了三个二维的矩阵。在每个2*8的矩阵存储满16个元素后，第三个维度就要加一了。每个矩阵开头的<code>, , x</code>正是第三个维度的值。同理，我们可以生成四维的array：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(A) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>)
+A</code></pre>
+<pre><code>## , , 1, 1
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
+## 
+## , , 2, 1
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]   13   16   19   22
+## [2,]   14   17   20   23
+## [3,]   15   18   21   24
+## 
+## , , 1, 2
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]   25   28   31   34
+## [2,]   26   29   32   35
+## [3,]   27   30   33   36
+## 
+## , , 2, 2
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]   37   40   43   46
+## [2,]   38   41   44   47
+## [3,]   39   42   45   48</code></pre>
+<p>观察每个矩阵开头的<code>, , x, y</code>. x是第三个维度，y是第四个维度。每个二位矩阵存满后，第三个维度（x）加一。x达到上限后，第四个维度（y）再加一。</p>
+<p>类似二维矩阵，你可以通过index任意抓取数据，比如：</p>
+<pre class="sourceCode r"><code class="sourceCode r">A[ ,<span class="dv">3</span> , , ] <span class="co">#每个矩第3每列的数据，即所有第二个维度为3的数值</span></code></pre>
+<pre><code>## , , 1
+## 
+##      [,1] [,2]
+## [1,]    7   19
+## [2,]    8   20
+## [3,]    9   21
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]   31   43
+## [2,]   32   44
+## [3,]   33   45</code></pre>
+</div>
+<div id="matricesarrays" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> 给matrices和arrays命名</h3>
+<p>假设我们记录了3种药物（chloroquine, artemisinin, doxycycline)
+对5种疟原虫(P. falciparum, P. malariae, P. ovale, P. vivax, P. knowlesi)的疗效，其中每个药物对每种疟原虫做6次实验。为了记录数据，我们可以做3个6*5的矩阵：（这里只是举例子，用的是随机生成的数字）</p>
+<pre class="sourceCode r"><code class="sourceCode r">B &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">90</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="co">#从均匀分布中取100个0到1之间的数</span>
+<span class="kw">dim</span>(B) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">3</span>) <span class="co">#注意顺序</span>
+B</code></pre>
+<pre><code>## , , 1
+## 
+##            [,1]       [,2]       [,3]        [,4]      [,5]
+## [1,] 0.08226197 0.07466706 0.31746177 0.020463216 0.4385411
+## [2,] 0.79375878 0.35088974 0.02783359 0.463873910 0.1589423
+## [3,] 0.13593499 0.50081744 0.97724651 0.006566473 0.4594333
+## [4,] 0.59705771 0.35440815 0.03162484 0.704983341 0.5250061
+## [5,] 0.98115394 0.17708899 0.92046784 0.818084404 0.7505780
+## [6,] 0.51977133 0.99245356 0.62324371 0.236842900 0.7483513
+## 
+## , , 2
+## 
+##           [,1]       [,2]      [,3]      [,4]       [,5]
+## [1,] 0.6752897 0.01851559 0.1334300 0.6251097 0.37007096
+## [2,] 0.4106605 0.97054654 0.7317240 0.1914078 0.08534195
+## [3,] 0.6969628 0.31094307 0.9120068 0.1265618 0.73338348
+## [4,] 0.6462145 0.22981123 0.4281677 0.5098132 0.83571456
+## [5,] 0.3828099 0.95029083 0.4533724 0.4173775 0.31245376
+## [6,] 0.7087687 0.09927907 0.1828021 0.3971428 0.43289119
+## 
+## , , 3
+## 
+##           [,1]       [,2]       [,3]      [,4]      [,5]
+## [1,] 0.9557821 0.40568842 0.05997222 0.7214618 0.9834906
+## [2,] 0.1862292 0.21734501 0.94312049 0.0479228 0.1634397
+## [3,] 0.2751728 0.18786614 0.16163517 0.8526219 0.7389055
+## [4,] 0.8169712 0.93437767 0.19114821 0.9471274 0.1811171
+## [5,] 0.7429320 0.50795704 0.96002952 0.8246951 0.7565057
+## [6,] 0.3834446 0.08069055 0.28694583 0.6235852 0.8781731</code></pre>
+<p>然后我们用<code>dimnames()</code>来命名：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dimnames</span>(B) &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;trial.&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="kw">c</span>(<span class="st">&#39;P. falciparum&#39;</span>, <span class="st">&#39;P. malariae&#39;</span>, <span class="st">&#39;P. ovale&#39;</span>, <span class="st">&#39;P. vivax&#39;</span>, <span class="st">&#39;P. knowlesi&#39;</span>), <span class="kw">c</span>(<span class="st">&#39;chloroquine&#39;</span>, <span class="st">&#39;artemisinin&#39;</span>, <span class="st">&#39;doxycycline&#39;</span>))
+B</code></pre>
+<pre><code>## , , chloroquine
+## 
+##          P. falciparum P. malariae   P. ovale    P. vivax P. knowlesi
+## trial. 1    0.08226197  0.07466706 0.31746177 0.020463216   0.4385411
+## trial. 2    0.79375878  0.35088974 0.02783359 0.463873910   0.1589423
+## trial. 3    0.13593499  0.50081744 0.97724651 0.006566473   0.4594333
+## trial. 4    0.59705771  0.35440815 0.03162484 0.704983341   0.5250061
+## trial. 5    0.98115394  0.17708899 0.92046784 0.818084404   0.7505780
+## trial. 6    0.51977133  0.99245356 0.62324371 0.236842900   0.7483513
+## 
+## , , artemisinin
+## 
+##          P. falciparum P. malariae  P. ovale  P. vivax P. knowlesi
+## trial. 1     0.6752897  0.01851559 0.1334300 0.6251097  0.37007096
+## trial. 2     0.4106605  0.97054654 0.7317240 0.1914078  0.08534195
+## trial. 3     0.6969628  0.31094307 0.9120068 0.1265618  0.73338348
+## trial. 4     0.6462145  0.22981123 0.4281677 0.5098132  0.83571456
+## trial. 5     0.3828099  0.95029083 0.4533724 0.4173775  0.31245376
+## trial. 6     0.7087687  0.09927907 0.1828021 0.3971428  0.43289119
+## 
+## , , doxycycline
+## 
+##          P. falciparum P. malariae   P. ovale  P. vivax P. knowlesi
+## trial. 1     0.9557821  0.40568842 0.05997222 0.7214618   0.9834906
+## trial. 2     0.1862292  0.21734501 0.94312049 0.0479228   0.1634397
+## trial. 3     0.2751728  0.18786614 0.16163517 0.8526219   0.7389055
+## trial. 4     0.8169712  0.93437767 0.19114821 0.9471274   0.1811171
+## trial. 5     0.7429320  0.50795704 0.96002952 0.8246951   0.7565057
+## trial. 6     0.3834446  0.08069055 0.28694583 0.6235852   0.8781731</code></pre>
+<p><strong>清清楚楚，一目了然。</strong></p>
+</div>
+<div id="apply" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> <code>apply</code></h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(A,<span class="dv">1</span>,sum)</code></pre>
+<pre><code>## [1] 376 392 408</code></pre>
 
+<div id="refs" class="references">
+<div>
+<p>R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+</div>
+<div>
+<p>RStudio Team. 2015. <em>RStudio: Integrated Development Environment for R</em>. Boston, MA: RStudio, Inc. <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley. 2017. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.</p>
+</div>
+<div>
+<p>Ziemann, Mark, Yotam Eren, and Assam El-Osta. 2016. “Gene Name Errors Are Widespread in the Scientific Literature.” Journal Article. <em>Genome Biology</em> 17 (1): 177. <a href="https://doi.org/10.1186/s13059-016-1044-7">https://doi.org/10.1186/s13059-016-1044-7</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 
@@ -275,7 +497,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["R与tidyverse——数据分析入门.pdf"],
 "toc": {
 "collapse": "subsection"
 }

@@ -1,3 +1,0 @@
-# List（列），data frame（数据框）和tibble（进化版数据框） {#ch5}
-
-嘿嘿嘿

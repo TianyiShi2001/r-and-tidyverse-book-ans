@@ -4,6 +4,10 @@
 
 ### 概览
 
+```{r echo=FALSE}
+knitr::include_graphics("img/01-interface.png")
+```
+
 #### 左下角：Console（控制台）
 
 #### 右上角：Environment（环境），History（历史）和Connections（连接）

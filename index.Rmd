@@ -8,11 +8,12 @@ output:
     includes:
       in_header: partials/header.html
   bookdown::pdf_book:
+    keep_tex: yes
     latex_engine: "xelatex"
     includes:
       in_header: partials/header.tex
 bibliography: ["bib/main.bib", "bib/packages.bib"]
-biblio-style: "plain"
+biblio-style: ieeetr
 link-citations: true
 documentclass: book
 github-repo: TianyiShi2001/R-Tutorial-Resorces

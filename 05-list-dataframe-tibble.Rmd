@@ -1,18 +1,20 @@
 # dataframe（数据框）和tibble {#ch5}
 
-## 基础
+## 查看dataframe/tibble并了解它们的结构
+
+### dataframe/tibble的概念
 
 dataframe是R中存储复杂数据的格式，它直观易操作。tibble是tidyverse的一部分，它是dataframe的进化版，功能更强大，更易操作。
 
-在dataframe/tibble中，每一行代表的是一个observation（硬翻译的话是“观测单位”，但是我觉得这个翻译不好），每一列代表的是一个variable（变量）。举个例子：
+我们来看个例子：
 
-我们先加载tidyverse：
+首先加载tidyverse：
 
 ```{r eval=FALSE}
 require(tidyverse)
 ```
 
-以后每次跟着本书使用R的时候，都要先加载tidyverse，不再重复提醒了。
+**以后每次跟着本书使用R的时候，都要先加载tidyverse，不再重复提醒了。**
 
 tidyverse中自带一些范例数据，比如我们输入：
 
@@ -24,12 +26,126 @@ mpg
 knitr::include_graphics('img/tibble-intro.png')
 ```
 
-##
+这张图是重中之重。一个正确的dataframe/tibble，每一行代表的是一个observation（硬翻译的话是“观测单位”，但是我觉得这个翻译不好），每一列代表的是一个variable（变量），且同一个变量的数据类型必须一样[^1]。像这样的数据被称为“tidy data”（“整齐的数据”）。虽然看起来简单，直观，理所当然，但是现实中上人们经常会做出“不整齐”的数据。把不整齐的数据弄整齐是下一章的重点。
+
+### 查看更多数据
+
+R默认显示dataframe/tibble的前10行。如果想看最后6行，可以使用`tail()`函数，比如：
+
+```{r}
+tail(mpg)
+```
+
+若要从头到尾查看全部数据，可以使用`View`函数：
+
+```{r eval=FALSE}
+View(mpg)
+```
+
+## 编辑tibble
+
+### 创建tibble
+
+#### 手动输入数据以创建tibble
+
+使用`tibble`函数，按以下格式创建tibble. 换行不是必须的，但是换行会看得更清楚。如果换行，不要忘记行末的逗号。
+
+```{r}
+my_tibble_1 <- tibble(
+                nums = c(4, 5, 6),
+                chars = c("hej", "你好", "こんにちは"),
+                cplxnums = c("4+8i", "3+5i", "3+4i")
+                )
+my_tibble_1
+```
+
+类似地，可以从现有的vector创建。**所有的变量长度必须一样。**
+
+```{r}
+x <- c(1,4,5)
+y <- c(211,23,45)
+z <- c(20,32)
+```
+
+```{r}
+my_tibble_2 <- tibble(v1 = x, v2 = y)
+my_tibble_2
+```
+
+而试图把`x`和`z`做成tibble就会报错：
+
+```{r eval=FALSE}
+my_tibble_3 <- tibble(w1 = x, w2 = z)
+
+ # Error: Tibble columns must have consistent lengths, only values of length one are recycled: * Length 2: Column `w2` * Length 3: Column `w1`
+```
+
+#### 把dataframe转换成一个tibble
+
+```{r eval=FALSE}
+d1 <- as.tibble(d) #其中d是一个dataframe
+```
+
+#### 从外部数据创建tibble
+
+参见第\@ref()节（数据的导入）
+
+
+
+### 抓取行，列
+
+#### 抓取单列
+
+抓取单列很简单，也很常用（比如我们只想从一个大的tibble中抓两个变量研究它们之间的关系）。 有两个符号可以用于抓取列，`$`（仅用于变量名称）与`[[]]`（变量名称或索引）。还是以`mpg`为例，假设我们要抓取第3列 (`displ`)：
+
+```{r eval=FALSE}
+########################
+#通过变量名称抓取：
+mpg[["displ"]]
+#或
+mpg$displ #一般，在RStudio中此方法最方便，因为打出“$”之后会自动提示变量名。
+
+########################
+#通过索引抓取：
+mpg[[3]]
+```
+
+以上三种方法都应得到同样的结果（是一个vector）：
+
+```{r echo=FALSE}
+mpg[[3]][1:20] 
+#因为长度有222，为避免浪费空间我们只显示第1到20个元素。顺便复习一下向量的索引。
+```
+
+#### 抓取多列
+
+有时候，一个tibble中含有很多冗余信息，我们可能想把感兴趣的几个变量抓出来做一个新tibble. 这时`select`函数最为方便。可以用变量名称或者索引来抓取。比如：
+
+```{r}
+mpg_new <- select(mpg, 3:5, 8, 9)
+#等同于
+mpg_new <- select(mpg, displ, year, cyl, cty, hwy)
+
+mpg_new
+```
+
+#### 通过`filter`，抓取满足某条件的行
+
+通过`filter`，我们可以过滤出某个或多个变量满足某种条件的observations. 如果你还不熟悉逻辑运算，请看第\@ref(logical-operations)节
+
+假设我们只想看`mpg`中的奥迪品牌的，排量大于等于2且小于4的车辆的数据：
+
+```{r}
+mpg_audi_displ2to4 <- filter(mpg, manufacturer == "audi", displ >= 2.5 & displ < 4)
+
+mpg_audi_displ2to4
+```
+
 
 
 ## 进阶内容
 
-这一节为进阶内容，不用看。可以直接跳到\@\ref{}
+这一节为进阶内容，不用看。可以直接跳到下一章（第\@ref(graphics)
 
 其中的很多操作和dataframe或tibble中的操作是等效的。一般，tibble中的操作更直观，更容易上手。
 
@@ -88,12 +204,12 @@ dim(A) <- c(3,4,2,2)
 A
 ```
 
-观察每个矩阵开头的`, , x, y`. x是第三个维度，y是第四个维度。每个二位矩阵存满后，第三个维度（x）加一。x达到上限后，第四个维度（y）再加一。
+观察每个矩阵开头的`, , x, y`.  x是第三个维度，y是第四个维度。每个二位矩阵存满后，第三个维度（x）加一。x达到上限后，第四个维度（y）再加一。
 
 类似二维矩阵，你可以通过index任意抓取数据，比如：
 
 ```{r}
-A[ ,3 , , ] #每个矩第3每列的数据，即所有第二个维度为3的数值
+A[ ,3 , , ] #每个矩阵第3列的数据，即所有第二个维度为3的数值
 ```
 
 ### 给matrices和arrays命名

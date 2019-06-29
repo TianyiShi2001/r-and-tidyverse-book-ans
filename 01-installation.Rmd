@@ -2,7 +2,7 @@
 
 ## 什么是R
 
-R[@R-base]包含R语言（编程语言）和一个有着强大的统计分析及作图功能的软件系统，由新西兰奥克兰大学统计学系 的 Ross Ihaka 和 Robert Gentleman 共同创立。
+R[@R-base]包含R语言和一个有着强大的统计分析及作图功能的软件系统，由新西兰奥克兰大学的Ross Ihaka和Robert Gentleman共同开发。R语言虽然看起来只能做统计，实际上它麻雀虽小，五脏俱全，编程语言该有的特性它基本都有（[甚至支持OPP](https://adv-r.hadley.nz/oo.html)）。
 
 安装了R之后，你可以在其自带的“R”软件中（也可以直接在命令行使用），但是那个软件界面比较简单，需要记住一些命令来执行“查看当前存储的数据”，“导出jpg格式的图像”等操作，对新手不太友好。因此我们使用RStudio. 
 
@@ -16,7 +16,7 @@ RStudio[@R-rstudio]是R语言官方的IDE（集成开发环境），它的一系
 
 https://cran.r-project.org
 
-前往[CRAN](https://cran.r-project.org)，根据自己的操作系统（Linux，MacOS或Windows）选择下载安装R.
+前往[CRAN](https://cran.r-project.org)，根据自己的操作系统（Linux，MacOS或Windows）选择下载安装R. (Linux用户亦可参考[此处](https://blog.zenggyu.com/en/post/2018-01-29/installing-r-r-packages-e-g-tidyverse-and-rstudio-on-ubuntu-linux/))
 
 ### 安装RStudio
 
@@ -34,19 +34,14 @@ SAS，SPSS和Prism都是收费的，而且不便宜。比如SAS第一年需要[1
 
 R比SAS功能更强大。所有SAS中的功能，都能在R中实现，而很多R中的功能无法在SAS中实现[^1]。
 
-R和Python是开源、免费的。
-
-在数据分析的应用中，R比Python历史更悠久，因此积攒了很多很棒的packages（包）。
-
-使用Python做数据分析近年来愈发流行，网上也有不少教程。
-
-使用R+Python
-
+R和Python（NumPy和SciPy）是开源、免费的。在数据分析的应用中，R比Python历史更悠久，因此积攒了很多很棒的packages（包）。一般来说，python的强项是数据挖掘，而R的强项是数据分析，它们都是强大的工具。不用担心需要在二者之中做选择，因为rpy, reticulate等packages可以让你在python中使用R，在R中使用python，详情请见第\@ref(python)章。无论你是数据分析零基础，还是有python数据分析的经验，都能从本书中获益。
 
 至于Excel，它的定位原本就是办公（而不是学术）软件，用作数据收集和初步整理是可以的，但是做不了严谨的数据分析和大数据，功能也非常局限。有五分之一的使用了Excel的遗传学论文，数据都出现了偏差[@Ziemann2016Gene-name-errors]。
 
 
 R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你可以 在[GNU官网](https://www.gnu.org/philosophy/free-sw.zh-cn.html)了解更多。
+
+此外，R可以完美地在Linux中运行。
 
 [^0]: Gentleman, R. (2009). *R Programming for Bioinformatics*. Boca Raton, FL: CRC Press.
 [^1]: https://thomaswdinsmore.com/2014/12/15/sas-versus-r-part-two/
@@ -61,23 +56,26 @@ R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你�
 - [爆栈网 (StackOverflow)](https://stackoverflow.com)是著名计算机技术问答网站（如果你有其他的编程语言基础，一定对它不陌生）。查找问题的时候加上`[R]`，这样搜索结果就都是与R相关的了（为了进一步缩小搜索范围，可以加上其他的tag，比如`[ggplot]`, `[dplyr]`)。注意，提问和回答的时候话语尽量精简，不要在任何地方出现与问题无关的话（包括客套话如“谢谢”），了解更多请查看其[新手向导](https://stackoverflow.com/tour)。
 - 由谢益辉大佬在2006年（竟然比爆栈网更早！）创建的[“统计之都”论坛](https://d.cosx.org)，是做的最好的一个面向R的中文论坛（但是客观地来说活跃度还是没爆栈网高）同样不要忘记读新手指引。
 
-## Reference类（查找特定的function的用法，就像查字典一样）
+## Reference类（查找特定的function/package的用法，就像查字典一样）
 
 - 直接在R console中执行`?`+函数名称，比如`?t.test`
 - [RDocumentation](https://www.rdocumentation.org)上有基础R语言和来自CRAN，GitHub和Bioconductor上的近18000个packages的所有的函数的说明和使用例。
+- 有些packages会在官网/github仓库提供使用说明，比如[tidyverse](https://www.tidyverse.org)
+- 有些packages会提供vignettes，它们类似于使用指南，相比于函数的documentation更为详细且更易读。`vignette()`（无参数）以查看全部可用vignettes. 你可以试试`vignette("Sweave")`， 它是用LaTeX排版的，很漂亮。
 
 ## 教程和书籍类（用来系统地学习）
 
 - R的[官方Manuals](https://cran.r-project.org/manuals.html).
 其中新手只需要看*An Introduction to R*，随后选看*R Language Definition*即可。部分由[丁国徽](https://github.com/dingguohui)翻译成中文（点击量其实并不高……要想把握前沿信息还是需要阅读英语的能力的）。
-- [*R for Data Science* by Garrett Grolemund & Hadley Wickham](https://r4ds.had.co.nz). `tidyverse`的作者写的一本书，较为详细地介绍了`tidyverse`的用法以及一些更高深的关于编程的内容。
+- [*R for Data Science* by Garrett Grolemund & Hadley Wickham](https://r4ds.had.co.nz). `tidyverse`的作者写的一本书，较为详细地介绍了`tidyverse`的用法以及一些更高深的关于编程的内容。（[练习题答案](https://jrnold.github.io/r4ds-exercise-solutions/)）
 - [RStudio Resources](https://resources.rstudio.com)是RStudio的资源区，有关于R和RStudio的高质量教程，还可以下载很多方便实用的Cheat Sheet. 
 - [*The R Book* by Michael J. Crawley](https://github.com/TianyiShi2001/R-Tutorial-Resorces/blob/master/资源/书籍/TheRBook.pdf)
-- R的[官方fAQ](https://cran.r-project.org)
+- R的[官方FAQ](https://cran.r-project.org)（在左侧菜单栏中找到“FAQ”）
 - 存储在CRAN上的[中文FAQ](https://cran.r-project.org/doc/contrib/Liu-FAQ.pdf)（注意这不是英文FAQ的翻译，而是一本独立的R入门教程）
+- [*Advanced* R by Hadley Wickham](https://adv-r.hadley.nz/index.html)及其[练习题答案](https://advanced-r-solutions.rbind.io)。
 
 ## 速查表 (Cheat sheets)（用来贴墙上）
 
 - [R Reference Card 2.0 by Mayy Baggott & Tom Short](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)以及其第一版的[中文翻译](https://cran.r-project.org/doc/contrib/Liu-R-refcard.pdf)
-- [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)包含了RStudio IDE和常用packages的cheat sheets。
+- [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)包含了RStudio IDE和常用packages的cheat sheets。2019年版的合集[在这里](https://www.rstudio.com/wp-content/uploads/2019/01/Cheatsheets_2019.pdf)。
 

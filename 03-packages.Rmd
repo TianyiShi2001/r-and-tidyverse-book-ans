@@ -1,0 +1,61 @@
+# 安装和使用packages (包) {#packages}
+
+## Package是什么，为什么使用它们？
+
+Package是别人写好的在R中运行的程序（以及附带的数据和文档），你可以免费安装和使用它们。
+
+Packages可以增加在基础R语言中没有的功能，可以精简你代码的语句，或是提升使用体验。比如有个叫做`tikzDevice`的package可以将R中的图表导出成tikz语法的矢量图，方便在LaTeX中使用。本书的编写和排版也是使用R中的一个叫做`bookdown`的package完成的（真的超棒）. 
+
+这个课程主要是学习`tidyverse`这个package，
+
+## 如何安装packages
+
+首先我们安装tidyverse（**很重要，本书接下来的部分都要使用这个package**）：
+
+```{r eval=FALSE}
+install.packages("tidyverse")
+```
+在console中运行以上代码，R就会从CRAN中下载tidyverse并安装到你电脑上的默认位置。因此安装packages需要网络连接。
+
+如果想安装多个packages，你可以一行一行地安装，或是把多个packages的名字合成一列，同时安装，比如：
+
+```{r eval=FALSE}
+install.packages(c("nycflights13", "gapminder", "Lahman")
+```
+
+它其中包含一系列小
+
+## 如何使用packages
+
+安装packages后，有两种方法使用它们。以`tidyverse`为例：
+
+```{r eval=FALSE}
+library('tidyverse')
+```
+或
+```{r eval=FALSE}
+require('tidyverse')
+```
+
+两者的效果很大程度上都是一样的，都可以用来读取**单个**package。它们的不同，以及如何通过一行指令读取多个packages，请参看第\@ref{require-and-library}节。
+
+每次重启R的时候，上一次使用的packages都会被清空，所以需要重新读取。因此我们要在R script里面记录此script需要使用的packages（这个特性可以帮助你养成好习惯：当你把你的代码分享给别人的时候，要保证在别人的电脑上也能正常运行，就必须要指明要使用哪些packages）
+
+## 其它
+
+这小节包含了一些不重要的内容，因此**可酌情跳到下一章（第@\ref(vectors-logicals-and-functions)章。**
+
+### `library()`和`require`的区别；如何使用一行指令读取多个packages {#require-and-library}
+
+1. `require()`会返回一个逻辑值。如果package读取成功，会返回`TRUE`，反之则返回`FALSE`.
+2. `library()`如果读取试图读取不存在的package，会直接造成错误(error)，而`require()`不会造成错误，只会产生一个警告(warning).
+
+这意味着`require()`可以用来同时读取多个packages：
+
+```{r}
+lapply(c("dplyr","ggplot2"), require, character.only = TRUE)
+```
+或者更精简一点，
+```{r}
+lapply(c("dplyr","ggplot2"), require, c = T)
+```

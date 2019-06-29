@@ -1,0 +1,13 @@
+# 与Python的联合使用 {#python}
+
+## 在R中使用Python: `reticulate`
+
+## 在Python中使用R: `rpy`
+
+## Beaker Notebook
+
+https://decisionstats.com/2015/12/07/decisionstats-interview-scott-draves-beaker-notebook/
+
+Inspired by Jupyter, Beaker Notebook allows you to switch from one language in one code block to another language in another code block in a streamlined way to pass shared objects (data)
+
+##

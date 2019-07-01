@@ -1,2 +1,19 @@
 # 数据处理 {#wrangle}
 
+## 把“untidy data”整成“tidy data”
+
+### “untidy data”的主要问题
+
+### 解决方案
+
+## 数据的导入和导出
+
+### 导入 {#data-import}
+
+#### csv
+
+#### excel
+
+#### 其它
+
+### 导出

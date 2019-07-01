@@ -1,8 +1,8 @@
-# dataframe（数据框）和tibble {#ch5}
+# dataframe（数据框）和tibble {#tibble}
 
 ## 查看dataframe/tibble并了解它们的结构
 
-### dataframe/tibble的概念
+### dataframe/tibble的基本概念
 
 dataframe是R中存储复杂数据的格式，它直观易操作。tibble是tidyverse的一部分，它是dataframe的进化版，功能更强大，更易操作。
 
@@ -42,7 +42,7 @@ tail(mpg)
 View(mpg)
 ```
 
-## 编辑tibble
+## tibble的创建和基础操作
 
 ### 创建tibble
 
@@ -88,13 +88,13 @@ d1 <- as.tibble(d) #其中d是一个dataframe
 
 #### 从外部数据创建tibble
 
-参见第\@ref()节（数据的导入）
+参见第\@ref(data-import)节（数据的导入）
 
 
 
 ### 抓取行，列
 
-#### 抓取单列
+#### 抓取单列 {#single-column}
 
 抓取单列很简单，也很常用（比如我们只想从一个大的tibble中抓两个变量研究它们之间的关系）。 有两个符号可以用于抓取列，`$`（仅用于变量名称）与`[[]]`（变量名称或索引）。还是以`mpg`为例，假设我们要抓取第3列 (`displ`)：
 
@@ -119,7 +119,7 @@ mpg[[3]][1:20]
 
 #### 抓取多列
 
-有时候，一个tibble中含有很多冗余信息，我们可能想把感兴趣的几个变量抓出来做一个新tibble. 这时`select`函数最为方便。可以用变量名称或者索引来抓取。比如：
+有时候，一个tibble中含有很多冗余信息，我们可能想把感兴趣的几个变量抓出来做一个新tibble. 这时`select()`函数最为方便。可以用变量名称或者索引来抓取。比如：
 
 ```{r}
 mpg_new <- select(mpg, 3:5, 8, 9)
@@ -129,9 +129,9 @@ mpg_new <- select(mpg, displ, year, cyl, cty, hwy)
 mpg_new
 ```
 
-#### 通过`filter`，抓取满足某条件的行
+#### 通过`filter()`，抓取满足某条件的行
 
-通过`filter`，我们可以过滤出某个或多个变量满足某种条件的observations. 如果你还不熟悉逻辑运算，请看第\@ref(logical-operations)节
+通过`filter()`，我们可以过滤出某个或多个变量满足某种条件的observations. 如果你还不熟悉逻辑运算，请看第\@ref(logical-operations)节
 
 假设我们只想看`mpg`中的奥迪品牌的，排量大于等于2且小于4的车辆的数据：
 
@@ -141,19 +141,101 @@ mpg_audi_displ2to4 <- filter(mpg, manufacturer == "audi", displ >= 2.5 & displ <
 mpg_audi_displ2to4
 ```
 
+#### 用`slice()`，通过行数（索引）抓取行。
+
+```{r}
+mpg_1to6 <- slice(mpg, 21:26) # 抓取mpg的第21行至26行
+mpg_1to6
+```
+
+我觉得`slice()`更实际的用途是随机选择个体：
+
+```{r}
+mpg_random4 <- slice(mpg, sample(length(mpg[[1]]), 4)) # 随机四辆车
+mpg_random4
+```
+
+### 关于Factor
+
+有时候，我们的变量是以文字的形式呈现，但是它们不是单纯的文字，而是有大小的差别，或是能以一定顺序排列，比如十二个月份 (Jan, Feb, ...)，成绩的“优、良、中、差”，衣服的尺寸 (XS, S, M, XL, ...). 假设我们在做客户满意度调查，七位客户的反馈是
+
+```{r}
+满意度_v <- c("满意", "非常满意", "满意", "不满意", "满意", "非常不满",  "不满意")
+```
+
+我们试图用`sort()`把七个反馈按满意度从小到大排列：
+
+```{r}
+sort(满意度_v)
+```
+
+可见其排序并不是有意义的。（因为默认英语根据'abcde...'排序，中文根据笔画排序）
+
+我们可以把这个vector做成factor，并用参数`levels`规定排序顺序：
+
+```{r}
+# 按照惯例，小的值在前，大的在后；“非常不满”应为满意度最低的值。
+满意度_f <- factor(满意度_v, levels = c("非常不满", "不满意", "满意", "非常满意"))
+sort(满意度_f)
+```
+
+这样排序就是正确的了。
+
+```{r eval=FALSE}
+class(满意度_f) # "factor"
+is.vector(满意度_f) # FALSE
+```
 
 
-## 进阶内容
+## 进阶内容：list, array和matrix
 
 这一节为进阶内容，不用看。可以直接跳到下一章（第\@ref(graphics)
 
 其中的很多操作和dataframe或tibble中的操作是等效的。一般，tibble中的操作更直观，更容易上手。
 
-### arrays（数组）和matrices（矩阵）简介
+### list（列表）简介
+
+R中的list是一种特殊的数据存储形式。使用`list()`函数来创建lists.
+
+尝试对lists和vectors使用`is.vector()`, `is.list()`, `is.atomic()`和`is.recursive()`函数，你会发现list虽然也是“vector”，但我们一般说的“vector”都是指只能存储一种数据类型的atomic vector；而lists是recursive vector. 
+
+这意味着**一个list能存储多种类型的数据，且可以包含子list**。list中的每个元素是可以是一个(atomic) vector（如以下例子中的`[[1]]`和`[[3]][[2]]`），也可以是一个list（如以下例子中的[[3]]，它包含了有两个list元素的list；[[3]]是一个子list）。
+
+```{r}
+y <- list(1, c("a","あ"), list(1+3i, c(FALSE, NA, TRUE)))
+y
+```
+
+#### list的索引
+
+使用上面的例子：
+
+```{r}
+y[2] # 使用单方括号，得到的是一个只有一个list元素的list
+y[[2]] # 使用双方括号，得到的是一个vector
+y[[3]][[2]] # 得到的也是一个vector；母list的索引在前，子list的在后
+y[[3]] # 这个位置包含两个子list，因此得到一个有两个list元素的list
+y[[3]][[2]][2] # 得到vector时，直接在后面用单方括号
+```
+
+#### Dataframe和tibble的本质
+
+聪明的你也许已经注意到了，dataframe/tibble[抓取单列的方法](#single-column)和list的索引惊人地相似（我曾经的语文老师喜欢调侃抄作业的同学的答案与参考答案“惊人地相似”）。
+
+事实上，dataframe的本质正是list，而tibble也是dataframe（只是进化了一些功能）：
+
+```{r}
+is.list(mpg)
+class(mpg)
+```
+
+
+
+### array（数组）和matrix（矩阵）简介
 
 Vector是一维的数据。Array是多维的数据。Matrix是二维的数据，因此matrix是array的一种特殊情况。
 
-Dataframe不是matrix. A matrix is a two-dimensional **array** containing numbers. A dataframe is a two-dimensional **list** containing (potentially a mix of) numbers, text or logical variables in different columns.
+Dataframe不是matrix（虽然都是方的）. Matrix是二维的，**仅包含数字**的**array**. Dataframe是一个二维的**list**，不同列（即list元素）**可以存储不同的数据类型**。
 
 我们可以用`dim()`来创建arrays：
 

@@ -24,7 +24,7 @@
 <meta name="author" content="石天熠" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -179,6 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="ch2.html"><a href="ch2.html#section-3.2.1"><i class="fa fa-check"></i><b>3.2.1</b> 执行代码</a></li>
 <li class="chapter" data-level="3.2.2" data-path="ch2.html"><a href="ch2.html#manage"><i class="fa fa-check"></i><b>3.2.2</b> 记录和管理代码</a></li>
 <li class="chapter" data-level="3.2.3" data-path="ch2.html"><a href="ch2.html#r-script"><i class="fa fa-check"></i><b>3.2.3</b> 写/保存/运行R script</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ch2.html"><a href="ch2.html#section-3.2.4"><i class="fa fa-check"></i><b>3.2.4</b> 关于换行</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>4</b> 安装和使用packages (包)</a><ul>
@@ -192,8 +193,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html"><i class="fa fa-check"></i><b>5</b> 向量，逻辑，循环和函数</a><ul>
 <li class="chapter" data-level="5.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 向量的概念，操作和优越性</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#create-vector"><i class="fa fa-check"></i><b>5.1.1</b> 创建向量（赋值）</a></li>
-<li class="chapter" data-level="5.1.2" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.1.2"><i class="fa fa-check"></i><b>5.1.2</b> 索引</a></li>
+<li class="chapter" data-level="5.1.2" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#indexing"><i class="fa fa-check"></i><b>5.1.2</b> 索引</a></li>
 <li class="chapter" data-level="5.1.3" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.1.3"><i class="fa fa-check"></i><b>5.1.3</b> 生成器</a></li>
+<li class="chapter" data-level="5.1.4" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.1.4"><i class="fa fa-check"></i><b>5.1.4</b> 向量的其它操作</a></li>
+<li class="chapter" data-level="5.1.5" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#youyuexing"><i class="fa fa-check"></i><b>5.1.5</b> R向量的优越性</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#-data-types"><i class="fa fa-check"></i><b>5.2</b> 数据类型 (Data Types)</a></li>
 <li class="chapter" data-level="5.3" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.3"><i class="fa fa-check"></i><b>5.3</b> 数学表达和运算</a><ul>
@@ -205,31 +208,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.2" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#logical-operations"><i class="fa fa-check"></i><b>5.4.2</b> Logical Operations（逻辑运算）</a></li>
 <li class="chapter" data-level="5.4.3" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.4.3"><i class="fa fa-check"></i><b>5.4.3</b> 逻辑运算详解</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.5"><i class="fa fa-check"></i><b>5.5</b> 以下是不重要的一些内容</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#consoler-script"><i class="fa fa-check"></i><b>5.5.1</b> Console和R script编辑器的一些特性</a></li>
+<li class="chapter" data-level="5.5" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.5"><i class="fa fa-check"></i><b>5.5</b> 判断和循环（控制流程）</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#if-else-else-if-"><i class="fa fa-check"></i><b>5.5.1</b> <code>if</code>, <code>else</code>, <code>else if</code> 语句</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.6"><i class="fa fa-check"></i><b>5.6</b> 判断和循环（控制流）</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#if-else-else-if-"><i class="fa fa-check"></i><b>5.6.1</b> <code>if</code>, <code>else</code>, <code>else if</code> 语句</a></li>
+<li class="chapter" data-level="5.6" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.6"><i class="fa fa-check"></i><b>5.6</b> 函数</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#abbr"><i class="fa fa-check"></i><b>5.6.1</b> 调用函数时的简写</a></li>
+<li class="chapter" data-level="5.6.2" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#..."><i class="fa fa-check"></i><b>5.6.2</b> 关于<code>...</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.7"><i class="fa fa-check"></i><b>5.7</b> 函数</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#abbr"><i class="fa fa-check"></i><b>5.7.1</b> 调用函数时的简写</a></li>
-<li class="chapter" data-level="5.7.2" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#..."><i class="fa fa-check"></i><b>5.7.2</b> 关于<code>...</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.8" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.8"><i class="fa fa-check"></i><b>5.8</b> 简易的统计学计算</a><ul>
-<li class="chapter" data-level="5.8.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#t"><i class="fa fa-check"></i><b>5.8.1</b> t分布</a></li>
-<li class="chapter" data-level="5.8.2" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#z"><i class="fa fa-check"></i><b>5.8.2</b> z分布</a></li>
-<li class="chapter" data-level="5.8.3" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#t"><i class="fa fa-check"></i><b>5.8.3</b> t检验</a></li>
-<li class="chapter" data-level="5.8.4" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#chi2-"><i class="fa fa-check"></i><b>5.8.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
+<li class="chapter" data-level="5.7" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#section-5.7"><i class="fa fa-check"></i><b>5.7</b> 简易的统计学计算</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#t"><i class="fa fa-check"></i><b>5.7.1</b> t分布</a></li>
+<li class="chapter" data-level="5.7.2" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#z"><i class="fa fa-check"></i><b>5.7.2</b> z分布</a></li>
+<li class="chapter" data-level="5.7.3" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#t"><i class="fa fa-check"></i><b>5.7.3</b> t检验</a></li>
+<li class="chapter" data-level="5.7.4" data-path="vectors-logicals-and-functions.html"><a href="vectors-logicals-and-functions.html#chi2-"><i class="fa fa-check"></i><b>5.7.4</b> <span class="math inline">\(\chi^2\)</span> 检验</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>6</b> dataframe（数据框）和tibble</a><ul>
 <li class="chapter" data-level="6.1" data-path="ch5.html"><a href="ch5.html#dataframetibble"><i class="fa fa-check"></i><b>6.1</b> 查看dataframe/tibble并了解它们的结构</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="ch5.html"><a href="ch5.html#dataframetibble"><i class="fa fa-check"></i><b>6.1.1</b> dataframe/tibble的概念</a></li>
+<li class="chapter" data-level="6.1.1" data-path="ch5.html"><a href="ch5.html#dataframetibble"><i class="fa fa-check"></i><b>6.1.1</b> dataframe/tibble的基本概念</a></li>
 <li class="chapter" data-level="6.1.2" data-path="ch5.html"><a href="ch5.html#section-6.1.2"><i class="fa fa-check"></i><b>6.1.2</b> 查看更多数据</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="ch5.html"><a href="ch5.html#tibble"><i class="fa fa-check"></i><b>6.2</b> 编辑tibble</a><ul>
+<li class="chapter" data-level="6.2" data-path="ch5.html"><a href="ch5.html#tibble"><i class="fa fa-check"></i><b>6.2</b> tibble的创建和基础操作</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="ch5.html"><a href="ch5.html#tibble"><i class="fa fa-check"></i><b>6.2.1</b> 创建tibble</a></li>
 <li class="chapter" data-level="6.2.2" data-path="ch5.html"><a href="ch5.html#section-6.2.2"><i class="fa fa-check"></i><b>6.2.2</b> 抓取行，列</a></li>
+<li class="chapter" data-level="6.2.3" data-path="ch5.html"><a href="ch5.html#factor"><i class="fa fa-check"></i><b>6.2.3</b> 关于Factor</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="ch5.html"><a href="ch5.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 进阶内容</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="ch5.html"><a href="ch5.html#arraysmatrices"><i class="fa fa-check"></i><b>6.3.1</b> arrays（数组）和matrices（矩阵）简介</a></li>
@@ -237,13 +238,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.3" data-path="ch5.html"><a href="ch5.html#apply"><i class="fa fa-check"></i><b>6.3.3</b> <code>apply</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>7</b> ggplot</a></li>
-<li class="chapter" data-level="8" data-path="wrangle.html"><a href="wrangle.html"><i class="fa fa-check"></i><b>8</b> 数据处理</a></li>
+<li class="chapter" data-level="7" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>7</b> 使用ggplot绘图</a><ul>
+<li class="chapter" data-level="7.1" data-path="graphics.html"><a href="graphics.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 哲理</a></li>
+<li class="chapter" data-level="7.2" data-path="graphics.html"><a href="graphics.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 基础</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="graphics.html"><a href="graphics.html#section-7.2.1"><i class="fa fa-check"></i><b>7.2.1</b> 基本语法</a></li>
+<li class="chapter" data-level="7.2.2" data-path="graphics.html"><a href="graphics.html#section-7.2.2"><i class="fa fa-check"></i><b>7.2.2</b> 图像类型</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="graphics.html"><a href="graphics.html#section-7.3"><i class="fa fa-check"></i><b>7.3</b> 进阶</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="graphics.html"><a href="graphics.html#section-7.3.1"><i class="fa fa-check"></i><b>7.3.1</b> 逐层作图</a></li>
+<li class="chapter" data-level="7.3.2" data-path="graphics.html"><a href="graphics.html#section-7.3.2"><i class="fa fa-check"></i><b>7.3.2</b> 尺寸，轴，和图例</a></li>
+<li class="chapter" data-level="7.3.3" data-path="graphics.html"><a href="graphics.html#section-7.3.3"><i class="fa fa-check"></i><b>7.3.3</b> 位置</a></li>
+<li class="chapter" data-level="7.3.4" data-path="graphics.html"><a href="graphics.html#section-7.3.4"><i class="fa fa-check"></i><b>7.3.4</b> 背景/主题的修改</a></li>
+<li class="chapter" data-level="7.3.5" data-path="graphics.html"><a href="graphics.html#ggplot"><i class="fa fa-check"></i><b>7.3.5</b> 与ggplot编程</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="graphics.html"><a href="graphics.html#base-r"><i class="fa fa-check"></i><b>7.4</b> 附：Base R中的作图</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="wrangle.html"><a href="wrangle.html"><i class="fa fa-check"></i><b>8</b> 数据处理</a><ul>
+<li class="chapter" data-level="8.1" data-path="wrangle.html"><a href="wrangle.html#untidy-datatidy-data"><i class="fa fa-check"></i><b>8.1</b> 把“untidy data”整成“tidy data”</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="wrangle.html"><a href="wrangle.html#untidy-data"><i class="fa fa-check"></i><b>8.1.1</b> “untidy data”的主要问题</a></li>
+<li class="chapter" data-level="8.1.2" data-path="wrangle.html"><a href="wrangle.html#section-8.1.2"><i class="fa fa-check"></i><b>8.1.2</b> 解决方案</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="wrangle.html"><a href="wrangle.html#section-8.2"><i class="fa fa-check"></i><b>8.2</b> 数据的导入和导出</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="wrangle.html"><a href="wrangle.html#data-import"><i class="fa fa-check"></i><b>8.2.1</b> 导入</a></li>
+<li class="chapter" data-level="8.2.2" data-path="wrangle.html"><a href="wrangle.html#section-8.2.2"><i class="fa fa-check"></i><b>8.2.2</b> 导出</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>9</b> 与Python的联合使用</a><ul>
 <li class="chapter" data-level="9.1" data-path="python.html"><a href="python.html#rpython-reticulate"><i class="fa fa-check"></i><b>9.1</b> 在R中使用Python: <code>reticulate</code></a></li>
 <li class="chapter" data-level="9.2" data-path="python.html"><a href="python.html#pythonr-rpy"><i class="fa fa-check"></i><b>9.2</b> 在Python中使用R: <code>rpy</code></a></li>
 <li class="chapter" data-level="9.3" data-path="python.html"><a href="python.html#beaker-notebook"><i class="fa fa-check"></i><b>9.3</b> Beaker Notebook</a></li>
-<li class="chapter" data-level="9.4" data-path="python.html"><a href="python.html#section"><i class="fa fa-check"></i><b>9.4</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -287,6 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+
 
 
 

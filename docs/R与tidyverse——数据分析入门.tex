@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-06-29}
+    \date{2019-07-01}
 
 \usepackage[UTF8]{ctex}
 
@@ -156,8 +156,8 @@
 
 如果你熟悉\href{https://bookdown.org}{Bookdown}和Github，可以\href{https://github.com/TianyiShi2001/R-Tutorial-Resorces}{在此提交pull request}.
 
-\hypertarget{ch1}{%
-\chapter{R和RStudio介绍和安装教程}\label{ch1}}
+\hypertarget{intro-and-installation}{%
+\chapter{R和RStudio介绍和安装教程}\label{intro-and-installation}}
 
 \hypertarget{r}{%
 \section{什么是R}\label{r}}
@@ -206,7 +206,8 @@ R是GNU计划的一部分，因此R是一个自由软件 (Libre software)。你�
 
 此外，R可以完美地在Linux中运行。
 
-\chapter{获取资源与帮助（重要！）}
+\hypertarget{getting-help}{%
+\chapter{获取资源与帮助（重要！）}\label{getting-help}}
 
 这本书可以帮助你快速学会R和tidyverse的最常用和最重要的操作，但这仅仅是冰山一角。当你在做自己的研究的时候，会用到很多这本书中没有讲到的方法，因此学会获取资源和帮助是很重要的。以下列举几个常用的获取R的帮助的网站/方法：
 
@@ -317,7 +318,7 @@ Packages是安装/查看/更新packages（包）的区域。详情请看第\ref{
 [1] 2
 \end{verbatim}
 
-其中\texttt{2}是计算结果， \texttt{{[}1{]}}我们在下一章再解释。\texttt{\textgreater{}\ 1\ +\ 1}是input，\texttt{{[}1{]}\ 2}是output.
+其中\texttt{2}是计算结果， \texttt{{[}1{]}}是索引，在第\ref{indexing}节有解释。\texttt{\textgreater{}\ 1\ +\ 1}是input，\texttt{{[}1{]}\ 2}是output.
 
 还是用\texttt{1\ +\ 1}举例，在本书中，对于input和output的展示格式是这样的：
 
@@ -428,6 +429,50 @@ Packages是安装/查看/更新packages（包）的区域。详情请看第\ref{
 
 \texttt{Ctrl}+\texttt{S} (\texttt{command}+\texttt{S})以保存R script. 保存后会在工作目录找到你新保存的\texttt{.R}文件。重新启动RStudio的时候，便可以打开对应的R script文件以重复/继续之前的工作。
 
+\subsection{关于换行}
+
+Console 中每个命令开头的\texttt{\textgreater{}}叫做prompt（命令提示符），当它出现在你所编辑的那一行的开头时，按下回车的时候那行的命令才会被执行。有时候它会消失，这时候按\texttt{esc}可以将其恢复。
+
+prompt消失的主要原因是你的代码没有写完，比如括号不完整：
+
+\begin{verbatim}
+> 2+(3+4
+\end{verbatim}
+
+这时你按回车，它会显示：
+
+\begin{verbatim}
+> 2+(3+4
++
+\end{verbatim}
+
+\texttt{+}号是在提示代码没写完整。这时你把括号补上再按回车：
+
+\begin{verbatim}
+> 2+(3+4
++ )
+\end{verbatim}
+
+\begin{verbatim}
+[1] 9
+\end{verbatim}
+
+便可以完成计算。
+
+这意味着我们可以把一条很长的命令分成很多行。比如我们可以写这样的代码（在R script编辑器中！）
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)\{}
+  \KeywordTok{print}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{\{}
+  \KeywordTok{print}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+然后\texttt{Ctrl}+\texttt{Enter}执行。你会发现在console中，从第二行开始每行开头都有一个\texttt{+}号。
+
 \hypertarget{packages}{%
 \chapter{安装和使用packages (包)}\label{packages}}
 
@@ -482,13 +527,13 @@ Packages可以增加在基础R语言中没有的功能，可以精简你代码�
 \end{Highlighting}
 \end{Shaded}
 
-两者的效果很大程度上都是一样的，都可以用来读取\textbf{单个}package。它们的不同，以及如何通过一行指令读取多个packages，请参看第@ref\{require-and-library\}节。
+两者的效果很大程度上都是一样的，都可以用来读取\textbf{单个}package。它们的不同，以及如何通过一行指令读取多个packages，请参看第\ref{require-and-library}节。
 
 每次重启R的时候，上一次使用的packages都会被清空，所以需要重新读取。因此我们要在R script里面记录此script需要使用的packages（这个特性可以帮助你养成好习惯：当你把你的代码分享给别人的时候，要保证在别人的电脑上也能正常运行，就必须要指明要使用哪些packages）
 
 \section{其它}
 
-这小节包含了一些不重要的内容，因此\textbf{可酌情跳到下一章（第@\ref(vectors-logicals-and-functions)章。}
+这小节是一些不重要的内容，因此\textbf{可酌情跳到下一章（第\ref{vectors-logicals-and-functions}章。}
 
 \hypertarget{require-and-library}{%
 \subsection{\texorpdfstring{\texttt{library()}和\texttt{require}的区别；如何使用一行指令读取多个packages}{library()和require的区别；如何使用一行指令读取多个packages}}\label{require-and-library}}
@@ -537,6 +582,8 @@ Packages可以增加在基础R语言中没有的功能，可以精简你代码�
 \hypertarget{vectors-logicals-and-functions}{%
 \chapter{向量，逻辑，循环和函数}\label{vectors-logicals-and-functions}}
 
+\emph{注意，R中的变量名/自定义函数名不能以数字和特殊符号开头，中间只能使用"\_``和''."作为特殊符号}\footnote{如果非要违反规则，可以使用转义符号\texttt{\textbackslash{}\textasciigrave{}\textasciigrave{}，比如可以\textasciigrave{}\textasciigrave{}}4foo\%b=a+r` \textless{}- 50 ``}
+
 \section{向量的概念，操作和优越性}
 
 R没有标量，它通过各种类型的向量 (vector)来存储数据。
@@ -583,57 +630,33 @@ R没有标量，它通过各种类型的向量 (vector)来存储数据。
 ## [1] "Zürich" "上海"   "Tehrān"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(nums)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "numeric"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(cities)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "character"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\OperatorTok{+}\NormalTok{5i, 3i, }\DecValTok{1}\OperatorTok{+}\NormalTok{0i))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "complex"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#没必要赋值一个变量；c(...)的计算结果就是一个向量，并直接传给`class()`函数}
-\end{Highlighting}
-\end{Shaded}
-
 通过\texttt{length()}函数，可以查看向量的长度。
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{length}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"Guten Morgen"}\NormalTok{, }\StringTok{""}\NormalTok{))}
+\KeywordTok{length}\NormalTok{(nums)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2
+## [1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#如果无后续使用，没必要赋值一个变量；c(...)的计算结果就是一个向量，并直接传给`length()`函数}
+\KeywordTok{length}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"Guten Morgen"}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
 \end{verbatim}
 
 （每个被引号包围的一串字符，都只算做一个元素，因此长度为1；多元素的向量请看第\ref{create-vector}节）
 
-\subsection{索引}
+\hypertarget{indexing}{%
+\subsection{索引}\label{indexing}}
 
 索引 (index)就是一个元素在向量中的位置。R是从1开始索引的，即索引为1的元素是第一个元素（因此用熟了Python和C可能会有些不适应）。在向量后方使用方括号进行索引。
 
@@ -712,6 +735,8 @@ R没有标量，它通过各种类型的向量 (vector)来存储数据。
 
 注意到了左边方括号中的数字了吗？它们正是所对应的那一行第一个元素的索引。
 
+下面的内容可能有点偏，\textbf{可以酌情从这里跳到第\ref{youyuexing}节。}
+
 \hypertarget{rep}{%
 \subsubsection{\texorpdfstring{复读机\texttt{rep()}}{复读机rep()}}\label{rep}}
 
@@ -751,6 +776,74 @@ R没有标量，它通过各种类型的向量 (vector)来存储数据。
 \begin{verbatim}
 ##  [1]  0  5 10 15 20 25 30 35 40 45 50
 \end{verbatim}
+
+\subsubsection{随机数：}
+
+连续型均匀分布随机数用\texttt{runif(n,\ min,\ max)}，n是数量，min是最小值，max是最大值。默认min为0，max为1。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x_unif <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{100000}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{60}\NormalTok{) }\CommentTok{# 生成100000个40到60之间，连续均匀分布的的随机数}
+\KeywordTok{hist}\NormalTok{(x_unif) }\CommentTok{# 画直方图}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R与tidyverse——数据分析入门_files/figure-latex/unnamed-chunk-24-1.pdf}
+
+正态分布随机数用\texttt{rnorm(n,\ mean,\ sd)}, 三个参数分别为数量，平均值，标准差。默认mean为0，sd为1。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x_norm <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{100000}\NormalTok{, }\DecValTok{250}\NormalTok{, }\DecValTok{20}\NormalTok{) }\CommentTok{# 按照平均值为250，标准差为20的正态分布的概率密度函数生成100000个随机数}
+\KeywordTok{hist}\NormalTok{(x_norm) }\CommentTok{# 画直方图}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R与tidyverse——数据分析入门_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\subsection{向量的其它操作}
+
+\hypertarget{sort-rankorder}{%
+\subsubsection{\texorpdfstring{\texttt{sort()}, \texttt{rank()}和\texttt{order()}}{sort(), rank()和order()}}\label{sort-rankorder}}
+
+\hypertarget{youyuexing}{%
+\subsection{R向量的优越性}\label{youyuexing}}
+
+R中的向量（矩阵和数列也是）的各种计算默认都是逐元素 (elementwise)的。比如：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{25}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12 15 28
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{*}\StringTok{ }\NormalTok{y }\CommentTok{# 在matlab中这样乘是不行的，要用`.*`，除法也是}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 32 54 75
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sqrt}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 3 5
+\end{verbatim}
+
+相比于常用的编程语言，省去了for循环；相比于matlab的默认矩阵乘法，逐元素乘法在数据处理中更有用。
 
 \hypertarget{-data-types}{%
 \section{数据类型 (Data Types)}\label{-data-types}}
@@ -814,7 +907,7 @@ complex & 复数向量 & \texttt{3+5i}, \texttt{1i}, \texttt{1+0i}\tabularnewlin
 ## [1] -4.440892e-16
 \end{verbatim}
 
-浮点数的计算比精确数的计算快很多。如果你是第一次接触浮点数，可能会觉得它不可靠，其实不然。在绝大多数情况下，牺牲的这一点点精度并不会影响计算结果（我们的结果所需要的有效数字一般不会超过10位）。
+浮点数的计算比精确数的计算快很多。如果你是第一次接触浮点数，可能会觉得它不可靠，其实不然。在绝大多数情况下，牺牲的这一点点精度并不会影响计算结果（我们的结果所需要的有效数字一般不会超过10位；只有当两个非常，非常大且数值相近对数字相减才会出现较大的误差）。
 
 \texttt{NaN}（非数）和\texttt{Inf}（无限大）也是浮点数！
 
@@ -1330,58 +1423,7 @@ R中常用的关系运算符有：
 
 可以看到，\texttt{TRUE}与任何一个逻辑值组合，都是\texttt{TRUE}，而\texttt{FALSE\ \textbar{}\ NA}为\texttt{NA}。原因一样（因为\texttt{NA}的不确定性）。
 
-\section{以下是不重要的一些内容}
-
-\hypertarget{consoler-script}{%
-\subsection{Console和R script编辑器的一些特性}\label{consoler-script}}
-
-Console 中每个命令开头的\texttt{\textgreater{}}叫做prompt（命令提示符），当它出现在你所编辑的那一行的开头时，按下回车的时候那行的命令才会被执行。有时候它会消失，这时候按\texttt{esc}可以将其恢复。
-
-prompt消失的主要原因是你的代码没有写完，比如括号不完整：
-
-\begin{verbatim}
-> 2+(3+4
-\end{verbatim}
-
-这时你按回车，它会显示：
-
-\begin{verbatim}
-> 2+(3+4
-+
-\end{verbatim}
-
-\texttt{+}号是在提示代码没写完整。这时你把括号补上再按回车：
-
-\begin{verbatim}
-> 2+(3+4
-+ )
-\end{verbatim}
-
-\begin{verbatim}
-[1] 9
-\end{verbatim}
-
-便可以完成计算。
-
-这意味着我们可以把一条很长的命令分成很多行。比如我们可以写这样的代码（在R script编辑器中！）
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\DecValTok{1} \OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{&}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\DecValTok{2} \OperatorTok{==}\StringTok{ }\DecValTok{5}\NormalTok{)\{}
-  \KeywordTok{print}\NormalTok{(}\DecValTok{2}\NormalTok{)}
-\NormalTok{\} }\ControlFlowTok{else}\NormalTok{\{}
-  \KeywordTok{print}\NormalTok{(}\DecValTok{3}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-然后\texttt{Ctrl}+\texttt{Enter}执行。
-
-\begin{verbatim}
-<function>(<argument> = <value>)
-\end{verbatim}
-
-\section{判断和循环（控制流）}
+\section{判断和循环（控制流程）}
 
 如果你学过其他编程语言，知道判断和循环的作用，只是需要知道在R中的表达，那么请看以下两个例子快速入门，然后跳过本节（如果没学过，请往后面看）：
 
@@ -1480,8 +1522,6 @@ function(argument1=value1, argument2=value2, ...)
 ## mean of x 
 ##  5.085714
 \end{verbatim}
-
-The term argument is used for an expression passed by a function call; the term parameter is used for an input object (or its identifier) received by a function definition, or described in a function declaration. The terms ``actual argument (parameter)'' and ``formal argument (parameter)'' respectively are sometimes used for the same distinction.
 
 （英语中，``parameter''或``formal argument''二词用于函数定义，``argument''或``actual argument''二词用于调用函数(Kernighan and Ritchie \protect\hyperlink{ref-Kernighan1988The-C-Programming-La}{1988})，中文里分别是``形式参数''和``实际参数''，但是多数场合简称``参数''。）
 
@@ -1674,7 +1714,7 @@ seq(from = 1, to = 1, by = ((to - from)/(length.out - 1)),
 ## <a4>
 \end{verbatim}
 
-\includegraphics{R与tidyverse——数据分析入门_files/figure-latex/unnamed-chunk-52-1.pdf}
+\includegraphics{R与tidyverse——数据分析入门_files/figure-latex/unnamed-chunk-55-1.pdf}
 
 阴影面积为\(P(t<T)\)，虚线对应的\(t\)为\(T\).
 \texttt{qt()}可以把\(P(t≤T)\)的值转化成\(T\),\texttt{pt()}则相反。
@@ -1856,17 +1896,18 @@ R的默认是non-paired, unequal variance，你可以通过增加\texttt{paired\
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{#其实还可以更精简，但是为了易读性不得不牺牲一点精简度。}
+\NormalTok{Z <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1000000}\NormalTok{), }\DecValTok{6}\NormalTok{), }\DataTypeTok{nrow =} \DecValTok{6}\NormalTok{)}\OperatorTok{^}\DecValTok{2}
 
-\NormalTok{X_squared <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1000000}\NormalTok{), }\DecValTok{6}\NormalTok{), }\DataTypeTok{nrow =} \DecValTok{6}\NormalTok{)}\OperatorTok{^}\DecValTok{2}
+\NormalTok{X <-}\StringTok{ }\NormalTok{Z}\OperatorTok{^}\DecValTok{2}
 
 \NormalTok{Q <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{nrow =} \DecValTok{6}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{1000000}\NormalTok{)}
 
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ (}\DecValTok{1}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{:}\DecValTok{6}\NormalTok{) \{}
-\NormalTok{  Q[}\DecValTok{1}\NormalTok{,] =}\StringTok{ }\NormalTok{X_squared[}\DecValTok{1}\NormalTok{,]}
-\NormalTok{  Q[i,] =}\StringTok{ }\NormalTok{Q[(i}\DecValTok{-1}\NormalTok{),] }\OperatorTok{+}\StringTok{ }\NormalTok{X_squared[i,]}
+\NormalTok{  Q[}\DecValTok{1}\NormalTok{,] =}\StringTok{ }\NormalTok{Z[}\DecValTok{1}\NormalTok{,]}
+\NormalTok{  Q[i,] =}\StringTok{ }\NormalTok{Q[(i}\DecValTok{-1}\NormalTok{),] }\OperatorTok{+}\StringTok{ }\NormalTok{Z[i,]}
 \NormalTok{\}}
 
-\KeywordTok{plot}\NormalTok{(}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.2}\NormalTok{,}\DecValTok{6}\NormalTok{), }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}
+\KeywordTok{plot}\NormalTok{(}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.23}\NormalTok{,}\DecValTok{6}\NormalTok{), }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}
      \DataTypeTok{main =} \KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{'X ~ '}\NormalTok{, chi}\OperatorTok{^}\StringTok{'2'}\NormalTok{, }\StringTok{'(k)'}\NormalTok{)), }
      \DataTypeTok{xlab =} \StringTok{"x"}\NormalTok{, }
      \DataTypeTok{ylab=} \KeywordTok{expression}\NormalTok{(f[k]}\OperatorTok{*}\StringTok{'(x)'}\NormalTok{)}
@@ -1882,9 +1923,9 @@ R的默认是non-paired, unequal variance，你可以通过增加\texttt{paired\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{R与tidyverse——数据分析入门_files/figure-latex/unnamed-chunk-60-1.pdf}
+\includegraphics{R与tidyverse——数据分析入门_files/figure-latex/unnamed-chunk-63-1.pdf}
 
-\(\chi^2\)有两种，good
+\(\chi^2\)检验有两种，goodness of fit
 
 \hypertarget{ch5}{%
 \chapter{dataframe（数据框）和tibble}\label{ch5}}
@@ -1893,7 +1934,7 @@ R的默认是non-paired, unequal variance，你可以通过增加\texttt{paired\
 \section{查看dataframe/tibble并了解它们的结构}\label{dataframetibble}}
 
 \hypertarget{dataframetibble}{%
-\subsection{dataframe/tibble的概念}\label{dataframetibble}}
+\subsection{dataframe/tibble的基本概念}\label{dataframetibble}}
 
 dataframe是R中存储复杂数据的格式，它直观易操作。tibble是tidyverse的一部分，它是dataframe的进化版，功能更强大，更易操作。
 
@@ -1952,7 +1993,7 @@ R默认显示dataframe/tibble的前10行。如果想看最后6行，可以使用
 \end{Shaded}
 
 \hypertarget{tibble}{%
-\section{编辑tibble}\label{tibble}}
+\section{tibble的创建和基础操作}\label{tibble}}
 
 \hypertarget{tibble}{%
 \subsection{创建tibble}\label{tibble}}
@@ -2030,7 +2071,7 @@ R默认显示dataframe/tibble的前10行。如果想看最后6行，可以使用
 \hypertarget{tibble}{%
 \subsubsection{从外部数据创建tibble}\label{tibble}}
 
-参见第@ref()节（数据的导入）
+参见第\ref{data-import}节（数据的导入）
 
 \subsection{抓取行，列}
 
@@ -2061,7 +2102,7 @@ R默认显示dataframe/tibble的前10行。如果想看最后6行，可以使用
 
 \subsubsection{抓取多列}
 
-有时候，一个tibble中含有很多冗余信息，我们可能想把感兴趣的几个变量抓出来做一个新tibble. 这时\texttt{select}函数最为方便。可以用变量名称或者索引来抓取。比如：
+有时候，一个tibble中含有很多冗余信息，我们可能想把感兴趣的几个变量抓出来做一个新tibble. 这时\texttt{select()}函数最为方便。可以用变量名称或者索引来抓取。比如：
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2091,9 +2132,9 @@ R默认显示dataframe/tibble的前10行。如果想看最后6行，可以使用
 \end{verbatim}
 
 \hypertarget{filter}{%
-\subsubsection{\texorpdfstring{通过\texttt{filter}，抓取满足某条件的行}{通过filter，抓取满足某条件的行}}\label{filter}}
+\subsubsection{\texorpdfstring{通过\texttt{filter()}，抓取满足某条件的行}{通过filter()，抓取满足某条件的行}}\label{filter}}
 
-通过\texttt{filter}，我们可以过滤出某个或多个变量满足某种条件的observations. 如果你还不熟悉逻辑运算，请看第\ref{logical-operations}节
+通过\texttt{filter()}，我们可以过滤出某个或多个变量满足某种条件的observations. 如果你还不熟悉逻辑运算，请看第\ref{logical-operations}节
 
 假设我们只想看\texttt{mpg}中的奥迪品牌的，排量大于等于2且小于4的车辆的数据：
 
@@ -2119,6 +2160,97 @@ R默认显示dataframe/tibble的前10行。如果想看最后6行，可以使用
 ## 8 audi         a6 qu~   2.8  1999     6 auto~ 4        15    24 p     mids~
 ## 9 audi         a6 qu~   3.1  2008     6 auto~ 4        17    25 p     mids~
 \end{verbatim}
+
+\hypertarget{slice}{%
+\subsubsection{\texorpdfstring{用\texttt{slice()}，通过行数（索引）抓取行。}{用slice()，通过行数（索引）抓取行。}}\label{slice}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mpg_1to6 <-}\StringTok{ }\KeywordTok{slice}\NormalTok{(mpg, }\DecValTok{21}\OperatorTok{:}\DecValTok{26}\NormalTok{) }\CommentTok{# 抓取mpg的第21行至26行}
+\NormalTok{mpg_1to6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 11
+##   manufacturer model  displ  year   cyl trans drv     cty   hwy fl    class
+##   <chr>        <chr>  <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>
+## 1 chevrolet    c1500~   5.3  2008     8 auto~ r        14    20 r     suv  
+## 2 chevrolet    c1500~   5.7  1999     8 auto~ r        13    17 r     suv  
+## 3 chevrolet    c1500~   6    2008     8 auto~ r        12    17 r     suv  
+## 4 chevrolet    corve~   5.7  1999     8 manu~ r        16    26 p     2sea~
+## 5 chevrolet    corve~   5.7  1999     8 auto~ r        15    23 p     2sea~
+## 6 chevrolet    corve~   6.2  2008     8 manu~ r        16    26 p     2sea~
+\end{verbatim}
+
+我觉得\texttt{slice()}更实际的用途是随机选择个体：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mpg_random4 <-}\StringTok{ }\KeywordTok{slice}\NormalTok{(mpg, }\KeywordTok{sample}\NormalTok{(}\KeywordTok{length}\NormalTok{(mpg[[}\DecValTok{1}\NormalTok{]]), }\DecValTok{4}\NormalTok{)) }\CommentTok{# 随机四辆车}
+\NormalTok{mpg_random4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 11
+##   manufacturer model  displ  year   cyl trans drv     cty   hwy fl    class
+##   <chr>        <chr>  <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>
+## 1 nissan       maxima   3.5  2008     6 auto~ f        19    25 p     mids~
+## 2 dodge        dakot~   4.7  2008     8 auto~ 4        14    19 r     pick~
+## 3 toyota       4runn~   4.7  2008     8 auto~ 4        14    17 r     suv  
+## 4 chevrolet    malibu   3.6  2008     6 auto~ f        17    26 r     mids~
+\end{verbatim}
+
+\hypertarget{factor}{%
+\subsection{关于Factor}\label{factor}}
+
+有时候，我们的变量是以文字的形式呈现，但是它们不是单纯的文字，而是有大小的差别，或是能以一定顺序排列，比如十二个月份 (Jan, Feb, \ldots{})，成绩的``优、良、中、差''，衣服的尺寸 (XS, S, M, XL, \ldots{}). 假设我们在做客户满意度调查，七位客户的反馈是
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{满意度_v <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"满意"}\NormalTok{, }\StringTok{"非常满意"}\NormalTok{, }\StringTok{"满意"}\NormalTok{, }\StringTok{"不满意"}\NormalTok{, }\StringTok{"满意"}\NormalTok{, }\StringTok{"非常不满"}\NormalTok{,  }\StringTok{"不满意"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+我们试图用\texttt{sort()}把七个反馈按满意度从小到大排列：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sort}\NormalTok{(满意度_v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "不满意"   "不满意"   "满意"     "满意"     "满意"     "非常不满"
+## [7] "非常满意"
+\end{verbatim}
+
+可见其排序并不是有意义的。（因为默认英语根据'abcde\ldots{}'排序，中文根据笔画排序）
+
+我们可以把这个vector做成factor，并用参数\texttt{levels}规定排序顺序：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 按照惯例，小的值在前，大的在后；“非常不满”应为满意度最低的值。}
+\NormalTok{满意度_f <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(满意度_v, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"非常不满"}\NormalTok{, }\StringTok{"不满意"}\NormalTok{, }\StringTok{"满意"}\NormalTok{, }\StringTok{"非常满意"}\NormalTok{))}
+\KeywordTok{sort}\NormalTok{(满意度_f)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 非常不满 不满意   不满意   满意     满意     满意     非常满意
+## Levels: 非常不满 不满意 满意 非常满意
+\end{verbatim}
+
+这样排序就是正确的了。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(满意度_f) }\CommentTok{# "factor"}
+\KeywordTok{is.vector}\NormalTok{(满意度_f) }\CommentTok{# FALSE}
+\end{Highlighting}
+\end{Shaded}
 
 \section{进阶内容}
 
@@ -2324,33 +2456,33 @@ Dataframe不是matrix. A matrix is a two-dimensional \textbf{array} containing n
 \begin{verbatim}
 ## , , 1
 ## 
-##           [,1]      [,2]      [,3]      [,4]      [,5]
-## [1,] 0.2415776 0.5242838 0.7352969 0.1313954 0.4667498
-## [2,] 0.8926535 0.9634007 0.5846095 0.7557924 0.2252941
-## [3,] 0.3302690 0.2952240 0.3597534 0.4603156 0.9699843
-## [4,] 0.9276662 0.3531149 0.5069761 0.1002837 0.6333862
-## [5,] 0.1272156 0.1573198 0.1532267 0.9780175 0.1043068
-## [6,] 0.8131391 0.6317449 0.8005155 0.9987736 0.5442852
+##            [,1]        [,2]      [,3]       [,4]       [,5]
+## [1,] 0.58465913 0.411543822 0.5229381 0.33774133 0.36108337
+## [2,] 0.59706046 0.001882315 0.1448231 0.77708837 0.05548725
+## [3,] 0.64424007 0.484417212 0.6129137 0.12768178 0.50509562
+## [4,] 0.05309066 0.232503542 0.6002260 0.06999473 0.08550179
+## [5,] 0.16051710 0.365727232 0.4090031 0.40737592 0.56673090
+## [6,] 0.73765849 0.477518012 0.1316686 0.23747798 0.68886257
 ## 
 ## , , 2
 ## 
-##           [,1]      [,2]      [,3]      [,4]      [,5]
-## [1,] 0.6904035 0.8208418 0.9870558 0.7340091 0.9970073
-## [2,] 0.4313577 0.8632674 0.4312112 0.2102800 0.1837637
-## [3,] 0.9141547 0.6185988 0.8758551 0.3449712 0.2654355
-## [4,] 0.5520347 0.3094929 0.8631295 0.8886063 0.5343539
-## [5,] 0.7412163 0.2207543 0.7524223 0.7963836 0.5454476
-## [6,] 0.4776628 0.3929327 0.6203356 0.8639600 0.2404051
+##           [,1]      [,2]      [,3]       [,4]       [,5]
+## [1,] 0.5174832 0.2502680 0.4246518 0.29761643 0.31878212
+## [2,] 0.4978283 0.4084635 0.1016966 0.76539023 0.01889915
+## [3,] 0.2945068 0.8306994 0.2556662 0.83633423 0.23315197
+## [4,] 0.9331716 0.5328390 0.3441119 0.02826425 0.81139108
+## [5,] 0.7093689 0.6179052 0.3670174 0.10060410 0.71320141
+## [6,] 0.1584265 0.6340381 0.7916810 0.52864813 0.95571655
 ## 
 ## , , 3
 ## 
-##           [,1]      [,2]      [,3]       [,4]       [,5]
-## [1,] 0.9611371 0.1534631 0.4538189 0.99278820 0.32712930
-## [2,] 0.1458736 0.6759583 0.5057370 0.05837633 0.50384213
-## [3,] 0.2966969 0.6985601 0.7846608 0.03811940 0.08452826
-## [4,] 0.3603438 0.4991536 0.8948747 0.89492495 0.76711691
-## [5,] 0.4723897 0.8113412 0.6966183 0.69747444 0.61477400
-## [6,] 0.4580120 0.6338552 0.9373622 0.43735815 0.08615919
+##            [,1]      [,2]       [,3]      [,4]      [,5]
+## [1,] 0.43226546 0.4417577 0.11597405 0.5817256 0.3014991
+## [2,] 0.75425033 0.1776285 0.42267708 0.3160539 0.4241575
+## [3,] 0.29641795 0.4397804 0.02949093 0.1227839 0.6228744
+## [4,] 0.02011518 0.9124565 0.11960832 0.9057653 0.6899027
+## [5,] 0.04756832 0.7187895 0.57601574 0.5077660 0.2373382
+## [6,] 0.92889201 0.3898345 0.63519976 0.6951076 0.8813403
 \end{verbatim}
 
 然后我们用\texttt{dimnames()}来命名：
@@ -2365,33 +2497,33 @@ Dataframe不是matrix. A matrix is a two-dimensional \textbf{array} containing n
 \begin{verbatim}
 ## , , chloroquine
 ## 
-##          P. falciparum P. malariae  P. ovale  P. vivax P. knowlesi
-## trial. 1     0.2415776   0.5242838 0.7352969 0.1313954   0.4667498
-## trial. 2     0.8926535   0.9634007 0.5846095 0.7557924   0.2252941
-## trial. 3     0.3302690   0.2952240 0.3597534 0.4603156   0.9699843
-## trial. 4     0.9276662   0.3531149 0.5069761 0.1002837   0.6333862
-## trial. 5     0.1272156   0.1573198 0.1532267 0.9780175   0.1043068
-## trial. 6     0.8131391   0.6317449 0.8005155 0.9987736   0.5442852
+##          P. falciparum P. malariae  P. ovale   P. vivax P. knowlesi
+## trial. 1    0.58465913 0.411543822 0.5229381 0.33774133  0.36108337
+## trial. 2    0.59706046 0.001882315 0.1448231 0.77708837  0.05548725
+## trial. 3    0.64424007 0.484417212 0.6129137 0.12768178  0.50509562
+## trial. 4    0.05309066 0.232503542 0.6002260 0.06999473  0.08550179
+## trial. 5    0.16051710 0.365727232 0.4090031 0.40737592  0.56673090
+## trial. 6    0.73765849 0.477518012 0.1316686 0.23747798  0.68886257
 ## 
 ## , , artemisinin
 ## 
-##          P. falciparum P. malariae  P. ovale  P. vivax P. knowlesi
-## trial. 1     0.6904035   0.8208418 0.9870558 0.7340091   0.9970073
-## trial. 2     0.4313577   0.8632674 0.4312112 0.2102800   0.1837637
-## trial. 3     0.9141547   0.6185988 0.8758551 0.3449712   0.2654355
-## trial. 4     0.5520347   0.3094929 0.8631295 0.8886063   0.5343539
-## trial. 5     0.7412163   0.2207543 0.7524223 0.7963836   0.5454476
-## trial. 6     0.4776628   0.3929327 0.6203356 0.8639600   0.2404051
+##          P. falciparum P. malariae  P. ovale   P. vivax P. knowlesi
+## trial. 1     0.5174832   0.2502680 0.4246518 0.29761643  0.31878212
+## trial. 2     0.4978283   0.4084635 0.1016966 0.76539023  0.01889915
+## trial. 3     0.2945068   0.8306994 0.2556662 0.83633423  0.23315197
+## trial. 4     0.9331716   0.5328390 0.3441119 0.02826425  0.81139108
+## trial. 5     0.7093689   0.6179052 0.3670174 0.10060410  0.71320141
+## trial. 6     0.1584265   0.6340381 0.7916810 0.52864813  0.95571655
 ## 
 ## , , doxycycline
 ## 
-##          P. falciparum P. malariae  P. ovale   P. vivax P. knowlesi
-## trial. 1     0.9611371   0.1534631 0.4538189 0.99278820  0.32712930
-## trial. 2     0.1458736   0.6759583 0.5057370 0.05837633  0.50384213
-## trial. 3     0.2966969   0.6985601 0.7846608 0.03811940  0.08452826
-## trial. 4     0.3603438   0.4991536 0.8948747 0.89492495  0.76711691
-## trial. 5     0.4723897   0.8113412 0.6966183 0.69747444  0.61477400
-## trial. 6     0.4580120   0.6338552 0.9373622 0.43735815  0.08615919
+##          P. falciparum P. malariae   P. ovale  P. vivax P. knowlesi
+## trial. 1    0.43226546   0.4417577 0.11597405 0.5817256   0.3014991
+## trial. 2    0.75425033   0.1776285 0.42267708 0.3160539   0.4241575
+## trial. 3    0.29641795   0.4397804 0.02949093 0.1227839   0.6228744
+## trial. 4    0.02011518   0.9124565 0.11960832 0.9057653   0.6899027
+## trial. 5    0.04756832   0.7187895 0.57601574 0.5077660   0.2373382
+## trial. 6    0.92889201   0.3898345 0.63519976 0.6951076   0.8813403
 \end{verbatim}
 
 \textbf{清清楚楚，一目了然。}
@@ -2410,12 +2542,60 @@ Dataframe不是matrix. A matrix is a two-dimensional \textbf{array} containing n
 \end{verbatim}
 
 \hypertarget{graphics}{%
-\chapter{ggplot}\label{graphics}}
+\chapter{使用ggplot绘图}\label{graphics}}
 
 若要了解更多，请阅读ggplot开发者本人所编写的\emph{ggplot2: Elegand Graphics for Data Analysis}(Wickham \protect\hyperlink{ref-Wickham2015ggplot2-Elegant-Gra}{2015})。
 
+\section{哲理}
+
+\section{基础}
+
+\subsection{基本语法}
+
+\subsection{图像类型}
+
+\section{进阶}
+
+\subsection{逐层作图}
+
+\subsection{尺寸，轴，和图例}
+
+\subsection{位置}
+
+\subsection{背景/主题的修改}
+
+\hypertarget{ggplot}{%
+\subsection{与ggplot编程}\label{ggplot}}
+
+\hypertarget{base-r}{%
+\section{附：Base R中的作图}\label{base-r}}
+
 \hypertarget{wrangle}{%
 \chapter{数据处理}\label{wrangle}}
+
+\hypertarget{untidy-datatidy-data}{%
+\section{把``untidy data''整成``tidy data''}\label{untidy-datatidy-data}}
+
+\hypertarget{untidy-data}{%
+\subsection{``untidy data''的主要问题}\label{untidy-data}}
+
+\subsection{解决方案}
+
+\section{数据的导入和导出}
+
+\hypertarget{data-import}{%
+\subsection{导入}\label{data-import}}
+
+\hypertarget{csv}{%
+\subsubsection{csv}\label{csv}}
+
+\hypertarget{excel}{%
+\subsubsection{excel}\label{excel}}
+
+\hypertarget{-1}{%
+\subsubsection{其它}\label{-1}}
+
+\subsection{导出}
 
 \hypertarget{python}{%
 \chapter{与Python的联合使用}\label{python}}
@@ -2433,12 +2613,9 @@ Dataframe不是matrix. A matrix is a two-dimensional \textbf{array} containing n
 
 Inspired by Jupyter, Beaker Notebook allows you to switch from one language in one code block to another language in another code block in a streamlined way to pass shared objects (data)
 
-\hypertarget{section}{%
-\section{}\label{section}}
-
-\hypertarget{references}{%
-\chapter*{References}\label{references}}
-\addcontentsline{toc}{chapter}{References}
+\hypertarget{bibiolography}{%
+\chapter*{Bibiolography}\label{bibiolography}}
+\addcontentsline{toc}{chapter}{Bibiolography}
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-Kernighan1988The-C-Programming-La}{}%

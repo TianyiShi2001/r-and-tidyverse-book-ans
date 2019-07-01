@@ -10,4 +10,3 @@ https://decisionstats.com/2015/12/07/decisionstats-interview-scott-draves-beaker
 
 Inspired by Jupyter, Beaker Notebook allows you to switch from one language in one code block to another language in another code block in a streamlined way to pass shared objects (data)
 
-##

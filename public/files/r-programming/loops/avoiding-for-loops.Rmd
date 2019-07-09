@@ -1,0 +1,89 @@
+# 避免使用for循环
+
+对于以下方法，可以做成函数之后用`system.time()`测速。
+
+## 使用普通for循环
+
+```{r}
+L <- 40
+M <- 50
+N <- 60
+
+x <- vector("numeric")
+for (l in L) {
+    for (m in 1:50) {
+        for (n in 1:60) {
+        x <- append(x, l*m*n)
+        }
+    }
+}
+x
+```
+
+## 基于`doParallel`和`foreach`的开挂（多核）for循环
+
+```{r}
+require(doParallel)
+require(foreach)
+x <- foreach(l = 1:40, .combine = "c") %dopar% {
+    foreach(m = 1:50, .combine = "c") %dopar% {
+        foreach(n = 1:60, .combine = "c") %do% {
+        l*m*n
+        }
+    }
+}
+x
+```
+
+## 基于`sapply()`
+```{r}
+L <- 1:40 # 或1:500
+M <- 1:50 # 或1:600
+N <- 1:60 # 或1:700
+
+x <- as.vector(sapply(M, function(m){m*N}))
+result <- as.vector(sapply(L, function(l){l*x}))
+
+result
+```
+
+## 基于`rep()`
+
+```{r}
+L <- 1:40 # 或1:500
+M <- 1:50 # 或1:600
+N <- 1:60 # 或1:700
+
+x <- rep(N, length(M))*rep(M, rep(length(N), length(M)))
+result <- rep(x, length(L))*rep(L, rep(length(x), length(L)))
+
+result
+```
+
+
+## 基于`rep()`和`mapply()`/`Map()`
+
+```{r}
+L <- 1:500 # 或1:500
+M <- 1:600 # 或1:600
+N <- 1:700 # 或1:700
+
+system.time({
+x <- rep(N, length(M))*unlist(Map(rep, M, length(N)))
+result <- rep(x, length(L))*unlist(Map(rep, L, length(x)))
+})
+```
+
+或
+
+```{r}
+L <- 1:40 # 或1:500
+M <- 1:50 # 或1:600
+N <- 1:60 # 或1:700
+
+
+x <- matrix(rep(N, length(M)), ncol = length(M))*mapply(rep, M, length(N))
+result <- matrix(rep(x, length(L)), ncol = length(L))*mapply(rep, L, length(x))
+
+result
+```

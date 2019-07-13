@@ -36,6 +36,7 @@ x
 ```
 
 ## 基于`sapply()`
+
 ```{r}
 L <- 1:40 # 或1:500
 M <- 1:50 # 或1:600
@@ -64,9 +65,9 @@ result
 ## 基于`rep()`和`mapply()`/`Map()`
 
 ```{r}
-L <- 1:500 # 或1:500
-M <- 1:600 # 或1:600
-N <- 1:700 # 或1:700
+L <- 1:40 # 或1:500
+M <- 1:50 # 或1:600
+N <- 1:60 # 或1:700
 
 system.time({
 x <- rep(N, length(M))*unlist(Map(rep, M, length(N)))
@@ -84,6 +85,19 @@ N <- 1:60 # 或1:700
 
 x <- matrix(rep(N, length(M)), ncol = length(M))*mapply(rep, M, length(N))
 result <- matrix(rep(x, length(L)), ncol = length(L))*mapply(rep, L, length(x))
+
+result
+```
+
+## 基于`rapply()`
+
+```{r}
+L <- 1:40 # 或1:500
+M <- 1:50 # 或1:600
+N <- 1:60 # 或1:700
+
+x <- rapply(as.list(M), function(m){m*N})
+result <- rapply(as.list(L), function(l){l*x})
 
 result
 ```

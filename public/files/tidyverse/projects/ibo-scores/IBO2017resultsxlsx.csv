@@ -1,0 +1,246 @@
+﻿Country,First Name,Surname,Biochemistry,Botany,Physiology,1,2,Z-Score
+China,Haoyu,Zhou,1.518,1.36,3.238,1.094,2.317,4.378
+United States of America,Alexander,Tsao,2.792,0.651,2.556,1.553,1.168,3.978
+Singapore,Aditi,Saayujya,0.754,1.529,2.632,1.356,1.641,3.659
+China,Zihao,Wang,1.709,1.495,1.344,1.685,1.573,3.644
+Czech Republic,Kateřina,Kubíková,1.263,0.82,2.935,0.962,1.303,3.317
+Taiwan (Chinese Taipei),Chun-Wei,Liu,1.837,1.394,2.101,0.569,1.1,3.134
+Singapore,Lucas,Yeo,2.474,1.495,0.284,0.831,1.506,3.028
+China,Jiale,Fu,1.223,0.786,2.556,0.831,1.235,3.02
+Republic of Korea,Seowoong,Jun,1.837,1.09,1.42,1.028,1.168,2.997
+United States of America,Edward,Lee,2.238,0.178,0.056,2.013,1.438,2.87
+Russia,Egor,Alimpiev,2.028,0.651,3.01,0.962,-0.252,2.794
+Taiwan (Chinese Taipei),Tai-Yi,Chen,1.2,1.225,0.662,1.225,1.573,2.779
+United States of America,Thomas,Xiong,1.263,0.516,0.738,1.619,1.37,2.643
+Singapore,Muzammil Arif Din S/O,Abdul Jabbar,2.665,0.82,0.284,0.962,0.965,2.612
+United Kingdom,Jiaqi,Chen,0.371,1.461,1.42,0.897,1.438,2.604
+Hungary,Zsolt,Semperger,2.346,0.583,0.359,0.962,1.235,2.549
+Taiwan (Chinese Taipei),Chien,Lu,0.371,1.495,1.193,1.422,0.83,2.487
+Russia,Tatiana,Pashkovskaia,0.907,0.82,0.738,1.947,0.762,2.48
+Bulgaria,Dimitar,Karazapryanov,1.284,1.191,0.662,1.094,1.032,2.45
+Germany,Johannes,Gigla,1.327,0.583,0.132,1.75,1.235,2.442
+Republic of Korea,Jungmu,Lee,1.369,0.685,0.511,1.159,1.303,2.382
+Vietnam,Truong,Dong Hung,1.454,0.887,0.814,1.75,0.154,2.352
+United States of America,Catherine,Wang,0.244,1.056,1.42,0.897,1.303,2.308
+Indonesia,Agnes,Natasya,2.448,0.516,0.322,0.897,0.83,2.302
+Taiwan (Chinese Taipei),Jui-Ting,Li,2.474,0.989,-0.55,0.765,1.235,2.284
+New Zealand,Yibin (Ben),Zhang,0.881,1.225,0.284,0.765,1.641,2.273
+Indonesia,Syailendra Karuna,Sugito,0.095,1.225,1.95,0.109,1.438,2.19
+Japan,Shogo,Tsushima,1.114,1.056,-1.231,1.488,1.911,2.185
+Australia,Anne,Pham,1.123,0.989,0.056,1.094,1.235,2.144
+Estonia,Kaarel,Hänni,0.541,0.617,0.511,1.488,1.235,2.143
+Switzerland,Jana,Meier,-0.074,0.651,3.389,0.24,0.492,2.064
+Belarus,Anna,Galkevich,1.454,0.516,-0.701,1.685,1.168,2.044
+Poland,Pawel,Tyrna,2.983,1.259,-0.247,0.306,0.289,2.007
+Germany,Paul,Bunk,-0.533,0.651,0.965,1.553,1.235,1.93
+Germany,Rebecca,Zierold,0.308,1.022,0.965,0.634,1.168,1.918
+India,Stuti,Khandwala,1.242,1.326,0.435,0.503,0.694,1.902
+Canada,Albert,Cheng,1.2,1.022,-0.322,1.225,0.83,1.89
+Canada,Run Lin,Wang,0.422,0.448,0.359,1.356,1.235,1.887
+Armenia,Aleksandr,Karalyan,0.571,1.022,-0.55,1.488,1.168,1.843
+Singapore,Yan Ling,Lim,1.964,0.381,0.359,0.765,0.492,1.81
+Japan,Genki,Sato,0.541,-0.43,0.738,1.291,1.438,1.796
+Turkey,Seçkin,Yaşar,0.817,1.022,-0.019,1.028,0.897,1.786
+Japan,Ayaka,Eguchi,0.499,0.212,-0.398,1.488,1.641,1.779
+Republic of Korea,Hyeonsang,Yun,1.136,0.11,0.208,1.422,0.694,1.737
+Denmark,Johannes,Jessen,0.584,0.077,1.041,1.094,0.83,1.736
+China,Yifei,Zheng,0.308,0.685,0.208,1.159,1.168,1.734
+Germany,Jonas,Vetter,0.396,0.212,1.874,0.569,0.694,1.716
+Poland,Jaromir,Hunia,-0.011,1.259,2.329,-0.022,0.356,1.689
+India,Vidushi,Varshney,2.346,-0.059,1.117,0.437,0.019,1.686
+Republic of Korea,Daehyun,Kim,2.219,0.853,-0.095,-0.022,0.762,1.645
+Vietnam,Duong Tien,Quang Huy,0.741,1.124,-0.247,0.634,1.168,1.631
+Indonesia,Muhammad,Ikhsan,0.371,1.259,0.662,0.7,0.424,1.566
+Czech Republic,Lukáš,Fiedler,1.136,0.11,2.253,-0.088,0.221,1.551
+Vietnam,Nguyen,Phuong Thao,0.308,0.549,-0.322,1.291,1.168,1.522
+Japan,Nobutaka,Ikeda,0.265,0.549,0.587,0.7,1.032,1.504
+Brazil,Bruno,Gomes,0.796,0.414,0.132,0.7,0.965,1.443
+Hungary,Peter,Otott,1.029,0.347,1.041,0.503,0.289,1.443
+Thailand,Nattacha,Srithawatpong,0.18,0.651,0.208,1.225,0.627,1.42
+United Kingdom,William,James Chadwick,0.053,0.853,0.435,0.831,0.762,1.408
+Czech Republic,Vojtěch,Brož,0.155,0.212,0.284,0.962,1.1,1.361
+Romania,Rares-Alexandru,Streza,0.958,-0.059,0.814,0.372,0.83,1.355
+Netherlands,Niels,Appelman,0.754,0.414,0.132,1.028,0.424,1.32
+Bulgaria,Gabriela,Hristova,0.371,-1.308,0.814,1.356,1.235,1.314
+Kyrgyzstan,Dayan,Melisov,0.201,0.82,1.344,0.24,0.289,1.281
+Netherlands,Marieke,Smit,-0.393,1.124,0.435,0.634,0.694,1.193
+Poland,Paulina,Smaruj,1.442,0.144,2.101,-0.416,-0.319,1.174
+Australia,Angus,Cramond,-0.16,0.516,0.511,0.7,0.83,1.172
+India,Archit,Gupta,1.977,0.853,-0.247,0.24,-0.117,1.163
+Denmark,Andreas Sixten Hallstein,Rygaard,0.881,0.617,0.587,-0.679,1.168,1.127
+Russia,Ilia,Sedlov,-0.499,-1.038,2.253,1.225,0.289,1.108
+Lithuania,Rokas,Petrėnas,0.614,0.077,0.132,0.765,0.627,1.083
+Hungary,Edina,Czunyi,1.093,0.685,0.435,-0.351,0.627,1.076
+Lithuania,Justė,Navickaitė,1.149,-0.16,-0.171,0.569,0.762,1.046
+Romania,Vlad-Gabriel,Simbotin,-0.1,1.293,0.814,-0.022,0.356,1.023
+Russia,Nikita,Egorkin,-0.372,1.394,-0.019,0.175,0.965,1.019
+Ukraine,Daryna,Zavadska,-0.712,1.124,-1.08,0.831,1.641,1.013
+Italy,Marco Adriano,Magno,0.371,1.529,-1.08,0.24,1.032,1.012
+Thailand,Napat,Kiatwongwanich,0.123,1.022,1.496,0.372,-0.59,1.011
+Ukraine,Yurii,Ruzin,-0.861,1.461,0.284,0.831,0.356,1.004
+Australia,Anna,Sing,0.945,0.381,1.95,-0.876,0.154,1
+Canada,Shi Chen,Xu,-0.202,0.752,-0.095,0.7,0.83,0.997
+Italy,Mariastella,Cascone,-0.049,1.293,0.511,0.765,-0.319,0.987
+Australia,Katherine,Johnson,0.308,0.482,-0.777,1.094,0.627,0.915
+Latvia,Reinis,Cirpons,0.222,0.178,-0.247,0.897,0.694,0.905
+Sweden,Hannes,Nilsson,-0.329,1.056,-0.625,1.028,0.559,0.883
+Estonia,Carel,Kuusk,0.945,-0.498,-0.777,1.225,0.694,0.875
+New Zealand,Elinor,Wang,0.286,0.178,-0.322,0.897,0.627,0.865
+India,Alex,Tharakan,0.014,0.752,1.193,-0.022,0.086,0.863
+Hungary,Tamas Gergo,Tardos,-0.482,-0.261,-0.095,0.962,1.303,0.835
+Slovakia,Ján,Hunák,0.563,0.752,-0.171,0.437,0.221,0.833
+Czech Republic,Klára,Pekařová,0.754,0.482,0.094,0.7,-0.252,0.807
+Turkey,Fatih,Özlügedik,0.563,-0.565,0.662,0.109,0.897,0.803
+Armenia,Hayk,Harutyunyan,0.69,-0.531,-0.095,0.634,0.83,0.796
+Sweden,Alicia,Van Hees,0.091,-1.342,0.89,1.094,0.694,0.792
+Belgium,Lionel,Mozin,-0.011,0.955,-0.171,0.24,0.627,0.781
+Denmark,Jacob Christian Søholm,Mejlsted,-0.074,0.381,0.17,0.24,0.83,0.761
+Belarus,Palina,Tumash,0.435,0.178,0.511,0.372,0.019,0.684
+Denmark,Ida Rye,Johansen,0.201,0.617,-0.322,-0.285,1.168,0.664
+United Kingdom,James,Cameron Louis Baudry,-0.011,0.245,0.738,0.24,0.221,0.655
+Kazakhstan,Madi,Baltagulov,0.668,0.651,-0.247,0.24,0.086,0.628
+Liechtenstein,Joel,Biedermann,0.18,0.245,-0.398,0.372,0.762,0.606
+Netherlands,Lieke,Ten Have,-0.393,0.482,0.587,0.306,0.289,0.6
+Latvia,Elza,Garsa,0.563,-0.194,2.026,-0.548,-0.319,0.556
+United Kingdom,Rebecca,Eden,-0.352,0.549,-1.08,1.028,0.694,0.536
+Poland,Albert,Roethel,1.034,0.989,-1.004,0.043,0.154,0.535
+Turkey,Ata Alpay,Cambaz,0.987,0.853,0.511,-0.613,-0.319,0.503
+Indonesia,Salsabiilaa,Roihanah,-0.011,0.786,-0.019,-0.154,0.492,0.493
+Estonia,Aaro,Kristjuhan,1.203,0.414,-0.625,0.175,-0.049,0.488
+Belarus,Uladzislava,Kastsitsyna,-0.138,0.685,-1.383,0.962,0.627,0.485
+Pakistan,Saffa,Fatima,0.945,-0.329,0.587,-0.548,0.492,0.472
+Switzerland,Nina,Kathe,0.244,-1.849,1.95,0.306,0.086,0.354
+New Zealand,Jim,Li,-0.011,0.549,-0.55,0.503,0.154,0.344
+Moldova,Anna,Culinscaia,0.987,0.516,0.284,-0.613,-0.184,0.334
+Belarus,Aliaksandr,Kaliadzich,-1.157,0.178,0.511,0.372,0.627,0.325
+Finland,Timo,Syvälahti,0.69,0.009,0.322,0.503,-0.725,0.325
+Pakistan,Muhammad Daniyal,Musharraf,0.171,0.077,-0.55,0.372,0.424,0.291
+Lithuania,Modestas,Matusevičius,0.639,0.718,-0.398,-0.219,-0.049,0.264
+Portugal,Maria Soares,Marques Figueiredo Portela,0.095,-0.16,-1.08,0.372,1.032,0.249
+Sri Lanka,Dilshan,Weerasinghe,0.117,-0.025,-0.701,0.437,0.492,0.231
+Italy,Jacopo,Del Deo,-0.589,0.313,-0.55,0.831,0.221,0.209
+Lithuania,Giedrė,Žulpaitė,0.741,0.347,-0.019,0.043,-0.522,0.205
+Ukraine,Kateryna,Pylypko,-0.563,1.124,0.965,-0.416,-0.455,0.188
+Sweden,Alexandru,Golic,-0.074,0.549,-0.777,0.437,0.154,0.186
+Slovakia,Oliver,Pitoňak,0.626,1.09,-0.625,0.043,-0.59,0.179
+Latvia,Arturs,Sokolovskis,0.609,-0.025,-0.853,-0.219,0.627,0.095
+Netherlands,Corijn,Rudrum,-0.743,0.279,-0.019,0.634,-0.117,0.073
+Canada,Jenny,Zhang,-0.622,0.414,-0.625,0.24,0.559,0.066
+Greece,Konstantinos,Mengos,-0.266,-0.971,-0.095,0.503,0.694,0.065
+Slovenia,Lucija,Bogataj,-0.775,1.157,-0.474,0.306,-0.117,0.064
+Kazakhstan,Kairat,Albakov,-0.542,0.549,-0.019,0.437,-0.319,0.063
+Luxembourg,Matthias,Schmutzer,0.18,-0.531,2.026,-1.007,-0.387,-0.029
+Switzerland,Caroline,Hasler,-0.52,-0.599,0.056,0.306,0.492,-0.032
+Finland,Konsta,Tiilikainen,-0.011,-0.531,-0.171,-0.022,0.289,-0.164
+Portugal,Diogo Emanuel,Sampaio Nascimento,-0.61,0.853,-0.247,-0.022,-0.319,-0.179
+Thailand,Jutharat,Ariyadamrongkwan,0.524,0.077,0.056,-0.548,-0.387,-0.215
+Cyprus,Kyriakos,Ioannou,0.193,-0.464,-0.853,0.175,0.289,-0.233
+Slovakia,Dominik,Kopčak,-0.52,1.394,-1.004,-0.088,-0.252,-0.233
+Ukraine,Iryna,Poplevicheva,-1.141,-0.295,0.359,0.437,-0.049,-0.248
+New Zealand,Bianca,Craill,-0.202,0.212,0.132,-0.154,-0.455,-0.258
+Thailand,Suphatsara,Keeprasertphong,0.18,-0.768,0.359,-0.416,0.086,-0.274
+Greece,Alkmini,Zania,-0.138,0.685,-0.625,0.043,-0.522,-0.281
+Bulgaria,Maria,Karaboeva,-0.839,-0.498,0.208,-0.219,0.559,-0.305
+Switzerland,Martin,Breu,-0.074,-2.66,-0.55,1.159,0.897,-0.306
+Kazakhstan,Alisher,Nazarbekov,-0.321,0.245,0.284,-0.022,-0.793,-0.335
+Malaysia,Yu Cheng,Foo,-0.169,-0.498,0.738,-1.007,0.289,-0.358
+Bangladesh,Maisha M,Prome,-0.317,0.178,-0.322,-0.285,-0.117,-0.408
+Greece,Evgenia,Matthaiakaki,-0.389,0.178,-0.398,0.175,-0.522,-0.436
+Bangladesh,Nazmus,Saadat,0.184,0.685,-1.231,0.175,-0.793,-0.472
+Italy,Luca,Fusar Bassini,-0.227,0.381,-0.474,0.175,-0.86,-0.489
+Cyprus,Ioannou,Avgoustinos,0.414,-0.43,-1.307,-0.351,0.492,-0.493
+Slovenia,Maša,Smajila,-0.278,-0.363,0.132,-0.351,-0.184,-0.499
+Brazil,Lais,Parada,-0.954,-0.836,-0.247,-0.022,0.694,-0.514
+Estonia,Meeri,Jürgenson,0.244,-0.059,-0.095,-0.154,-0.928,-0.525
+Brazil,João Pedro,Da Cunha Tavares,-0.839,0.414,-0.777,-0.416,0.289,-0.582
+Romania,George-Catalin,Maier,-0.499,0.077,0.284,-0.482,-0.522,-0.588
+Kazakhstan,Daulet,Toibazar,-0.457,-0.565,0.435,-0.416,-0.387,-0.672
+Belgium,Lilian,Demolin,-0.699,0.178,-0.928,0.175,-0.319,-0.687
+Sweden,Johan,Sand,-0.52,-0.194,-1.004,-0.088,0.154,-0.695
+Kyrgyzstan,Emir,Kasymaliev,-0.096,-0.092,-0.55,-0.219,-0.522,-0.701
+Spain,Cristina,Rodríguez,-0.648,-2.322,-0.171,0.897,0.289,-0.702
+Slovakia,Oliver,Sporka,-1.412,-0.633,0.284,-0.154,0.221,-0.714
+Spain,María,Yesares Soto,0.18,-0.16,-0.777,-0.351,-0.522,-0.779
+Norway,Sander,T. Sørbø,-0.903,-1.038,-0.171,-0.088,0.289,-0.792
+Spain,José María,Pérez Garrigues,-0.125,0.043,0.587,-1.598,-0.319,-0.806
+Mexico,Eduardo,Castillo Vera,-0.775,-0.363,0.814,-0.745,-0.522,-0.806
+Tajikistan,Anis,Radzhabov,-0.861,-0.43,-0.701,-0.022,0.019,-0.846
+Spain,Tomás,Rodríguez,-0.903,-1.984,0.738,-0.022,0.086,-0.878
+Norway,Atle,Indergård,-0.584,-0.667,-1.686,0.306,0.356,-0.896
+Iceland,Bjarni,Atlason,-0.648,-0.092,-0.625,-0.154,-0.522,-0.932
+Luxembourg,Drago,Dragovic,-1.081,0.212,-0.398,-0.482,-0.387,-0.995
+Iceland,Védís,Agnadóttir,-0.924,-0.836,-0.398,0.569,-0.793,-1.022
+Greece,Viktoria,Bourcha,-0.011,0.178,0.284,-0.876,-1.604,-1.109
+Pakistan,Warda,Shahid,0.563,-0.261,-0.247,-1.401,-0.793,-1.137
+Luxembourg,Maxime,Theisen,-1.094,-0.464,0.511,-0.482,-0.86,-1.148
+Belgium,Lorijn,De Vrieze,-0.52,0.144,-1.004,-0.219,-0.86,-1.149
+Armenia,Mariam,Grigoryan,-0.762,-0.363,-0.55,-0.548,-0.455,-1.238
+Bulgaria,Vanya,Milanova,-0.415,0.245,-0.398,-1.073,-0.86,-1.26
+Kyrgyzstan,Seiitbek,Myrzakmatov,-0.287,1.09,0.132,-1.926,-1.266,-1.29
+Latvia,Sofija,Matisone,-0.224,-1.004,-0.55,-0.941,-0.117,-1.317
+Argentina,Nahuel,Fonseca,-0.393,-0.025,0.208,-0.876,-1.536,-1.354
+Romania,Alexandru,Adam,-1.094,-0.295,-0.853,-0.548,-0.252,-1.373
+Finland,Petja,Salminen,-1.157,-0.802,-0.095,-0.613,-0.455,-1.434
+Argentina,Fabrizio Andres,Garcia Seleme,-1.2,-0.599,0.322,-0.941,-0.59,-1.435
+Malaysia,Mohammad Razzifitri,Mohd Ramdzi,-1.094,-0.937,0.814,-0.745,-1.063,-1.465
+Luxembourg,Philippe,Furlano,0.295,-2.524,0.511,-0.941,-0.522,-1.502
+Mongolia,Munkhlkhagva,Munkh-Ulzii,-0.966,0.178,-0.095,-0.876,-1.333,-1.534
+Sri Lanka,Nisal,Punsara,-0.418,-0.261,-1.383,-0.285,-1.063,-1.578
+Belgium,Margot,Nollet,-1.285,0.009,-0.019,-1.073,-0.928,-1.604
+Azerbaijan,Oktay,Safarov,-0.797,0.516,-1.08,-1.204,-0.793,-1.632
+Mexico,Gladys,Serna Villaescusa,-0.032,-1.072,-1.231,-0.351,-0.928,-1.659
+Norway,Hilde,Elholm,-0.988,-2.288,-0.095,0.569,-1.063,-1.676
+Tajikistan,Farida,Raufova,-0.954,-0.565,0.587,-1.926,-0.522,-1.695
+Azerbaijan,Emin,Gayibov,-0.648,-0.059,-1.307,-1.073,-0.59,-1.733
+Finland,Otso,Nieminen,-0.861,-0.295,-0.55,-1.204,-0.725,-1.742
+Brazil,Emanuel,Bezerra,-1.285,-0.498,-0.777,-0.351,-0.995,-1.789
+Argentina,Ignacio Lucas,Filipich,-0.308,-0.802,-0.171,-0.941,-1.536,-1.843
+Malaysia,"Rui Ming, Gary",Wong,-0.826,-1.207,-0.171,-0.679,-1.063,-1.848
+Kyrgyzstan,Islam,Bektasev,-0.202,-0.194,-1.004,-1.598,-0.793,-1.858
+Pakistan,Muhammad,Bin Awais,0.18,-2.727,-0.701,-0.022,-0.995,-1.905
+Mexico,Samuel,Salas Parra,-1.349,-1.207,-0.701,-0.416,-0.59,-1.909
+Colombia,Danniel,Moreno,-1.01,-0.295,-1.155,-1.467,-0.184,-1.922
+Portugal,Constança,Albuquerque,-1.54,-0.937,-0.625,-0.613,-0.59,-1.948
+Malaysia,"Jia Juin, Kenneth",Loh,-0.712,-1.579,0.662,-1.335,-1.063,-1.955
+Georgia,Bachuki,Dalakishvili,-1.603,-1.072,-0.322,-0.941,-0.455,-2.009
+Azerbaijan,Turan,Badalli,-1.094,-0.025,-1.155,-0.81,-1.198,-2.018
+Costa Rica,Joel,Rojas Gutiérrez,-1.157,0.887,-0.474,-1.795,-1.469,-2.037
+Turkey,Fatma Ayça,Öyken,-0.724,-0.869,-1.61,-0.941,-0.387,-2.061
+Slovenia,Jernej,Imperl,-1.094,-2.795,-1.004,0.109,-0.117,-2.075
+Vietnam,Nguyen,Huyen Huong,-1.349,-1.207,0.435,-1.27,-0.995,-2.094
+Sri Lanka,Sachini,Hettiarachchi,-0.393,-1.275,-1.383,-1.007,-0.725,-2.207
+Mexico,Arturo,García Cerrillo,-1.71,-0.869,-0.019,-1.335,-0.793,-2.226
+Slovenia,Anja,Brdnik,-1.285,0.077,0.359,-2.32,-1.266,-2.257
+Moldova,Olga,Sirbu,-1.603,-0.464,-1.383,-0.482,-1.063,-2.271
+Tajikistan,Zumradkhon,Shodyeva,-1.476,0.212,-0.853,-1.532,-1.198,-2.338
+Georgia,Toma,Rtveliashvili,-1.094,-0.363,-1.08,-1.598,-0.928,-2.41
+Costa Rica,Jennifer,Montero Hernández,-1.094,-2.187,-1.08,-0.482,-0.657,-2.446
+Portugal,António Francisco,Da Costa Teixeira,-1.349,-2.389,-0.247,-0.941,-0.59,-2.498
+Argentina,Agostina Sofía,Cianci Romero,-0.839,-0.7,-0.55,-0.876,-2.28,-2.536
+Azerbaijan,Nargiz,Mammadli,-1.157,-0.092,-1.686,-1.27,-1.266,-2.579
+South Africa,Trivenie,Moodley,-1.455,-0.498,-0.928,-1.861,-0.793,-2.626
+Mongolia,Boldsaikhan,Boldbayar,-0.903,0.381,-1.307,-1.335,-2.212,-2.637
+Norway,Astrid Winnberg,Skoge,-1.476,-1.916,-1.004,-0.351,-1.198,-2.672
+Moldova,Dorina,Bunciuc,-1.094,-0.059,-1.534,-1.598,-1.401,-2.719
+Mongolia,Bilguun,Byambaa,-0.393,-1.14,-1.61,-1.467,-1.266,-2.772
+Sri Lanka,Anagi,Kottahachchi,-0.304,-2.423,-0.853,-0.81,-2.009,-2.993
+Colombia,David,Gutierrez,-0.966,0.178,-1.383,-2.32,-1.671,-3.027
+Iceland,Hera,Gautadóttir,-1.03,-2.592,-0.928,-0.81,-1.401,-3.088
+Colombia,Juan,Sandoval,-1.476,-1.342,-1.307,-0.941,-1.671,-3.119
+Armenia,Gegham,Stepanyan,-1.285,-0.261,-0.853,-1.861,-2.145,-3.124
+Cyprus,Andrea,Elia,-0.648,-2.119,-1.231,-1.073,-1.807,-3.205
+Cyprus,Zina,Charalambous,-0.831,-1.849,-1.458,-1.335,-1.469,-3.23
+Georgia,Joni,Gvazava,-0.924,-0.396,-1.383,-1.532,-2.618,-3.323
+Mongolia,Buyannemekh,Nasannemekh,-1.37,-0.633,-1.686,-1.138,-2.415,-3.425
+Moldova,Alexandru,Codreanu,-1.349,0.11,-1.383,-2.386,-2.28,-3.569
+Tajikistan,Shahriyor,Kabirov,-1.285,-1.173,-1.004,-1.861,-2.347,-3.68
+Colombia,Julian,Jaimes,-1.157,-2.119,-1.383,-1.335,-2.212,-3.836
+South Africa,Kevaalin,Rapeti,-1.54,-3.2,-0.474,-0.679,-2.55,-3.896
+South Africa,Sarthak,Kokane,-1.157,-2.727,-1.458,-1.926,-1.401,-4.021
+South Africa,Uluthando,Jili,-1.54,-1.41,-0.625,-3.568,-1.807,-4.359
+Georgia,Romina,Gvazava,-1.731,-2.018,-1.61,-2.123,-2.009,-4.448
+Montenegro,Ana,Markovic,-1.603,-2.322,-0.928,-3.436,-1.807,-4.83
+Iran,Mohammadjavad,Meghrazi,,,,0.569,1.911,
+Iran,Alireza,Darziramandi,,,,0.634,1.776,
+Iran,Moein,Ghasemi,,,,0.831,0.694,
+Iran,Shaghayegh,Khanmohammadi,,,,0.569,0.559,

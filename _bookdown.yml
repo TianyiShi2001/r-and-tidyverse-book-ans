@@ -4,11 +4,11 @@ language:
     chapter_name: ""
 delete_merged_file: true
 output_dir: "docs"
-
+before_chapter_script: "_common.R"
 #new_session: yes
 
 #rmd_files: [
 
 #]
 
-before_chapter_script: "_common.R"
+

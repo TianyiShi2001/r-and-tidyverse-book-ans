@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 R中的数据，逻辑，和函数 | 《R与tidyverse——数据分析入门》练习题答案</title>
+  <meta name="description" content="这是《R与tidyverse——数据分析入门》的练习题答案" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 R中的数据，逻辑，和函数 | 《R与tidyverse——数据分析入门》练习题答案" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="这是《R与tidyverse——数据分析入门》的练习题答案" />
+  <meta name="github-repo" content="TianyiShi2001/R-Tutorial-Resources" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 R中的数据，逻辑，和函数 | 《R与tidyverse——数据分析入门》练习题答案" />
+  
+  <meta name="twitter:description" content="这是《R与tidyverse——数据分析入门》的练习题答案" />
+  
+
+<meta name="author" content="石天熠" />
+
+
+<meta name="date" content="2019-07-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'tob8xaq',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+<script src="https://hypothes.is/embed.js" async></script>
+<style>
+.book.font-family-0 {
+  font-family: Georgia, source-han-serif-sc, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.book.font-family-1 {
+  font-family: Arial, Helvetica, source-han-sans-simplified-c, sans-serif, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#biaoti {
+  font-family: source-han-serif-sc, serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 1.3em
+}
+</style>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li id="biaoti">R与tidyverse——数据分析入门</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> R和RStudio介绍和安装教程</a></li>
+<li class="chapter" data-level="2" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>2</b> R中的数据，逻辑，和函数</a><ul>
+<li class="chapter" data-level="2.1" data-path="r.html"><a href="r.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 基础</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r.html"><a href="r.html#section-2.1.1"><i class="fa fa-check"></i><b>2.1.1</b> 向量取子集和逻辑运算</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r.html"><a href="r.html#section-2.1.2"><i class="fa fa-check"></i><b>2.1.2</b> 转换年份到世纪</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r.html"><a href="r.html#section-2.1.3"><i class="fa fa-check"></i><b>2.1.3</b> 分割时间为时和分</a></li>
+<li class="chapter" data-level="2.1.4" data-path="r.html"><a href="r.html#-1"><i class="fa fa-check"></i><b>2.1.4</b> 转换年份到世纪</a></li>
+<li class="chapter" data-level="2.1.5" data-path="r.html"><a href="r.html#section-2.1.5"><i class="fa fa-check"></i><b>2.1.5</b> 斐波那契数列</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r.html"><a href="r.html#section-2.2"><i class="fa fa-check"></i><b>2.2</b> 进阶</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="r.html"><a href="r.html#section-2.2.1"><i class="fa fa-check"></i><b>2.2.1</b> 函数的使用</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r.html"><a href="r.html#section-2.2.2"><i class="fa fa-check"></i><b>2.2.2</b> 创建一个有序数列</a></li>
+<li class="chapter" data-level="2.2.3" data-path="r.html"><a href="r.html#section-2.2.3"><i class="fa fa-check"></i><b>2.2.3</b> 质数表</a></li>
+<li class="chapter" data-level="2.2.4" data-path="r.html"><a href="r.html#section-2.2.4"><i class="fa fa-check"></i><b>2.2.4</b> 判断是否是质数</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r.html"><a href="r.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 挑战</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="r.html"><a href="r.html#oop"><i class="fa fa-check"></i><b>2.3.1</b> 伪·OOP</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">《R与tidyverse——数据分析入门》练习题答案</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r" class="section level1">
+<h1><span class="header-section-number">2</span> R中的数据，逻辑，和函数</h1>
+<div id="section-2.1" class="section level2">
+<h2><span class="header-section-number">2.1</span> 基础</h2>
+<div id="section-2.1.1" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> 向量取子集和逻辑运算</h3>
+<div id="section-2.1.1.1" class="section level4">
+<h4><span class="header-section-number">2.1.1.1</span> 问题</h4>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="ot">NA</span>, <span class="dv">9</span>, <span class="dv">7</span>)</code></pre>
+<p><code>x[-c(1, 3)]</code>, <code>x[(length(x)-3):length(x)]</code>, <code>x[x &lt; 5]</code>, <code>x[!(x &lt; 5)]</code>的计算结果分别是？如何得到（不包含<code>NA</code>的）所有小于5的值的向量？</p>
+</div>
+<div id="section-2.1.1.2" class="section level4">
+<h4><span class="header-section-number">2.1.1.2</span> 答案</h4>
+<p>加上“且不为<code>NA</code>”的条件即可：</p>
+<pre class="sourceCode r"><code class="sourceCode r">x[x <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span> <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(x)]</code></pre>
+<pre><code>#&gt; [1] 3 4 1 2</code></pre>
+</div>
+</div>
+<div id="section-2.1.2" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> 转换年份到世纪</h3>
+<div id="-1" class="section level4">
+<h4><span class="header-section-number">2.1.2.1</span> 问题</h4>
+<p>写一个名为<code>as.century()</code>的函数，把存储着年份的向量，比如<code>years &lt;- c(2014, 1990, 1398, 1290, 1880, 2001)</code>，转换成对应的世纪（注意，19XX年是20世纪），像这样：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.century</span>(<span class="kw">c</span>(<span class="dv">2014</span>, <span class="dv">1990</span>, <span class="dv">1398</span>, <span class="dv">1290</span>, <span class="dv">1880</span>, <span class="dv">2001</span>))</code></pre>
+<pre><code>#&gt; [1] 21 20 14 13 19 21</code></pre>
+</div>
+<div id="-1" class="section level4">
+<h4><span class="header-section-number">2.1.2.2</span> 答案</h4>
+<pre class="sourceCode r"><code class="sourceCode r">as.century &lt;-<span class="st"> </span><span class="cf">function</span>(x) x<span class="op">%/%</span><span class="dv">100</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre>
+</div>
+</div>
+<div id="section-2.1.3" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> 分割时间为时和分</h3>
+<div id="-2" class="section level4">
+<h4><span class="header-section-number">2.1.3.1</span> 问题</h4>
+<p>写名为<code>hour()</code>, <code>minute()</code>的函数，使得：</p>
+<pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0512</span>, <span class="dv">0719</span>, <span class="dv">2358</span>, <span class="dv">0501</span>)
+<span class="kw">hour</span>(times)</code></pre>
+<pre><code>#&gt; [1]  5  7 23  5</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">minute</span>(times)</code></pre>
+<pre><code>#&gt; [1] 12 19 58  1</code></pre>
+</div>
+<div id="-2" class="section level4">
+<h4><span class="header-section-number">2.1.3.2</span> 答案</h4>
+<p>分别为求除以100的整数商和余数。</p>
+<pre class="sourceCode r"><code class="sourceCode r">hour &lt;-<span class="st"> </span><span class="cf">function</span>(x) x<span class="op">%/%</span><span class="dv">100</span>
+minute &lt;-<span class="st"> </span><span class="cf">function</span>(x) x<span class="op">%%</span><span class="dv">100</span></code></pre>
+</div>
+</div>
+<div id="-1" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> 转换年份到世纪</h3>
+<div id="-3" class="section level4">
+<h4><span class="header-section-number">2.1.4.1</span> 问题</h4>
+<p>写一个名为<code>as.century()</code>的函数，把存储着年份的向量，比如<code>years &lt;- c(2014, 1990, 1398, 1290, 1880, 2001)</code>，转换成对应的世纪（注意，19XX年是20世纪），像这样：</p>
+<pre class="sourceCode r"><code class="sourceCode r">years_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2014</span>, <span class="dv">1990</span>, <span class="dv">1398</span>, <span class="dv">1290</span>, <span class="dv">1880</span>, <span class="dv">2000</span>)
+<span class="kw">as.century</span>(years_<span class="dv">1</span>)</code></pre>
+<pre><code>#&gt; [1] 21 20 14 13 19 21</code></pre>
+</div>
+<div id="-3" class="section level4">
+<h4><span class="header-section-number">2.1.4.2</span> 答案</h4>
+<pre class="sourceCode r"><code class="sourceCode r">as.century &lt;-<span class="st"> </span><span class="cf">function</span>(years) {
+  centuries &lt;-<span class="st"> </span><span class="kw">floor</span>(years<span class="op">/</span><span class="dv">100</span><span class="op">+</span><span class="dv">1</span>)
+  <span class="kw">return</span>(centuries)
+}</code></pre>
+</div>
+</div>
+<div id="section-2.1.5" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> 斐波那契数列</h3>
+<p>斐波那契数列是指<span class="math inline">\(F = [1, 1, 2, 3, 5, 8, ...]\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>，其中：</p>
+<ul>
+<li><span class="math inline">\(F_1 = 1\)</span>，<span class="math inline">\(F_2 = 1\)</span></li>
+<li>从<span class="math inline">\(F_3\)</span>开始，<span class="math inline">\(F_i = F_{i-2} + F_{i-1}\)</span></li>
+</ul>
+<div id="-4" class="section level4">
+<h4><span class="header-section-number">2.1.5.1</span> 问题</h4>
+<p>创建一个函数名为<code>fibon()</code>的函数，使得<code>fibon(i)</code>：</p>
+<ul>
+<li>当<span class="math inline">\(i\in \mathbb{Z}^+\)</span>时，返回向量<span class="math inline">\([F_1, F_2, \ldots, F_i]\)</span></li>
+<li>当<span class="math inline">\(i\notin \mathbb{Z}^+\)</span>时，返回<code>&quot;请输入一个正整数作为`fibon()`的参数。&quot;</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+</ul>
+<p>提示：</p>
+<ul>
+<li>虽然在R中整数用<code>1L</code>, <code>2L</code>等表示，用户在被指示“输入整数”的时候很有可能输入的是<code>2</code>而不是<code>2L</code>. <code>2</code>是否等于<code>2L</code>?如果是，如何利用它检测输入的是否是整数？（<code>2</code>和<code>2L</code>都要被判定为“是整数”）</li>
+<li>斐波那契数列前两位是定义，从第三位开始才是计算得出的。</li>
+</ul>
+<p>使用例：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fibon</span>(<span class="dv">10</span>); <span class="kw">fibon</span>(<span class="op">-</span><span class="dv">5</span>)</code></pre>
+<pre><code>#&gt;  [1]  1  1  2  3  5  8 13 21 34 55</code></pre>
+<pre><code>#&gt; [1] &quot;请输入一个正整数。&quot;</code></pre>
+</div>
+<div id="-4" class="section level4">
+<h4><span class="header-section-number">2.1.5.2</span> 答案</h4>
+<p>首先，因为<span class="math inline">\(F_1 = 1\)</span>，<span class="math inline">\(F_2 = 1\)</span>是定义，所以在函数中创建一个向量，名为<code>F</code>, 存储前两项：</p>
+<pre class="sourceCode r"><code class="sourceCode r">fibon &lt;-<span class="st"> </span><span class="cf">function</span>(){
+  F &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)
+}</code></pre>
+<p>从<span class="math inline">\(F_3\)</span>开始，<span class="math inline">\(F_i = F_{i-2} + F_{i-1}\)</span>，翻译成R代码就是：</p>
+<pre class="sourceCode r"><code class="sourceCode r">F[i] &lt;-<span class="st"> </span>F[i<span class="dv">-2</span>] <span class="op">+</span><span class="st"> </span>F[i<span class="dv">-1</span>]</code></pre>
+<p>把它放进while循环里：</p>
+<pre class="sourceCode r"><code class="sourceCode r">fibon &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">len =</span> <span class="dv">10</span>){
+  F &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)
+  i =<span class="st"> </span><span class="dv">3</span> <span class="co">## 从3开始</span>
+  <span class="cf">while</span> (i <span class="op">&lt;=</span><span class="st"> </span>len) { <span class="co">## 到指定的数值结束</span>
+    F[i] &lt;-<span class="st"> </span>F[i<span class="dv">-2</span>] <span class="op">+</span><span class="st"> </span>F[i<span class="dv">-1</span>] <span class="co">## 每次计算并加入第i个元素</span>
+  }
+}</code></pre>
+<p>最后加入正整数的判别，然后整合一下，完成：</p>
+<pre class="sourceCode r"><code class="sourceCode r">fibon &lt;-<span class="st"> </span><span class="cf">function</span> (<span class="dt">len =</span> <span class="dv">10</span>) {
+  <span class="cf">if</span> (len <span class="op">==</span><span class="st"> </span><span class="kw">as.integer</span>(len) <span class="op">&amp;</span><span class="st"> </span>len <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) { <span class="co">#</span>
+    F &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>) <span class="co">## 前两项需要定义</span>
+    i &lt;-<span class="st"> </span><span class="dv">3</span> <span class="co">## 从第三项开始计算</span>
+    <span class="cf">while</span> (i <span class="op">&lt;=</span><span class="st"> </span>len) {
+      F[i] &lt;-<span class="st"> </span>F[i<span class="dv">-2</span>] <span class="op">+</span><span class="st"> </span>F[i<span class="dv">-1</span>]
+      i &lt;-<span class="st"> </span>i<span class="op">+</span><span class="dv">1</span> <span class="co">## R中不可以使用`i += 1`或者`i++`</span>
+    }
+    <span class="kw">return</span>(F[<span class="dv">1</span><span class="op">:</span>len])
+  } <span class="cf">else</span> {
+    <span class="kw">return</span>(<span class="st">&quot;请输入一个正整数。&quot;</span>)
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="section-2.2" class="section level2">
+<h2><span class="header-section-number">2.2</span> 进阶</h2>
+<div id="section-2.2.1" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> 函数的使用</h3>
+<div id="-5" class="section level4">
+<h4><span class="header-section-number">2.2.1.1</span> 问题</h4>
+<p><code>seq(0, 20, 5)</code>, <code>seq(by = 5, 0, 20</code>, 和<code>seq(by = 5, 0, y = 30, 20)</code>的结果分别是什么？</p>
+</div>
+<div id="-5" class="section level4">
+<h4><span class="header-section-number">2.2.1.2</span> 答案</h4>
+<p>有命名的实际参数优先，未命名的实际参数按照形式参数定义时的顺序。若有命名实参的名字在形参中无匹配，将被放进<code>...</code>这个大箩筐。</p>
+<p>形式参数定义时的顺序，可以通过帮助文档（<code>?seq</code>）获知。它是<code>from</code>, <code>to</code>, <code>by</code>, <code>length.out</code>, <code>along.with</code>, <code>...</code>.</p>
+<p><code>seq(0, 20, 5)</code>的三个实参都未命名。因此按照形参的顺序，即<code>seq(from = 0, to = 20, by = 5)</code>.</p>
+<p><code>seq(by = 5, 0, 20</code>有一个命名实参（<code>by = 5</code>），剩余未命名的<code>0</code>, <code>20</code>还是按顺序排，因此还是<code>seq(from = 0, to = 20, by = 5)</code>.</p>
+<p><code>seq(by = 5, 0, y = 30, 20)</code>多出了一个<code>y</code>，它被放进<code>...</code>，还是剩余未命名的<code>0</code>, <code>20</code>，因此仍然是<code>seq(from = 0, to = 20, by = 5)</code>.</p>
+</div>
+</div>
+<div id="section-2.2.2" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> 创建一个有序数列</h3>
+<p>分别用<code>sapply()</code>, <code>rep()</code>, 和<code>rapply()</code>创建这样一个数列（向量）：<span class="math display">\[x = \left(1\times1\times1, 1\times1\times2\ldots, 40\times50\times59, 40\times50\times60\right)\]</span></p>
+<div id="sapply" class="section level4">
+<h4><span class="header-section-number">2.2.2.1</span> 基于<code>sapply()</code></h4>
+<p>先创建<code>m</code>, <code>N</code>相乘的矩阵，再创建<code>l</code>乘这个矩阵形成的三维数组。最后化简为向量。</p>
+<pre class="sourceCode r"><code class="sourceCode r">MN &lt;-<span class="st"> </span><span class="kw">sapply</span>(M, <span class="cf">function</span>(m){m<span class="op">*</span>N})
+LMN &lt;-<span class="st"> </span><span class="kw">sapply</span>(L, <span class="cf">function</span>(l){l<span class="op">*</span>MN})
+result &lt;-<span class="st"> </span><span class="kw">as.vector</span>(LMN)</code></pre>
+<p>或</p>
+<pre class="sourceCode r"><code class="sourceCode r">MN &lt;-<span class="st"> </span><span class="kw">sapply</span>(M, <span class="st">&quot;*&quot;</span>, N)
+LMN &lt;-<span class="st"> </span><span class="kw">sapply</span>(L, <span class="st">&quot;*&quot;</span>, MN)
+result &lt;-<span class="st"> </span><span class="kw">as.vector</span>(LMN)</code></pre>
+</div>
+<div id="rep" class="section level4">
+<h4><span class="header-section-number">2.2.2.2</span> 基于<code>rep()</code></h4>
+<pre class="sourceCode r"><code class="sourceCode r">MN &lt;-<span class="st"> </span><span class="kw">rep</span>(N, <span class="kw">length</span>(M)) <span class="op">*</span><span class="st"> </span><span class="kw">rep</span>(M, <span class="dt">each =</span> <span class="kw">length</span>(N))
+result &lt;-<span class="st"> </span><span class="kw">rep</span>(MN, <span class="kw">length</span>(L)) <span class="op">*</span><span class="st"> </span><span class="kw">rep</span>(L, <span class="dt">each =</span> <span class="kw">length</span>(MN))</code></pre>
+<p>或（基于recycling rule, 回收规则）</p>
+<pre class="sourceCode r"><code class="sourceCode r">MN &lt;-<span class="st"> </span>N <span class="op">*</span><span class="st"> </span><span class="kw">rep</span>(M, <span class="dt">each =</span> <span class="kw">length</span>(N))
+result &lt;-<span class="st"> </span>MN <span class="op">*</span><span class="st"> </span><span class="kw">rep</span>(L, <span class="dt">each =</span> <span class="kw">length</span>(MN))</code></pre>
+</div>
+<div id="rapply" class="section level4">
+<h4><span class="header-section-number">2.2.2.3</span> 基于<code>rapply()</code></h4>
+<pre class="sourceCode r"><code class="sourceCode r">MN &lt;-<span class="st"> </span><span class="kw">rapply</span>(<span class="kw">as.list</span>(M), <span class="st">&quot;*&quot;</span>, N)
+result &lt;-<span class="st"> </span><span class="kw">rapply</span>(<span class="kw">as.list</span>(L), <span class="st">&quot;*&quot;</span>, MN)</code></pre>
+</div>
+</div>
+<div id="section-2.2.3" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> 质数表</h3>
+<p>创建一个<code>pr()</code>函数，使<code>pr(i)</code>得到<span class="math inline">\((2, 3, 5, 7, 11, ... n)\)</span>, 其中<code>i</code>为大于或等于<code>3</code>的整数，<span class="math inline">\(n\)</span>为小于<code>i</code>的最大质数。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pr</span>(<span class="dv">100</span>)</code></pre>
+<pre><code>#&gt;  [1]  2  3  5  7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83
+#&gt; [24] 89 97</code></pre>
+<p>你能想到几种方法？哪一种更快？为什么？</p>
+<div id="for" class="section level4">
+<h4><span class="header-section-number">2.2.3.1</span> 使用<code>for</code>循环</h4>
+<pre class="sourceCode r"><code class="sourceCode r">pr.for &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span>2L
+  <span class="cf">for</span> (num <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span>i) {
+    isPrime &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+    <span class="cf">for</span> (pnum <span class="cf">in</span> pnums) {
+      <span class="cf">if</span> (pnum <span class="op">&gt;</span><span class="st"> </span><span class="kw">sqrt</span>(num)) {
+        <span class="cf">break</span>
+      } <span class="cf">else</span> <span class="cf">if</span> (num <span class="op">%%</span><span class="st"> </span>pnum <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {
+        isPrime &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+        <span class="cf">break</span>
+      }
+    }
+    <span class="cf">if</span> (isPrime) {
+      pnums &lt;-<span class="st"> </span><span class="kw">c</span>(pnums, num)
+    }
+  }
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+</div>
+<div id="while" class="section level4">
+<h4><span class="header-section-number">2.2.3.2</span> 使用<code>while</code>循环</h4>
+<pre class="sourceCode r"><code class="sourceCode r">pr.while &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span>2L
+  <span class="cf">for</span> (num <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span>i) {
+    isPrime &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+    j =<span class="st"> </span><span class="dv">1</span>
+    <span class="cf">while</span> (pnums[j] <span class="op">&lt;=</span><span class="st"> </span><span class="kw">sqrt</span>(num)){
+      <span class="cf">if</span> (num <span class="op">%%</span><span class="st"> </span>pnums[j] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {
+        isPrime &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+        <span class="cf">break</span>
+      }
+      j =<span class="st"> </span>j<span class="op">+</span><span class="dv">1</span>
+    }
+    <span class="cf">if</span> (isPrime) {
+      pnums &lt;-<span class="st"> </span><span class="kw">c</span>(pnums, num)  <span class="co">## common mistake</span>
+    }
+  } 
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+</div>
+<div id="any" class="section level4">
+<h4><span class="header-section-number">2.2.3.3</span> 使用<code>any</code></h4>
+<pre class="sourceCode r"><code class="sourceCode r">pr.any &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span>2L
+  <span class="cf">for</span> (num <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span>i) {
+    isPrime &lt;-<span class="st"> </span><span class="op">!</span><span class="kw">any</span>(num <span class="op">%%</span><span class="st"> </span>pnums[pnums <span class="op">&lt;=</span><span class="st"> </span><span class="kw">sqrt</span>(num)] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)
+    <span class="cf">if</span> (isPrime) {
+      pnums &lt;-<span class="st"> </span><span class="kw">c</span>(pnums, num)
+    }
+  }
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+</div>
+<div id="all" class="section level4">
+<h4><span class="header-section-number">2.2.3.4</span> 使用<code>all</code></h4>
+<pre class="sourceCode r"><code class="sourceCode r">pr.all &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span>2L
+  <span class="cf">for</span> (num <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span>i) {
+    isPrime &lt;-<span class="st"> </span><span class="kw">all</span>(num <span class="op">%%</span><span class="st"> </span>pnums[pnums <span class="op">&lt;=</span><span class="st"> </span><span class="kw">sqrt</span>(num)] <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)
+    <span class="cf">if</span> (isPrime) {
+      pnums &lt;-<span class="st"> </span><span class="kw">c</span>(pnums, num)
+    }
+  }
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+</div>
+<div id="in" class="section level4">
+<h4><span class="header-section-number">2.2.3.5</span> 使用`%in%</h4>
+<pre class="sourceCode r"><code class="sourceCode r">pr.in &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span>2L
+  <span class="cf">for</span> (num <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span>i) {
+    isPrime &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+    test &lt;-<span class="st"> </span>pnums[pnums<span class="op">&lt;=</span><span class="kw">floor</span>(<span class="kw">sqrt</span>(num))]
+    isPrime &lt;-<span class="st"> </span><span class="op">!</span>(<span class="dv">0</span> <span class="op">%in%</span><span class="st"> </span>(num <span class="op">%%</span><span class="st"> </span>test))
+    <span class="cf">if</span> (isPrime) {
+      pnums &lt;-<span class="st"> </span><span class="kw">c</span>(pnums, num)  
+    }
+  }
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+</div>
+<div id="lapply" class="section level4">
+<h4><span class="header-section-number">2.2.3.6</span> 使用<code>lapply()</code></h4>
+<pre class="sourceCode r"><code class="sourceCode r">pr.lapply &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span><span class="dv">2</span>
+  <span class="kw">lapply</span>(<span class="dv">3</span><span class="op">:</span>i, <span class="cf">function</span>(x){
+    test &lt;-<span class="st"> </span>pnums[pnums <span class="op">&lt;=</span><span class="st"> </span><span class="kw">floor</span>(<span class="kw">sqrt</span>(x))]
+    <span class="cf">if</span> (<span class="kw">all</span>(x<span class="op">%%</span>test <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)) pnums &lt;&lt;-<span class="st"> </span><span class="kw">c</span>(pnums, x)
+  })
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+</div>
+<div id="purrrmap" class="section level4">
+<h4><span class="header-section-number">2.2.3.7</span> 使用<code>purrr</code>中的<code>map()</code></h4>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
+<pre><code>#&gt; ── Attaching packages ────────</code></pre>
+<pre><code>#&gt; ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+#&gt; ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+#&gt; ✔ tidyr   0.8.3     ✔ stringr 1.4.0
+#&gt; ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<pre><code>#&gt; ── Conflicts ─────────────────
+#&gt; ✖ dplyr::filter() masks stats::filter()
+#&gt; ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">pr.map &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span>2L
+  <span class="kw">map</span>(<span class="dv">3</span><span class="op">:</span>i, <span class="op">~</span>{
+    test &lt;-<span class="st"> </span>pnums[pnums<span class="op">&lt;=</span><span class="kw">floor</span>(<span class="kw">sqrt</span>(.))]
+    <span class="cf">if</span> (<span class="kw">all</span>(.<span class="op">%%</span>test <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)) pnums &lt;&lt;-<span class="st"> </span><span class="kw">c</span>(pnums, .)
+    })
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">pr.map1 &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span>2L
+  <span class="kw">map</span>(<span class="dv">3</span><span class="op">:</span>i, <span class="op">~</span>{
+    test &lt;-<span class="st"> </span>pnums[pnums<span class="op">&lt;=</span><span class="kw">floor</span>(<span class="kw">sqrt</span>(.))]
+    <span class="cf">if</span> (<span class="op">!</span>(<span class="dv">0</span> <span class="op">%in%</span><span class="st"> </span>(.<span class="op">%%</span>test))) pnums &lt;&lt;-<span class="st"> </span><span class="kw">c</span>(pnums, .)
+  })
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">pr.map2 &lt;-<span class="st"> </span><span class="cf">function</span>(i){
+  pnums &lt;-<span class="st"> </span><span class="dv">2</span>
+  <span class="kw">map</span>(<span class="dv">3</span><span class="op">:</span>i, <span class="op">~</span>{
+    test &lt;-<span class="st"> </span>pnums[pnums<span class="op">&lt;=</span><span class="kw">floor</span>(<span class="kw">sqrt</span>(.))]
+    <span class="cf">if</span> (<span class="kw">is.na</span>(<span class="kw">match</span>(<span class="dv">0</span>, .<span class="op">%%</span>test))) pnums &lt;&lt;-<span class="st"> </span><span class="kw">c</span>(pnums, .)
+  })
+  <span class="kw">return</span>(pnums)
+}</code></pre>
+</div>
+<div id="section-2.2.3.8" class="section level4">
+<h4><span class="header-section-number">2.2.3.8</span> 整合</h4>
+<pre class="sourceCode r"><code class="sourceCode r">pr.funcs.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;pr.for&#39;</span>, <span class="st">&#39;pr.while&#39;</span>, <span class="st">&#39;pr.any&#39;</span>, <span class="st">&#39;pr.all&#39;</span>, <span class="st">&#39;pr.in&#39;</span>, <span class="st">&#39;pr.lapply&#39;</span>, <span class="st">&#39;pr.map&#39;</span>, <span class="st">&#39;pr.map1&#39;</span>, <span class="st">&#39;pr.map2&#39;</span>)
+pr.funcs &lt;-<span class="st"> </span><span class="kw">lapply</span>(pr.funcs.names, match.fun)
+<span class="kw">names</span>(pr.funcs) &lt;-<span class="st"> </span>pr.funcs.names</code></pre>
+</div>
+<div id="section-2.2.3.9" class="section level4">
+<h4><span class="header-section-number">2.2.3.9</span> 小检验</h4>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t</span>(<span class="kw">sapply</span>(pr.funcs, <span class="cf">function</span>(x) <span class="kw">x</span>(<span class="dv">100</span>)))</code></pre>
+<pre><code>#&gt;           [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+#&gt; pr.for       2    3    5    7   11   13   17   19   23    29    31    37
+#&gt; pr.while     2    3    5    7   11   13   17   19   23    29    31    37
+#&gt; pr.any       2    3    5    7   11   13   17   19   23    29    31    37
+#&gt; pr.all       2    3    5    7   11   13   17   19   23    29    31    37
+#&gt; pr.in        2    3    5    7   11   13   17   19   23    29    31    37
+#&gt; pr.lapply    2    3    5    7   11   13   17   19   23    29    31    37
+#&gt; pr.map       2    3    5    7   11   13   17   19   23    29    31    37
+#&gt; pr.map1      2    3    5    7   11   13   17   19   23    29    31    37
+#&gt; pr.map2      2    3    5    7   11   13   17   19   23    29    31    37
+#&gt;           [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22]
+#&gt; pr.for       41    43    47    53    59    61    67    71    73    79
+#&gt; pr.while     41    43    47    53    59    61    67    71    73    79
+#&gt; pr.any       41    43    47    53    59    61    67    71    73    79
+#&gt; pr.all       41    43    47    53    59    61    67    71    73    79
+#&gt; pr.in        41    43    47    53    59    61    67    71    73    79
+#&gt; pr.lapply    41    43    47    53    59    61    67    71    73    79
+#&gt; pr.map       41    43    47    53    59    61    67    71    73    79
+#&gt; pr.map1      41    43    47    53    59    61    67    71    73    79
+#&gt; pr.map2      41    43    47    53    59    61    67    71    73    79
+#&gt;           [,23] [,24] [,25]
+#&gt; pr.for       83    89    97
+#&gt; pr.while     83    89    97
+#&gt; pr.any       83    89    97
+#&gt; pr.all       83    89    97
+#&gt; pr.in        83    89    97
+#&gt; pr.lapply    83    89    97
+#&gt; pr.map       83    89    97
+#&gt; pr.map1      83    89    97
+#&gt; pr.map2      83    89    97</code></pre>
+</div>
+<div id="section-2.2.3.10" class="section level4">
+<h4><span class="header-section-number">2.2.3.10</span> 小测速</h4>
+<pre class="sourceCode r"><code class="sourceCode r">n1 &lt;-<span class="st"> </span><span class="dv">100000</span>
+<span class="kw">map</span>(pr.funcs, <span class="op">~</span><span class="st"> </span>.(n1))</code></pre>
+</div>
+<div id="section-2.2.3.11" class="section level4">
+<h4><span class="header-section-number">2.2.3.11</span> 速度绘图</h4>
+<p>我们可以给各函数寻找不同数量的质数的速度绘图：</p>
+<pre class="sourceCode r"><code class="sourceCode r">lims &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">10000</span>,<span class="dv">100000</span>,<span class="dv">5000</span>)
+
+timeData &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">func =</span> <span class="kw">character</span>(<span class="dv">0</span>), <span class="dt">lim =</span> <span class="kw">integer</span>(<span class="dv">0</span>), <span class="dt">time =</span> <span class="kw">double</span>(<span class="dv">0</span>))
+
+<span class="cf">for</span>(lim <span class="cf">in</span> lims) {
+  <span class="cf">for</span>(pr <span class="cf">in</span> pr.funcs.names){
+    time &lt;-<span class="st"> </span><span class="kw">system.time</span>(<span class="kw">match.fun</span>(pr)(lim))[<span class="dv">3</span>]
+    timeData &lt;-<span class="st"> </span><span class="kw">add_row</span>(timeData, 
+                        <span class="dt">func =</span> pr, 
+                        <span class="dt">lim =</span> lim, 
+                        <span class="dt">time =</span> time)
+  }
+}</code></pre>
+<p>执行上面的代码会花很多时间，因此不妨把这宝贵的数据记录下来，方便日后使用（可以跳过这一步）：</p>
+<pre class="sourceCode r"><code class="sourceCode r">readr<span class="op">::</span><span class="kw">write_csv</span>(timeData, <span class="st">&quot;src/prime_list_timeData.csv&quot;</span>)
+timeData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;src/prime_list_timeData.csv&quot;</span>)</code></pre>
+<p>以下是绘图代码，前面两个步骤是为了看图例的时候更方便。最后一个步骤是保存png，可以跳过。</p>
+<pre class="sourceCode r"><code class="sourceCode r">timeData1 &lt;-<span class="st"> </span><span class="kw">mutate</span>(timeData, <span class="dt">func =</span> <span class="kw">fct_reorder</span>(func, time, <span class="dt">.fun =</span> <span class="cf">function</span>(x) <span class="op">-</span><span class="kw">max</span>(x)))
+
+types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;dotted&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;dashed&quot;</span>, <span class="dv">3</span>), <span class="kw">rep</span>(<span class="st">&quot;solid&quot;</span>, <span class="dv">2</span>))
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> timeData1, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>lim, <span class="dt">y =</span> time, <span class="dt">color =</span> func))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">se=</span><span class="ot">FALSE</span>, <span class="dt">method =</span> <span class="st">&#39;loess&#39;</span>, <span class="dt">formula =</span> <span class="st">&#39;y ~ x&#39;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="kw">aes</span>(<span class="dt">linetype =</span> func))<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_light</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> types)
+
+<span class="kw">ggsave</span>(<span class="st">&quot;prime_funcs.png&quot;</span>, <span class="dt">height =</span> <span class="dv">5</span>, <span class="dt">width =</span> <span class="dv">12</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre>
+<p><img src="img/prime_funcs.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>可以看到，用实线绘制的<code>for</code>和<code>while</code>循环最快，虚线代表的<code>%in%</code>, <code>all</code>, <code>any</code>其次，而点线代表的<code>apply()</code>族函数最慢。</p>
+<p>寻找质数本质上是一个迭代计算，无法用向量化的方法去完成，强行使用<code>apply()</code>族函数反而会加重负担。</p>
+</div>
+</div>
+<div id="section-2.2.4" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> 判断是否是质数</h3>
+<p>写一个函数，判断一个数是否是质数。</p>
+<pre class="sourceCode r"><code class="sourceCode r">is.prime &lt;-<span class="st"> </span><span class="cf">function</span>(n) n <span class="op">==</span><span class="st"> </span>2L <span class="op">||</span><span class="st"> </span><span class="kw">all</span>(n <span class="op">%%</span><span class="st"> </span>2L<span class="op">:</span><span class="kw">ceiling</span>(<span class="kw">sqrt</span>(n)) <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)</code></pre>
+</div>
+</div>
+<div id="section-2.3" class="section level2">
+<h2><span class="header-section-number">2.3</span> 挑战</h2>
+<div id="oop" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> 伪·OOP</h3>
+<div id="-6" class="section level4">
+<h4><span class="header-section-number">2.3.1.1</span> 问题</h4>
+<p>使用且仅使用<code>function()</code>, <code>c()</code>, <code>list()</code>, <code>paste()</code>, <code>print()</code>函数，<code>&lt;-</code>, <code>$</code>, <code>==</code>符号，和<code>if</code>，实现这样的效果：</p>
+<p><code>Pigeon()</code>, <code>Turtle()</code>, <code>Cat()</code>分别创建一只鸽子， 一只乌龟和一只猫（即产生一个list，各自的元素展示如下）：</p>
+<pre class="sourceCode r"><code class="sourceCode r">Guoguo &lt;-<span class="st"> </span><span class="kw">Pigeon</span>(<span class="st">&quot;Guoguo&quot;</span>)
+Felix &lt;-<span class="st"> </span><span class="kw">Cat</span>(<span class="st">&quot;Felix&quot;</span>, <span class="st">&quot;TRUE&quot;</span>)
+Kazuya &lt;-<span class="st"> </span><span class="kw">Turtle</span>(<span class="st">&quot;Kazuya&quot;</span>)
+
+<span class="kw">str</span>(Guoguo)</code></pre>
+<pre><code>#&gt; List of 5
+#&gt;  $ name         : chr &quot;Guoguo&quot;
+#&gt;  $ common_name  : chr &quot;pigeon&quot;
+#&gt;  $ binomial_name: chr &quot;Columba livia&quot;
+#&gt;  $ speak        : chr &quot;coo&quot;
+#&gt;  $ greet        :function (time = &quot;not_specified&quot;)  
+#&gt;   ..- attr(*, &quot;srcref&quot;)= &#39;srcref&#39; int [1:8] 6 12 12 3 12 3 6 12
+#&gt;   .. ..- attr(*, &quot;srcfile&quot;)=Classes &#39;srcfilecopy&#39;, &#39;srcfile&#39; &lt;environment: 0x7ff056149608&gt;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(Kazuya)</code></pre>
+<pre><code>#&gt; List of 5
+#&gt;  $ name         : chr &quot;Kazuya&quot;
+#&gt;  $ common_name  : chr &quot;turtle&quot;
+#&gt;  $ binomial_name: chr &quot;Trachemys scripta elegans&quot;
+#&gt;  $ speak        : logi NA
+#&gt;  $ greet        :function (time = &quot;not_specified&quot;)  
+#&gt;   ..- attr(*, &quot;srcref&quot;)= &#39;srcref&#39; int [1:8] 6 12 12 3 12 3 6 12
+#&gt;   .. ..- attr(*, &quot;srcfile&quot;)=Classes &#39;srcfilecopy&#39;, &#39;srcfile&#39; &lt;environment: 0x7ff056149608&gt;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(Felix)</code></pre>
+<pre><code>#&gt; List of 6
+#&gt;  $ name         : chr &quot;Felix&quot;
+#&gt;  $ common_name  : chr &quot;cat&quot;
+#&gt;  $ binomial_name: chr &quot;Felis catus&quot;
+#&gt;  $ speak        : chr &quot;meow&quot;
+#&gt;  $ greet        :function (time = &quot;not_specified&quot;)  
+#&gt;   ..- attr(*, &quot;srcref&quot;)= &#39;srcref&#39; int [1:8] 6 12 12 3 12 3 6 12
+#&gt;   .. ..- attr(*, &quot;srcfile&quot;)=Classes &#39;srcfilecopy&#39;, &#39;srcfile&#39; &lt;environment: 0x7ff056149608&gt; 
+#&gt;  $ sterilized   : chr &quot;TRUE&quot;</code></pre>
+<p>注意，鸽子，乌龟和猫都有名字 (<code>name</code>)，通称 (<code>common_name</code>)，学名 (<code>binomial_name</code>)，和打招呼函数 (<code>greet()</code>)；此外，乌龟没有叫声<code>speak()</code>，猫额外地有绝育<code>sterilized</code>信息。可以这样查看信息和使用打招呼函数：</p>
+<pre class="sourceCode r"><code class="sourceCode r">Felix<span class="op">$</span>binomial_name</code></pre>
+<pre><code>#&gt; [1] &quot;Felis catus&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">Kazuya<span class="op">$</span><span class="kw">greet</span>(<span class="st">&quot;afternoon&quot;</span>)</code></pre>
+<pre><code>#&gt; [1] &quot;Good afternoon, I&#39;m a turtle and my name is Kazuya&quot;</code></pre>
+<p>其中<code>greet()</code>的参数如果是<code>morning</code>, <code>afternoon</code>或<code>evening</code>，则返回<code>&quot;Good &lt;时间段&gt; ...&quot;</code>，否则返回<code>&quot;Hi ...&quot;</code>.</p>
+<p>此外，另写两个仅对这些宠物使用的函数<code>binomial_name()</code>和<code>greet()</code>，使之能够这样使用：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binomial_name</span>(Kazuya)</code></pre>
+<pre><code>#&gt; [1] &quot;Trachemys scripta elegans&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">greet</span>(Guoguo)</code></pre>
+<pre><code>#&gt; [1] &quot;Hi, I&#39;m a pigeon and my name is Guoguo&quot;</code></pre>
+<p><strong>你可能需要的额外信息：</strong></p>
+<p>鸽子，乌龟和猫的学名分别为Columba livia, Trachemys scripta elegans, Felis catus.</p>
+<p><code>paste()</code>函数把多个字符串拼接成一个，其中参数<code>sep</code>指定连接符号，默认为空格：</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> &quot;world&quot;</span>
+<span class="kw">paste</span>(<span class="st">&quot;Hello&quot;</span>, x, <span class="st">&quot;Bye&quot;</span>, x, <span class="dt">sep =</span> <span class="st">&quot;---&quot;</span>)</code></pre>
+<pre><code>#&gt; [1] &quot;Hello---world---Bye---world&quot;</code></pre>
+</div>
+<div id="-6" class="section level4">
+<h4><span class="header-section-number">2.3.1.2</span> 答案</h4>
+<p>首先，把<code>Cat()</code>函数做出来，这个应该不难看懂：</p>
+<pre class="sourceCode r"><code class="sourceCode r">Cat &lt;-<span class="st"> </span><span class="cf">function</span>(name){
+  name =<span class="st"> </span>name
+  binomial_name &lt;-<span class="st"> &quot;Felis catus&quot;</span>
+  speak &lt;-<span class="st"> &quot;Meow&quot;</span>
+  greet &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">time =</span> <span class="st">&quot;not_specified&quot;</span>){
+    intro &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;my name is&quot;</span>, name)
+    <span class="cf">if</span>(time <span class="op">==</span><span class="st"> &quot;morning&quot;</span>) <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Good morning,&quot;</span>, intro))
+    <span class="cf">if</span>(time <span class="op">==</span><span class="st"> &quot;afternoon&quot;</span>) <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Good afternoon,&quot;</span>, intro))
+    <span class="cf">if</span>(time <span class="op">==</span><span class="st"> &quot;evening&quot;</span>) <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Good evening,&quot;</span>, intro)) 
+    <span class="cf">if</span>(time <span class="op">==</span><span class="st"> &quot;not_specified&quot;</span>) <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Hi,&quot;</span>, intro))
+  }
+  <span class="kw">list</span>(<span class="dt">name =</span> name, <span class="dt">binomial_name =</span> binomial_name, <span class="dt">speak =</span> speak, <span class="dt">greet =</span> greet)
+}</code></pre>
+<p>你可以对<code>Turtle()</code>和<code>Pigeon()</code>做同样的事情，但是这样会产生很多重复的代码。每当有重复的代码发生时，作为一个正经的编程语言，一定有方法去消除重复。这三类动物都是宠物，因此我们可以把共同的代码写进一个<code>Pet()</code>函数中，再定义不同种类的宠物。这是OOP的<strong>inheritance和polymorphism的实现：</strong></p>
+<pre class="sourceCode r"><code class="sourceCode r">Pet &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="ot">NA</span>, <span class="dt">common_name =</span> <span class="ot">NA</span>, <span class="dt">binomial_name =</span> <span class="ot">NA</span>, <span class="dt">speak =</span> <span class="ot">NA</span>){
+  name &lt;-<span class="st"> </span>name
+  common_name &lt;-<span class="st"> </span>common_name
+  binomial_name &lt;-<span class="st"> </span>binomial_name
+  speak &lt;-<span class="st"> </span>speak
+  greet &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">time =</span> <span class="st">&quot;not_specified&quot;</span>){
+    intro &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;I&#39;m a&quot;</span>, common_name, <span class="st">&quot;and my name is&quot;</span>, name)
+    <span class="cf">if</span>(time <span class="op">==</span><span class="st"> &quot;morning&quot;</span>) <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Good morning,&quot;</span>, intro))
+    <span class="cf">if</span>(time <span class="op">==</span><span class="st"> &quot;afternoon&quot;</span>) <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Good afternoon,&quot;</span>, intro))
+    <span class="cf">if</span>(time <span class="op">==</span><span class="st"> &quot;evening&quot;</span>) <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Good evening,&quot;</span>, intro)) 
+    <span class="cf">if</span>(time <span class="op">==</span><span class="st"> &quot;not_specified&quot;</span>) <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Hi,&quot;</span>, intro))
+  }
+  <span class="kw">list</span>(<span class="dt">name =</span> name, <span class="dt">common_name =</span> common_name, <span class="dt">binomial_name =</span> binomial_name, <span class="dt">speak =</span> speak, <span class="dt">greet =</span> greet)
+}
+
+Pigeon &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="ot">NA</span>){
+  PetAaM &lt;-<span class="st"> </span><span class="kw">Pet</span>(name, <span class="st">&quot;pigeon&quot;</span>, <span class="st">&quot;Columba livia&quot;</span>, <span class="st">&quot;coo&quot;</span>)
+}
+
+Turtle &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="ot">NA</span>){
+  <span class="kw">Pet</span>(name, <span class="st">&quot;turtle&quot;</span>, <span class="st">&quot;Trachemys scripta elegans&quot;</span>) <span class="co">## 实现inheritance ## 龟没有叫声</span>
+}
+
+Cat &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="ot">NA</span>, <span class="dt">sterilized =</span> <span class="ot">NA</span>){
+  sterilized &lt;-<span class="st"> </span>sterilized <span class="co">## 猫可能绝育 ## 新增attribute，实现了广义的polymorphism</span>
+  PetAaM &lt;-<span class="st"> </span><span class="kw">Pet</span>(name, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;Felis catus&quot;</span>, <span class="st">&quot;meow&quot;</span>)
+  CatOnlyAaM &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">sterilized =</span> sterilized)
+  <span class="kw">c</span>(PetAaM, CatOnlyAaM)
+}
+
+<span class="co">## 实现了Python语境中的polymorphism</span>
+greet &lt;-<span class="st"> </span><span class="cf">function</span>(pet, <span class="dt">time =</span> <span class="st">&quot;not_specified&quot;</span>){
+  pet<span class="op">$</span><span class="kw">greet</span>(time)
+}
+
+binomial_name &lt;-<span class="st"> </span><span class="cf">function</span>(pet){
+  pet<span class="op">$</span>binomial_name
+}</code></pre>
+<p>搞定！没有<code>class</code>，没有<code>self</code>，没有<code>__init__</code>，<em>it just works</em>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>也有<span class="math inline">\(F_0=0, F_1=1\)</span>的说法，但是为了方便我们不用这个定义。<a href="r.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>虽然正规的做法是制造一个错误/警告<a href="r.html#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/TianyiShi2001/R-Tutorial-Resources/02-basics.Rmd",
+"text": "Github"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

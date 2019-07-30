@@ -1,6 +1,6 @@
-# R中的数据，逻辑，和函数
+# R中的数据，逻辑，和函数 {#base}
 
-## 基础
+## 基础 {#base-basics}
 
 ### 向量取子集和逻辑运算
 
@@ -281,7 +281,7 @@ pr(100)
 
 #### 使用`for`循环
 
-```{r eval=FALSE}
+```{r}
 pr.for <- function(i){
   pnums <- 2L
   for (num in 3:i) {
@@ -304,7 +304,7 @@ pr.for <- function(i){
 
 #### 使用`while`循环
 
-```{r eval=FALSE}
+```{r}
 pr.while <- function(i){
   pnums <- 2L
   for (num in 3:i) {
@@ -327,7 +327,7 @@ pr.while <- function(i){
 
 #### 使用`any` 
 
-```{r eval=FALSE}
+```{r}
 pr.any <- function(i){
   pnums <- 2L
   for (num in 3:i) {
@@ -342,7 +342,7 @@ pr.any <- function(i){
 
 #### 使用`all`
 
-```{r eval=FALSE}
+```{r}
 pr.all <- function(i){
   pnums <- 2L
   for (num in 3:i) {
@@ -357,7 +357,7 @@ pr.all <- function(i){
 
 #### 使用`%in%
 
-```{r eval=FALSE}
+```{r}
 pr.in <- function(i){
   pnums <- 2L
   for (num in 3:i) {
@@ -374,7 +374,7 @@ pr.in <- function(i){
 
 #### 使用`lapply()`
 
-```{r eval=FALSE}
+```{r}
 pr.lapply <- function(i){
   pnums <- 2
   lapply(3:i, function(x){
@@ -386,11 +386,11 @@ pr.lapply <- function(i){
 ```
 #### 使用`purrr`中的`map()`
 
-```{r eval=FALSE}
-library(purrr)
+```{r}
+library(tidyverse)
 ```
 
-```{r eval=FALSE}
+```{r}
 pr.map <- function(i){
   pnums <- 2L
   map(3:i, ~{
@@ -401,7 +401,7 @@ pr.map <- function(i){
 }
 ```
 
-```{r eval=FALSE}
+```{r}
 pr.map1 <- function(i){
   pnums <- 2L
   map(3:i, ~{
@@ -412,7 +412,7 @@ pr.map1 <- function(i){
 }
 ```
 
-```{r eval=FALSE}
+```{r}
 pr.map2 <- function(i){
   pnums <- 2
   map(3:i, ~{
@@ -427,30 +427,83 @@ pr.map2 <- function(i){
 
 #### 整合
 
-list(pr.for, pr.while, pr.any, pr.all, pr.in)
+```{r}
+pr.funcs.names <- c('pr.for', 'pr.while', 'pr.any', 'pr.all', 'pr.in', 'pr.lapply', 'pr.map', 'pr.map1', 'pr.map2')
+pr.funcs <- lapply(pr.funcs.names, match.fun)
+names(pr.funcs) <- pr.funcs.names
+```
+
+#### 小检验
+
+```{r}
+t(sapply(pr.funcs, function(x) x(100)))
+```
 
 #### 小测速
 
 ```{r eval=FALSE}
 n1 <- 100000
-system.time(pr.for(n1))
-system.time(pr.while(n1))
-system.time(pr.any(n1))
-system.time(pr.all(n1))
-system.time(pr.in(n1))
-system.time(pr.lapply(n1))
-system.time(pr.map(n1))
-system.time(pr.map1(n1))
-system.time(pr.map2(n1))
-
-```
-
-```{r eval=FALSE}
+map(pr.funcs, ~ .(n1))
 ```
 
 #### 速度绘图
 
+我们可以给各函数寻找不同数量的质数的速度绘图：
 
+```{r eval=FALSE}
+lims <- seq(10000,100000,5000)
+
+timeData <- tibble(func = character(0), lim = integer(0), time = double(0))
+
+for(lim in lims) {
+  for(pr in pr.funcs.names){
+    time <- system.time(match.fun(pr)(lim))[3]
+    timeData <- add_row(timeData, 
+                        func = pr, 
+                        lim = lim, 
+                        time = time)
+  }
+}
+```
+
+执行上面的代码会花很多时间，因此不妨把这宝贵的数据记录下来，方便日后使用（可以跳过这一步）：
+
+```{r eval=FALSE}
+readr::write_csv(timeData, "src/prime_list_timeData.csv")
+timeData <- read_csv("src/prime_list_timeData.csv")
+```
+
+以下是绘图代码，前面两个步骤是为了看图例的时候更方便。最后一个步骤是保存png，可以跳过。
+
+```{r eval=FALSE}
+timeData1 <- mutate(timeData, func = fct_reorder(func, time, .fun = function(x) -max(x)))
+
+types <- c(rep("dotted", 4), rep("dashed", 3), rep("solid", 2))
+
+ggplot(data = timeData1, mapping = aes(x=lim, y = time, color = func))+
+  geom_point()+
+  geom_smooth(se=FALSE, method = 'loess', formula = 'y ~ x', size = 0.5, aes(linetype = func))+
+  theme_light()+
+  scale_linetype_manual(values = types)
+
+ggsave("prime_funcs.png", height = 5, width = 12, dpi = 300)
+```
+
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics("img/prime_funcs.png")
+```
+
+可以看到，用实线绘制的`for`和`while`循环最快，虚线代表的`%in%`, `all`, `any`其次，而点线代表的`apply()`族函数最慢。
+
+寻找质数本质上是一个迭代计算，无法用向量化的方法去完成，强行使用`apply()`族函数反而会加重负担。
+
+### 判断是否是质数
+
+写一个函数，判断一个数是否是质数。
+
+```{r}
+is.prime <- function(n) n == 2L || all(n %% 2L:ceiling(sqrt(n)) != 0)
+```
 
 ## 挑战
 

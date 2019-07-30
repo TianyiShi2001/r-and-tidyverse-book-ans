@@ -2,6 +2,24 @@
 
 ## 基础
 
+### 向量取子集和逻辑运算
+
+#### 问题
+
+```{r}
+x <- c(3, 4, 6, 1, NA, 8, 2, 5, NA, 9, 7)
+```
+    
+`x[-c(1, 3)]`, `x[(length(x)-3):length(x)]`, `x[x < 5]`, `x[!(x < 5)]`的计算结果分别是？如何得到（不包含`NA`的）所有小于5的值的向量？
+
+#### 答案
+
+加上“且不为`NA`”的条件即可：
+
+```{r}
+x[x < 5 & !is.na(x)]
+```
+
 ### 转换年份到世纪
 
 #### 问题
@@ -354,17 +372,22 @@ pr.in <- function(i){
 }
 ```
 
-#### 使用`apply()`族函数
+#### 使用`lapply()`
 
 ```{r eval=FALSE}
 pr.lapply <- function(i){
   pnums <- 2
   lapply(3:i, function(x){
-    test <- pnums[pnums<=floor(sqrt(x))]
-    if ((match(0, x%%test))) pnums <<- c(pnums, x)
+    test <- pnums[pnums <= floor(sqrt(x))]
+    if (all(x%%test != 0)) pnums <<- c(pnums, x)
   })
   return(pnums)
 }
+```
+#### 使用`purrr`中的`map()`
+
+```{r eval=FALSE}
+library(purrr)
 ```
 
 ```{r eval=FALSE}
@@ -390,10 +413,6 @@ pr.map1 <- function(i){
 ```
 
 ```{r eval=FALSE}
-library(purrr)
-```
-
-```{r eval=FALSE}
 pr.map2 <- function(i){
   pnums <- 2
   map(3:i, ~{
@@ -408,7 +427,7 @@ pr.map2 <- function(i){
 
 #### 整合
 
-list
+list(pr.for, pr.while, pr.any, pr.all, pr.in)
 
 #### 小测速
 
@@ -418,8 +437,8 @@ system.time(pr.for(n1))
 system.time(pr.while(n1))
 system.time(pr.any(n1))
 system.time(pr.all(n1))
-system.time(pr.lapply(n1))
 system.time(pr.in(n1))
+system.time(pr.lapply(n1))
 system.time(pr.map(n1))
 system.time(pr.map1(n1))
 system.time(pr.map2(n1))
@@ -428,6 +447,8 @@ system.time(pr.map2(n1))
 
 ```{r eval=FALSE}
 ```
+
+#### 速度绘图
 
 
 

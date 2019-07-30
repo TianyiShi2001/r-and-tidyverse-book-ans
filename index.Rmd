@@ -1,0 +1,30 @@
+---
+title: "《R与tidyverse——数据分析入门》练习题答案"
+author: "石天熠"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    includes:
+      in_header: partials/header.html
+    config:
+      toc:
+        collapse: subsection
+        before: | 
+          <li id="biaoti">R与tidyverse——数据分析入门</li>
+      edit:
+        link: https://github.com/TianyiShi2001/R-Tutorial-Resources/%s
+        text: "Github"
+  bookdown::pdf_book:
+    keep_tex: no
+    latex_engine: "xelatex"
+    includes:
+      in_header: partials/header.tex
+documentclass: book
+github-repo: TianyiShi2001/R-Tutorial-Resources
+description: "这是《R与tidyverse——数据分析入门》的练习题答案"
+---
+
+# R和RStudio介绍和安装教程
+

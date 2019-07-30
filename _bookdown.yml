@@ -1,0 +1,14 @@
+book_filename: "R与tidyverse——数据分析入门练习题的答案"
+language:
+  ui:
+    chapter_name: ""
+delete_merged_file: true
+output_dir: "docs"
+
+#new_session: yes
+
+#rmd_files: [
+
+#]
+
+before_chapter_script: "_common.R"

@@ -1,7 +1,5 @@
 # 避免使用for循环
 
-对于以下方法，可以做成函数之后用`system.time()`测速。
-
 ## 使用普通for循环
 
 ```{r}
@@ -13,7 +11,7 @@ x <- vector("numeric")
 for (l in L) {
     for (m in 1:50) {
         for (n in 1:60) {
-        x <- append(x, l*m*n)
+        x <- c(x, l*m*n)
         }
     }
 }
@@ -27,7 +25,7 @@ require(doParallel)
 require(foreach)
 x <- foreach(l = 1:40, .combine = "c") %dopar% {
     foreach(m = 1:50, .combine = "c") %dopar% {
-        foreach(n = 1:60, .combine = "c") %do% {
+        foreach(n = 1:60, .combine = "c") %dopar% {
         l*m*n
         }
     }
@@ -35,69 +33,50 @@ x <- foreach(l = 1:40, .combine = "c") %dopar% {
 x
 ```
 
+**以下是向量化的方法，可酌情调高参数。**
+
+```{r}
+L <- 1:40 # 或1:500或更多
+M <- 1:50 # 或1:600或更多
+N <- 1:60 # 或1:700或更多
+```
+
 ## 基于`sapply()`
 
-```{r}
-L <- 1:40 # 或1:500
-M <- 1:50 # 或1:600
-N <- 1:60 # 或1:700
+先创建`m`, `N`相乘的矩阵，再创建`l`乘这个矩阵形成的三维数组。最后化简为向量。
 
-x <- as.vector(sapply(M, function(m){m*N}))
-result <- as.vector(sapply(L, function(l){l*x}))
-
-result
-```
-
-## 基于`rep()`
-
-```{r}
-L <- 1:40 # 或1:500
-M <- 1:50 # 或1:600
-N <- 1:60 # 或1:700
-
-x <- rep(N, length(M))*rep(M, rep(length(N), length(M)))
-result <- rep(x, length(L))*rep(L, rep(length(x), length(L)))
-
-result
-```
-
-
-## 基于`rep()`和`mapply()`/`Map()`
-
-```{r}
-L <- 1:40 # 或1:500
-M <- 1:50 # 或1:600
-N <- 1:60 # 或1:700
-
-system.time({
-x <- rep(N, length(M))*unlist(Map(rep, M, length(N)))
-result <- rep(x, length(L))*unlist(Map(rep, L, length(x)))
-})
+```{r eval=FALSE}
+MN <- sapply(M, function(m){m*N})
+LMN <- sapply(L, function(l){l*MN})
+result <- as.vector(LMN)
 ```
 
 或
 
-```{r}
-L <- 1:40 # 或1:500
-M <- 1:50 # 或1:600
-N <- 1:60 # 或1:700
+```{r eval=FALSE}
+MN <- sapply(M, "*", N)
+LMN <- sapply(L, "*", MN)
+result <- as.vector(LMN)
+```
 
 
-x <- matrix(rep(N, length(M)), ncol = length(M))*mapply(rep, M, length(N))
-result <- matrix(rep(x, length(L)), ncol = length(L))*mapply(rep, L, length(x))
+## 基于`rep()`
 
-result
+```{r eval=FALSE}
+MN <- rep(N, length(M)) * rep(M, each = length(N))
+result <- rep(MN, length(L)) * rep(L, each = length(MN))
+```
+
+或（基于recycling rule, 回收规则）
+
+```{r eval=FALSE}
+MN <- N * rep(M, each = length(N))
+result <- MN * rep(L, each = length(MN))
 ```
 
 ## 基于`rapply()`
 
-```{r}
-L <- 1:40 # 或1:500
-M <- 1:50 # 或1:600
-N <- 1:60 # 或1:700
-
-x <- rapply(as.list(M), function(m){m*N})
-result <- rapply(as.list(L), function(l){l*x})
-
-result
+```{r eval=FALSE}
+MN <- rapply(as.list(M), "*", N)
+result <- rapply(as.list(L), "*", MN)
 ```

@@ -13,14 +13,14 @@ for (num in 3:400000) {
     }
   }
   if (isPrime) {
-    primeNumbers <- append(primeNumbers, num)  ## common mistake
+    primeNumbers <- c(primeNumbers, num)  ## common mistake
   }
 }
 
 ###############################
 # 用for loop
 
-prime.list <- function(i){
+prime.list.for <- function(i){
   primeNumbers <- 2L
   for (num in 3:i) {
     isPrime <- TRUE
@@ -33,18 +33,20 @@ prime.list <- function(i){
       }
     }
     if (isPrime) {
-      primeNumbers <- append(primeNumbers, num)  ## common mistake
+      primeNumbers <- c(primeNumbers, num)
     }
   }
   return(primeNumbers)
 }
 
 primeNumbers <- 2L
-primeNumbers <- prime.list(400000)
+primeNumbers <- prime.list.for(400000)
 pNwIndex <- data.frame(index = 1:length(primeNumbers),num = primeNumbers)
 plot(pNwIndex$index[1:100],pNwIndex$num[1:100])
 
-####################################
+
+
+# any ---------------------------------------------------------------------
 # 虽然看起来简洁，实际上对于计算机来说更复杂。耗时更久。
 
 prime.list.any <- function(i){
@@ -52,29 +54,29 @@ prime.list.any <- function(i){
   for (num in 3:i) {
     isPrime <- !any(num %% primeNumbers[1:sum(primeNumbers <= sqrt(num))] == 0)
     if (isPrime) {
-      primeNumbers <- append(primeNumbers, num)
+      primeNumbers <- c(primeNumbers, num)
     }
   }
   return(primeNumbers)
 }
 
-####################################
-# 用all
+
+# 用all --------------------------------------------------------------------
+
+
 
 prime.list.all <- function(i){
   primeNumbers <- 2L
   for (num in 3:i) {
     isPrime <- all(num %% primeNumbers[1:sum(primeNumbers <= sqrt(num))] != 0)
     if (isPrime) {
-      primeNumbers <- append(primeNumbers, num)
+      primeNumbers <- c(primeNumbers, num)
     }
   }
   return(primeNumbers)
 }
 
-#####################################
-#用while
-
+# 用while ------------------------------------------------------------------
 
 prime.list.while <- function(i){
   primeNumbers <- 2L
@@ -89,28 +91,96 @@ prime.list.while <- function(i){
       j = j+1
     }
     if (isPrime) {
-      primeNumbers <- append(primeNumbers, num)  ## common mistake
+      primeNumbers <- c(primeNumbers, num)  ## common mistake
     }
   } 
   return(primeNumbers)
 }
 
-#############################
+
+# 用`%in%` --------------------------------------------------------------
+
+prime.list.in <- function(i){
+  primeNumbers <- 2L
+  for (num in 3:i) {
+    isPrime <- TRUE
+    test <- primeNumbers[primeNumbers<=floor(sqrt(num))]
+    isPrime <- !(0 %in% (num %% test))
+    if (isPrime) {
+      primeNumbers <- c(primeNumbers, num)  
+    }
+  }
+  return(primeNumbers)
+}
+
+
+# 用apply ------------------------------------------------------------------
+
+prime.list.map <- function(i){
+  primeNumbers <- 2L
+  map(3:i, ~{
+    test <- primeNumbers[primeNumbers<=floor(sqrt(.))]
+    if (all(.%%test != 0)) primeNumbers <<- c(primeNumbers, .)
+    })
+  return(primeNumbers)
+}
+
+prime.list.map1 <- function(i){
+  primeNumbers <- 2L
+  map(3:i, ~{
+    test <- primeNumbers[primeNumbers<=floor(sqrt(.))]
+    if (!(0 %in% (.%%test))) primeNumbers <<- c(primeNumbers, .)
+  })
+  return(primeNumbers)
+}
+
+library(purrr)
+
+prime.list.map2 <- function(i){
+  primeNumbers <- 2
+  map(3:i, ~{
+    test <- primeNumbers[primeNumbers<=floor(sqrt(.))]
+    if (is.na(match(0, .%%test))) primeNumbers <<- c(primeNumbers, .)
+  })
+  return(primeNumbers)
+}
+
+prime.list.lapply <- function(i){
+  primeNumbers <- 2
+  lapply(3:i, function(x){
+    test <- primeNumbers[primeNumbers<=floor(sqrt(x))]
+    if (is.na(match(0, x%%test))) primeNumbers <<- c(primeNumbers, x)
+  })
+  return(primeNumbers)
+}
+
+# 小测速度 --------------------------------------------------------------
 
 n1 <- 100000
-system.time(prime.list(n1))
+system.time(prime.list.for(n1))
 system.time(prime.list.any(n1))
 system.time(prime.list.while(n1))
 system.time(prime.list.all(n1))
+system.time(prime.list.in(n1))
+system.time(prime.list.map(n1))
+system.time(prime.list.map2(n1))
+system.time(prime.list.lapply(n1))
 
-##########################Speed
+prime.list.in(n1)
+prime.list.for(n1)
+prime.list.map1(n1)
+prime.list.map2(n1)
+prime.list.lapply(n1)
+
+
+# 速度绘图 --------------------------------------------------------------
 library(tidyverse)
 
 number <- seq(10000,100000,5000)
 
 time <- vector("numeric")
 for(i in number) {
-  time <- append(time, system.time(prime.list(i))[3])
+  time <- c(time, system.time(prime.list.for(i))[3])
 }
 timeData <- tibble(func = "prime.list", number = number, time = time)
 
@@ -133,7 +203,7 @@ ggplot(data = timeData, mapping = aes(x=number, y = time, color = func))+
   geom_smooth(se=FALSE, method = 'loess', formula = 'y ~ x')+
   theme_light()
 
-## is.prime
+# `is.prime` --------------------------------------------------------------
 
 is.prime <- function(n) n == 2L || all(n %% 2L:ceiling(sqrt(n)) != 0)
 
@@ -142,7 +212,7 @@ is.prime(999983)
 primeNumbers <- 2L
 for (num in 3:400000) {
   if(is.prime(num)){
-    primeNumbers <- append(primeNumbers,num)
+    primeNumbers <- c(primeNumbers,num)
   }
 }
 
@@ -163,10 +233,10 @@ for (num in 3:10000) {
   }
   if (isPrime) {
     numberPrimes <- numberPrimes + 1
-    numberPrimesList <- append(numberPrimesList, numberPrimes)
-    primeNumbers <- append(primeNumbers, num)
+    numberPrimesList <- c(numberPrimesList, numberPrimes)
+    primeNumbers <- c(primeNumbers, num)
   } else {
-    numberPrimesList <- append(numberPrimesList, numberPrimes)
+    numberPrimesList <- c(numberPrimesList, numberPrimes)
   }
 }
 

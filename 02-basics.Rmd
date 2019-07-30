@@ -1,0 +1,587 @@
+# R中的数据，逻辑，和函数
+
+## 基础
+
+### 转换年份到世纪
+
+#### 问题
+
+写一个名为`as.century()`的函数，把存储着年份的向量，比如`years <- c(2014, 1990, 1398, 1290, 1880, 2001)`，转换成对应的世纪（注意，19XX年是20世纪），像这样：
+
+```{r include=FALSE}
+as.century <- function(x) x%/%100 + 1
+```
+
+```{r}
+as.century(c(2014, 1990, 1398, 1290, 1880, 2001))
+```
+
+#### 答案
+
+```{r eval=FALSE}
+as.century <- function(x) x%/%100 + 1
+```
+
+### 分割时间为时和分
+
+#### 问题
+
+写名为`hour()`, `minute()`的函数，使得：
+
+```{r include=FALSE}
+hour <- function(x) x%/%100
+minute <- function(x) x%%100
+```
+
+```{r}
+times <- c(0512, 0719, 2358, 0501)
+hour(times)
+minute(times)
+```
+
+#### 答案
+
+分别为求除以100的整数商和余数。
+
+```{r eval=FALSE}
+hour <- function(x) x%/%100
+minute <- function(x) x%%100
+```
+
+### 转换年份到世纪
+
+#### 问题
+
+写一个名为`as.century()`的函数，把存储着年份的向量，比如`years <- c(2014, 1990, 1398, 1290, 1880, 2001)`，转换成对应的世纪（注意，19XX年是20世纪），像这样：
+
+```{r include=FALSE}
+as.century <- function(years) {
+  centuries <- floor(years/100+1)
+  return(centuries)
+}
+```
+
+```{r}
+years_1 <- c(2014, 1990, 1398, 1290, 1880, 2000)
+as.century(years_1)
+```
+
+#### 答案 
+
+```{r eval=FALSE}
+as.century <- function(years) {
+  centuries <- floor(years/100+1)
+  return(centuries)
+}
+```
+
+### 斐波那契数列
+
+斐波那契数列是指$F = [1, 1, 2, 3, 5, 8, ...]$[^fibon]，其中：
+
+[^fibon]: 也有$F_0=0, F_1=1$的说法，但是为了方便我们不用这个定义。
+
+- $F_1 = 1$，$F_2 = 1$
+- 从$F_3$开始，$F_i = F_{i-2} + F_{i-1}$
+
+#### 问题
+
+创建一个函数名为`fibon()`的函数，使得`fibon(i)`：
+
+- 当$i\in \mathbb{Z}^+$时，返回向量$[F_1, F_2, \ldots, F_i]$
+- 当$i\notin \mathbb{Z}^+$时，返回`` "请输入一个正整数作为`fibon()`的参数。" ``[^error-warn]
+
+[^error-warn]: 虽然正规的做法是制造一个错误/警告
+
+提示：
+
+- 虽然在R中整数用`1L`, `2L`等表示，用户在被指示“输入整数”的时候很有可能输入的是`2`而不是`2L`. `2`是否等于`2L`?如果是，如何利用它检测输入的是否是整数？（`2`和`2L`都要被判定为“是整数”）
+- 斐波那契数列前两位是定义，从第三位开始才是计算得出的。
+
+```{r include=FALSE}
+fibon <- function (len = 10) {
+  if (len == as.integer(len) & len > 0) { #
+    F <- c(1, 1) ## 前两项需要定义
+    i <- 3 ## 从第三项开始计算
+    while (i <= len) {
+      F[i] <- F[i-2] + F[i-1]
+      i <- i+1 ## R中不可以使用`i += 1`或者`i++`
+    }
+    return(F[1:len])
+  } else {
+    return("请输入一个正整数。")
+  }
+}
+```
+
+使用例：
+
+```{r}
+fibon(10); fibon(-5)
+```
+
+#### 答案
+
+首先，因为$F_1 = 1$，$F_2 = 1$是定义，所以在函数中创建一个向量，名为`F`, 存储前两项：
+
+```{r eval=FALSE}
+fibon <- function(){
+  F <- c(1, 1)
+}
+```
+
+从$F_3$开始，$F_i = F_{i-2} + F_{i-1}$，翻译成R代码就是：
+
+```{r eval=FALSE}
+F[i] <- F[i-2] + F[i-1]
+```
+
+把它放进while循环里：
+
+```{r eval=FALSE}
+fibon <- function(len = 10){
+  F <- c(1, 1)
+  i = 3 ## 从3开始
+  while (i <= len) { ## 到指定的数值结束
+    F[i] <- F[i-2] + F[i-1] ## 每次计算并加入第i个元素
+  }
+}
+```
+
+最后加入正整数的判别，然后整合一下，完成：
+
+```{r eval=FALSE}
+fibon <- function (len = 10) {
+  if (len == as.integer(len) & len > 0) { #
+    F <- c(1, 1) ## 前两项需要定义
+    i <- 3 ## 从第三项开始计算
+    while (i <= len) {
+      F[i] <- F[i-2] + F[i-1]
+      i <- i+1 ## R中不可以使用`i += 1`或者`i++`
+    }
+    return(F[1:len])
+  } else {
+    return("请输入一个正整数。")
+  }
+}
+```
+
+## 进阶
+
+### 函数的使用
+
+#### 问题
+
+`seq(0, 20, 5)`, `seq(by = 5, 0, 20`, 和`seq(by = 5, 0, y = 30, 20)`的结果分别是什么？
+
+#### 答案
+
+有命名的实际参数优先，未命名的实际参数按照形式参数定义时的顺序。若有命名实参的名字在形参中无匹配，将被放进`...`这个大箩筐。
+
+形式参数定义时的顺序，可以通过帮助文档（`?seq`）获知。它是`from`, `to`, `by`, `length.out`, `along.with`, `...`.
+
+`seq(0, 20, 5)`的三个实参都未命名。因此按照形参的顺序，即`seq(from = 0, to = 20, by = 5)`.
+
+`seq(by = 5, 0, 20`有一个命名实参（`by = 5`），剩余未命名的`0`, `20`还是按顺序排，因此还是`seq(from = 0, to = 20, by = 5)`.
+
+`seq(by = 5, 0, y = 30, 20)`多出了一个`y`，它被放进`...`，还是剩余未命名的`0`, `20`，因此仍然是`seq(from = 0, to = 20, by = 5)`.
+
+### 创建一个有序数列
+
+分别用`sapply()`, `rep()`, 和`rapply()`创建这样一个数列（向量）：$$x = \left(1\times1\times1, 1\times1\times2\ldots, 40\times50\times59, 40\times50\times60\right)$$
+
+#### 基于`sapply()`
+
+先创建`m`, `N`相乘的矩阵，再创建`l`乘这个矩阵形成的三维数组。最后化简为向量。
+
+```{r eval=FALSE}
+MN <- sapply(M, function(m){m*N})
+LMN <- sapply(L, function(l){l*MN})
+result <- as.vector(LMN)
+```
+
+或
+
+```{r eval=FALSE}
+MN <- sapply(M, "*", N)
+LMN <- sapply(L, "*", MN)
+result <- as.vector(LMN)
+```
+
+
+#### 基于`rep()`
+
+```{r eval=FALSE}
+MN <- rep(N, length(M)) * rep(M, each = length(N))
+result <- rep(MN, length(L)) * rep(L, each = length(MN))
+```
+
+或（基于recycling rule, 回收规则）
+
+```{r eval=FALSE}
+MN <- N * rep(M, each = length(N))
+result <- MN * rep(L, each = length(MN))
+```
+
+#### 基于`rapply()`
+
+```{r eval=FALSE}
+MN <- rapply(as.list(M), "*", N)
+result <- rapply(as.list(L), "*", MN)
+```
+
+### 质数表
+
+创建一个`pr()`函数，使`pr(i)`得到$(2, 3, 5, 7, 11, ... n)$, 其中`i`为大于或等于`3`的整数，$n$为小于`i`的最大质数。
+
+```{r include=FALSE}
+pr <- function(i){
+  pnums <- 2L
+  for (num in 3:i) {
+    isPrime <- TRUE
+    for (pnum in pnums) {
+      if (pnum > sqrt(num)) {
+        break
+      } else if (num %% pnum == 0) {
+        isPrime <- FALSE
+        break
+      }
+    }
+    if (isPrime) {
+      pnums <- c(pnums, num)
+    }
+  }
+  return(pnums)
+}
+```
+
+```{r}
+pr(100)
+```
+
+你能想到几种方法？哪一种更快？为什么？
+
+#### 使用`for`循环
+
+```{r eval=FALSE}
+pr.for <- function(i){
+  pnums <- 2L
+  for (num in 3:i) {
+    isPrime <- TRUE
+    for (pnum in pnums) {
+      if (pnum > sqrt(num)) {
+        break
+      } else if (num %% pnum == 0) {
+        isPrime <- FALSE
+        break
+      }
+    }
+    if (isPrime) {
+      pnums <- c(pnums, num)
+    }
+  }
+  return(pnums)
+}
+```
+
+#### 使用`while`循环
+
+```{r eval=FALSE}
+pr.while <- function(i){
+  pnums <- 2L
+  for (num in 3:i) {
+    isPrime <- TRUE
+    j = 1
+    while (pnums[j] <= sqrt(num)){
+      if (num %% pnums[j] == 0) {
+        isPrime <- FALSE
+        break
+      }
+      j = j+1
+    }
+    if (isPrime) {
+      pnums <- c(pnums, num)  ## common mistake
+    }
+  } 
+  return(pnums)
+}
+```
+
+#### 使用`any` 
+
+```{r eval=FALSE}
+pr.any <- function(i){
+  pnums <- 2L
+  for (num in 3:i) {
+    isPrime <- !any(num %% pnums[pnums <= sqrt(num)] == 0)
+    if (isPrime) {
+      pnums <- c(pnums, num)
+    }
+  }
+  return(pnums)
+}
+```
+
+#### 使用`all`
+
+```{r eval=FALSE}
+pr.all <- function(i){
+  pnums <- 2L
+  for (num in 3:i) {
+    isPrime <- all(num %% pnums[pnums <= sqrt(num)] != 0)
+    if (isPrime) {
+      pnums <- c(pnums, num)
+    }
+  }
+  return(pnums)
+}
+```
+
+#### 使用`%in%
+
+```{r eval=FALSE}
+pr.in <- function(i){
+  pnums <- 2L
+  for (num in 3:i) {
+    isPrime <- TRUE
+    test <- pnums[pnums<=floor(sqrt(num))]
+    isPrime <- !(0 %in% (num %% test))
+    if (isPrime) {
+      pnums <- c(pnums, num)  
+    }
+  }
+  return(pnums)
+}
+```
+
+#### 使用`apply()`族函数
+
+```{r eval=FALSE}
+pr.lapply <- function(i){
+  pnums <- 2
+  lapply(3:i, function(x){
+    test <- pnums[pnums<=floor(sqrt(x))]
+    if ((match(0, x%%test))) pnums <<- c(pnums, x)
+  })
+  return(pnums)
+}
+```
+
+```{r eval=FALSE}
+pr.map <- function(i){
+  pnums <- 2L
+  map(3:i, ~{
+    test <- pnums[pnums<=floor(sqrt(.))]
+    if (all(.%%test != 0)) pnums <<- c(pnums, .)
+    })
+  return(pnums)
+}
+```
+
+```{r eval=FALSE}
+pr.map1 <- function(i){
+  pnums <- 2L
+  map(3:i, ~{
+    test <- pnums[pnums<=floor(sqrt(.))]
+    if (!(0 %in% (.%%test))) pnums <<- c(pnums, .)
+  })
+  return(pnums)
+}
+```
+
+```{r eval=FALSE}
+library(purrr)
+```
+
+```{r eval=FALSE}
+pr.map2 <- function(i){
+  pnums <- 2
+  map(3:i, ~{
+    test <- pnums[pnums<=floor(sqrt(.))]
+    if (is.na(match(0, .%%test))) pnums <<- c(pnums, .)
+  })
+  return(pnums)
+}
+```
+
+
+
+#### 整合
+
+list
+
+#### 小测速
+
+```{r eval=FALSE}
+n1 <- 100000
+system.time(pr.for(n1))
+system.time(pr.while(n1))
+system.time(pr.any(n1))
+system.time(pr.all(n1))
+system.time(pr.lapply(n1))
+system.time(pr.in(n1))
+system.time(pr.map(n1))
+system.time(pr.map1(n1))
+system.time(pr.map2(n1))
+
+```
+
+```{r eval=FALSE}
+```
+
+
+
+## 挑战
+
+### 伪·OOP
+
+#### 问题
+
+使用且仅使用`function()`, `c()`, `list()`, `paste()`, `print()`函数，`<-`, `$`, `==`符号，和`if`，实现这样的效果：
+
+```{r include=FALSE}
+Pet <- function(name = NA, common_name = NA, binomial_name = NA, speak = NA){
+  name <- name
+  common_name <- common_name
+  binomial_name <- binomial_name
+  speak <- speak
+  greet <- function(time = "not_specified"){
+    intro <- paste("I'm a", common_name, "and my name is", name)
+    if(time == "morning") print(paste("Good morning,", intro))
+    if(time == "afternoon") print(paste("Good afternoon,", intro))
+    if(time == "evening") print(paste("Good evening,", intro)) 
+    if(time == "not_specified") print(paste("Hi,", intro))
+  }
+    paste("Hi, my name is ", name)
+  list(name = name, common_name = common_name, binomial_name = binomial_name, speak = speak, greet = greet)
+}
+
+
+Turtle <- function(name = NA){
+  Pet(name, "turtle", "Trachemys scripta elegans") ## 实现inheritance ## 龟没有叫声
+}
+
+Cat <- function(name = NA, sterilized = NA){
+  sterilized <- sterilized ## 猫可能绝育 ## 新增attribute，实现了广义的polymorphism
+  PetAaM <- Pet(name, "cat", "Felis catus", "meow")
+  CatOnlyAaM <- list(sterilized = sterilized)
+  c(PetAaM, CatOnlyAaM)
+}
+
+Pigeon <- function(name = NA){
+  PetAaM <- Pet(name, "pigeon", "Columba livia", "coo")
+}
+
+## 实现了Python语境中的polymorphism
+greet <- function(pet, time = "not_specified"){
+  pet$greet(time)
+}
+
+binomial_name <- function(pet){
+  pet$binomial_name
+}
+```
+
+`Pigeon()`, `Turtle()`, `Cat()`分别创建一只鸽子， 一只乌龟和一只猫（即产生一个list，各自的元素展示如下）：
+
+```{r}
+Guoguo <- Pigeon("Guoguo")
+Felix <- Cat("Felix", "TRUE")
+Kazuya <- Turtle("Kazuya")
+
+str(Guoguo)
+str(Kazuya)
+str(Felix)
+```
+
+注意，鸽子，乌龟和猫都有名字 (`name`)，通称 (`common_name`)，学名 (`binomial_name`)，和打招呼函数 (`greet()`)；此外，乌龟没有叫声`speak()`，猫额外地有绝育`sterilized`信息。可以这样查看信息和使用打招呼函数：
+
+```{r}
+Felix$binomial_name
+Kazuya$greet("afternoon")
+```
+
+其中`greet()`的参数如果是`morning`, `afternoon`或`evening`，则返回`"Good <时间段> ..."`，否则返回`"Hi ..."`.
+
+此外，另写两个仅对这些宠物使用的函数`binomial_name()`和`greet()`，使之能够这样使用：
+
+```{r}
+binomial_name(Kazuya)
+greet(Guoguo)
+```
+
+**你可能需要的额外信息：**
+
+鸽子，乌龟和猫的学名分别为Columba livia, Trachemys scripta elegans, Felis catus. 
+
+`paste()`函数把多个字符串拼接成一个，其中参数`sep`指定连接符号，默认为空格：
+
+```{r}
+x <- "world"
+paste("Hello", x, "Bye", x, sep = "---")
+```
+
+#### 答案
+
+首先，把`Cat()`函数做出来，这个应该不难看懂：
+
+```{r}
+Cat <- function(name){
+  name = name
+  binomial_name <- "Felis catus"
+  speak <- "Meow"
+  greet <- function(time = "not_specified"){
+    intro <- paste("my name is", name)
+    if(time == "morning") print(paste("Good morning,", intro))
+    if(time == "afternoon") print(paste("Good afternoon,", intro))
+    if(time == "evening") print(paste("Good evening,", intro)) 
+    if(time == "not_specified") print(paste("Hi,", intro))
+  }
+  list(name = name, binomial_name = binomial_name, speak = speak, greet = greet)
+}
+```
+
+你可以对`Turtle()`和`Pigeon()`做同样的事情，但是这样会产生很多重复的代码。每当有重复的代码发生时，作为一个正经的编程语言，一定有方法去消除重复。这三类动物都是宠物，因此我们可以把共同的代码写进一个`Pet()`函数中，再定义不同种类的宠物。这是OOP的**inheritance和polymorphism的实现：**
+
+```{r}
+Pet <- function(name = NA, common_name = NA, binomial_name = NA, speak = NA){
+  name <- name
+  common_name <- common_name
+  binomial_name <- binomial_name
+  speak <- speak
+  greet <- function(time = "not_specified"){
+    intro <- paste("I'm a", common_name, "and my name is", name)
+    if(time == "morning") print(paste("Good morning,", intro))
+    if(time == "afternoon") print(paste("Good afternoon,", intro))
+    if(time == "evening") print(paste("Good evening,", intro)) 
+    if(time == "not_specified") print(paste("Hi,", intro))
+  }
+  list(name = name, common_name = common_name, binomial_name = binomial_name, speak = speak, greet = greet)
+}
+
+Pigeon <- function(name = NA){
+  PetAaM <- Pet(name, "pigeon", "Columba livia", "coo")
+}
+
+Turtle <- function(name = NA){
+  Pet(name, "turtle", "Trachemys scripta elegans") ## 实现inheritance ## 龟没有叫声
+}
+
+Cat <- function(name = NA, sterilized = NA){
+  sterilized <- sterilized ## 猫可能绝育 ## 新增attribute，实现了广义的polymorphism
+  PetAaM <- Pet(name, "cat", "Felis catus", "meow")
+  CatOnlyAaM <- list(sterilized = sterilized)
+  c(PetAaM, CatOnlyAaM)
+}
+
+## 实现了Python语境中的polymorphism
+greet <- function(pet, time = "not_specified"){
+  pet$greet(time)
+}
+
+binomial_name <- function(pet){
+  pet$binomial_name
+}
+```
+
+搞定！没有`class`，没有`self`，没有`__init__`，*it just works*.

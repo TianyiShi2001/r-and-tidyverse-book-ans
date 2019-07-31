@@ -12,7 +12,7 @@ output:
       toc:
         collapse: subsection
         before: | 
-          <li id="biaoti">R与tidyverse——数据分析入门</li>
+          <li id="biaoti">《R与tidyverse——数据分析入门》练习题答案</li>
       edit:
         link: https://github.com/TianyiShi2001/R-Tutorial-Resources/%s
         text: "Github"
